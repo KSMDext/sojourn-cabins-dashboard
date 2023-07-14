@@ -170,7 +170,7 @@ const gridLocationMenu = () => (
       location4},
   {
     BookedCabins: 94757,
-    TotalCabins: 'Omar Darobe',
+    TotalCabins: '30',
     AvailableCabins: 99,
     Description: 'Makeup Lancome Rouge',
     Location: 'Tema community18',
