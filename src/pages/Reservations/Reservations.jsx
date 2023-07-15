@@ -126,7 +126,7 @@ const gridReservationMenu = () => (
 
   { field: 'Payment',
     headerText: 'Payment',
-    width: '120',
+    width: '100',
     textAlign: 'Center',
     template: gridPaymentStatus,
   },
