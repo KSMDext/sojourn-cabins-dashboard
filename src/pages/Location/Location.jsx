@@ -1,5 +1,5 @@
 import React from 'react';
-import { GridComponent, ColumnsDirective, ColumnDirective, Page, Inject } from '@syncfusion/ej2-react-grids';
+import { GridComponent, ColumnsDirective, ColumnDirective,Page, Inject } from '@syncfusion/ej2-react-grids';
 import { FaEllipsisV } from 'react-icons/fa';
 
 import location1 from '../../data/location1.jpeg';
@@ -117,68 +117,68 @@ const gridLocationMenu = () => (
 
  const locationsData = [
   {
-    BookedCabins: 10248,
+    BookedCabins: 5,
     TotalCabins: '20',
 
-    AvailableCabins: 38,
+    AvailableCabins: 15,
     Description: 'Best location to release stress',
     Location: 'Tema community18', 
     LocationImage:
     location1
     },
   {
-    BookedCabins: 653,
+    BookedCabins: 35,
     TotalCabins: '70',
-    AvailableCabins: 34,
+    AvailableCabins: 35,
     Description: 'Best location to release stress',
     Location: 'Delhi',
     LocationImage:
     location2  },
   {
-    BookedCabins: 390457,
+    BookedCabins: 35,
     TotalCabins: '50',
-    AvailableCabins: 93,
+    AvailableCabins: 15,
     Description: 'Best location to release stress',
     Location: 'New York',
     LocationImage:
     location3  },
   {
-    BookedCabins: 893486,
+    BookedCabins: 25,
     TotalCabins: '40',
-    AvailableCabins: 93,
+    AvailableCabins: 15,
     Description: 'Best location to release stress',
     Location: 'Germany',
     LocationImage:
       location4
   },
   {
-    BookedCabins: 748975,
+    BookedCabins: 12,
     TotalCabins: '30',
-    AvailableCabins: 23,
+    AvailableCabins: 18,
     Description: 'Healthcare Erbology',
     Location: 'Spain',
     LocationImage:
       location4},
   {
-    BookedCabins: 94757,
+    BookedCabins: 10,
     TotalCabins: '30',
-    AvailableCabins: 99,
+    AvailableCabins: 20,
     Description: 'Makeup Lancome Rouge',
     Location: 'Tema community18',
     LocationImage:
       location5},
   {
-    BookedCabins: 944895,
+    BookedCabins: 45,
     TotalCabins: '55',
-    AvailableCabins: 17,
+    AvailableCabins: 15,
     Description: 'Best location to release stress',
     Location: 'USA',
     LocationImage:
       location6},
   {
-    BookedCabins: 845954,
+    BookedCabins: 10,
     TotalCabins: '20',
-    AvailableCabins: 59,
+    AvailableCabins: 10,
     Description: 'Best location to release stress',
     Location: 'USA',
     LocationImage:
@@ -186,17 +186,17 @@ const gridLocationMenu = () => (
  
 
   {
-    BookedCabins: 24546,
+    BookedCabins: 35,
     TotalCabins: '60',
-    AvailableCabins: 84,
+    AvailableCabins: 25,
     Description: 'Best location to release stress',
     Location: 'Delhi',
     LocationImage:
     location1}, 
   {
-    BookedCabins: 874534,
+    BookedCabins: 30,
     TotalCabins: '40',
-    AvailableCabins: 122,
+    AvailableCabins: 10,
     Description: 'Best location to release stress',
     Location: 'USA',
     LocationImage:
