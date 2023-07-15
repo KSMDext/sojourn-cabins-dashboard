@@ -1,4 +1,4 @@
-import React , { useEffect} from 'react';
+import React  from 'react';
 import { AiOutlineMenu } from 'react-icons/ai';
 import { BiEnvelope } from 'react-icons/bi';
 import { TbBellRinging2Filled } from 'react-icons/tb';
@@ -18,7 +18,7 @@ const NavButton = ({title, customFunc, icon, color, dotColor}) =>(
 
 )
 const Navbar = () => {
-  const {activeMenu, setActiveMenu, isClicked,setIsClicked,handleClick} = useStateContext();
+  const { setActiveMenu, isClicked,handleClick} = useStateContext();
 
   return (
     <div className="flex justify-between p-1  relative ">

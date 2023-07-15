@@ -1,7 +1,7 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 
-import { Navbar, Footer, Sidebar, ThemeSettings } from './components';
+import { Navbar, Sidebar, } from './components';
 import { Signin, Dashboard,  Analytics, Feedback } from './pages';
 import {Location} from './pages';
 import {Cabins} from './pages';
@@ -78,6 +78,7 @@ const App = () => {
                 <Route path="/settings/emails" element={<Emails/>} />
                 <Route path="/settings/policies" element={<Policies/>} />
                 <Route path="/settings/extras" element={<Extras/>} />
+                <Route path="/signin" element={<Signin/>} />
                 
               </Routes>
             </div>
