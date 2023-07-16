@@ -10,7 +10,7 @@ const SignIn = ({ handleSignIn }) => {
   const handleButtonClick = () => {
     // Perform authentication logic here, e.g., calling an API endpoint
     const dummyEmail = 'dummy@example.com';
-    const dummyPassword = '12345678';
+    const dummyPassword = '123456789';
 
     if (email === dummyEmail && password === dummyPassword) {
       handleSignIn();
