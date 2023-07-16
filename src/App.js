@@ -1,13 +1,15 @@
+import React from 'react';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
 
-import React, { useState } from 'react';
-import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
 import { Navbar, Sidebar } from './components';
 import { Dashboard, Analytics, Feedback } from './pages';
-import { Location, Cabins, Reservations, Staff } from './pages';
-import { AddReservation, UpdateReservation } from './pages';
-import { AddLocation, UpdateLocation } from './pages';
-import { AddCabins, UpdateCabins } from './pages';
-import { AddStaff, UpdateStaff } from './pages';
+import { Location } from './pages';
+import { Cabins } from './pages';
+import { Reservations } from './pages';
+import { Staff } from './pages';
+import './App.css';
+import SignIn from './SignIn';
+
 import SeasonalRule from './pages/PriceOptions/SeasonalRule';
 import ExtraCharge from './pages/PriceOptions/ExtraCharge';
 import Coupons from './pages/PriceOptions/Coupons';
@@ -16,114 +18,83 @@ import GeneralSettings from './pages/Settings/GeneralSettings';
 import Extras from './pages/Settings/Extras';
 import Emails from './pages/Settings/Emails';
 import Policies from './pages/Settings/Policies';
+import AddReservations from './pages/Reservations/AddReservations';
+import UpdateReservations from './pages/Reservations/UpdateReservations';
+import AddLocation from './pages/Location/AddLocation';
+import AddCabins from './pages/Cabins/AddCabins';
+import UpdateCabins from './pages/Cabins/UpdateCabins';
+import AddCoupon from './pages/PriceOptions/AddCoupon';
+import AddSeasonalRule from './pages/PriceOptions/AddSeasonalRule';
+import AddExtraCharge from './pages/PriceOptions/AddExtraCharge';
+import AddStaff from './pages/Staff/AddStaff';
+import UpdateStaff from './pages/Staff/UpdateStaff';
+import CreatePackage from './pages/PriceOptions/CreatePackage';
+import UpdateLocation from './pages/Location/UpdateLocation';
 
-const PrivateRoute = ({ element, path }) => {
-  const [authenticated, setAuthenticated] = useState(false);
+const App = () => {
+  const [isSignedIn, setIsSignedIn] = useState(false);
 
-  return authenticated ? (
-    <Route path={path} element={element} />
-  ) : (
-    <Navigate to="/signin" replace={true} />
-  );
-};
-
-const SignInPage = ({ setAuthenticated }) => {
-  const [username, setUsername] = useState('');
-  const [password, setPassword] = useState('');
-
-  const handleSignIn = (e) => {
-    e.preventDefault();
-    // Perform your sign-in logic here
-    // Validate username and password
-    if (username === 'sampleuser' && password === 'samplepassword') {
-      // On successful sign-in, update the authenticated state to true
-      setAuthenticated(true);
-    } else {
-      alert('Invalid username or password');
-    }
+  const handleSignIn = () => {
+    setIsSignedIn(true);
   };
 
   return (
     <div>
-      <h2>Sign In</h2>
-      <form onSubmit={handleSignIn}>
-        <label>
-          Username:
-          <input
-            type="text"
-            value={username}
-            onChange={(e) => setUsername(e.target.value)}
-          />
-        </label>
-        <br />
-        <label>
-          Password:
-          <input
-            type="password"
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-          />
-        </label>
-        <br />
-        <button type="submit">Sign In</button>
-      </form>
-    </div>
-  );
-};
-
-const App = () => {
-  const [authenticated, setAuthenticated] = useState(false);
-
-  return (
-    <div>
       <BrowserRouter>
-        <div className="flex relative dark:bg-main-dark-bg">
-          <div className="w-60 fixed sidebar dark:bg-secondary-dark-bg bg-stone-900 ">
-            <Sidebar />
-          </div>
-          <div className={activeMenu ? 'dark:bg-main-dark-bg  bg-zinc-200 min-h-screen md:ml-60 w-full  ' : 'bg-zinc-200 dark:bg-main-dark-bg  w-full min-h-screen flex-2 '}>
-            <div className="fixed md:static bg-main-bg dark:bg-main-dark-bg navbar w-full ">
-              <Navbar />
-            </div>
-            <div>
-              <Routes>
-                <Route path="/signin" element={<SignInPage setAuthenticated={setAuthenticated} />} />
-                <PrivateRoute path="/" element={<Dashboard />} />
-                <PrivateRoute path="/dashboard" element={<Dashboard />} />
-                <PrivateRoute path="/analytics" element={<Analytics />} />
-                <PrivateRoute path="/feedback" element={<Feedback />} />
-                <PrivateRoute path="/reservations" element={<Reservations />} />
-                <PrivateRoute path="/addreservations" element={<AddReservation />} />
-                <PrivateRoute path="/updatereservations" element={<UpdateReservation />} />
-                <PrivateRoute path="/location" element={<Location />} />
-                <PrivateRoute path="/addlocation" element={<AddLocation />} />
-                <PrivateRoute path="/updatelocation" element={<UpdateLocation />} />
-                <PrivateRoute path="/cabins" element={<Cabins />} />
-                <PrivateRoute path="/addcabins" element={<AddCabins />} />
-                <PrivateRoute path="/updatecabins" element={<UpdateCabins />} />
-                <PrivateRoute path="/staff" element={<Staff />} />
-                <PrivateRoute path="/addstaff" element={<AddStaff />} />
-                <PrivateRoute path="/updatestaff" element={<UpdateStaff />} />
-                <PrivateRoute path="/analytics" element={<Analytics />} />
-                <PrivateRoute path="/feedback" element={<Feedback />} />
-                <PrivateRoute path="/priceoptions/seasonalrule" element={<SeasonalRule />} />
-                <PrivateRoute path="/addseasonalrule" element={<AddSeasonalRule />} />
-                <PrivateRoute path="/priceoptions/extracharge" element={<ExtraCharge />} />
-               
-
- <PrivateRoute path="/addextracharge" element={<AddExtraCharge />} />
-                <PrivateRoute path="/priceoptions/coupons" element={<Coupons />} />
-                <PrivateRoute path="/addcoupons" element={<AddCoupons />} />
-                <PrivateRoute path="/priceoptions/packages" element={<Packages />} />
-                <PrivateRoute path="/createpackage" element={<CreatePackage />} />
-                <PrivateRoute path="/settings/generalsettings" element={<GeneralSettings />} />
-                <PrivateRoute path="/settings/emails" element={<Emails />} />
-                <PrivateRoute path="/settings/policies" element={<Policies />} />
-                <PrivateRoute path="/settings/extras" element={<Extras />} />
-              </Routes>
-            </div>
-          </div>
-        </div>
+        <Routes>
+          <Route
+            path="/"
+            element={
+              isSignedIn ? (
+                <>
+                  <div className="flex relative dark:bg-main-dark-bg">
+                    <div className="w-60 fixed sidebar dark:bg-secondary-dark-bg bg-stone-900">
+                      <Sidebar />
+                    </div>
+                    <div className="dark:bg-main-dark-bg  bg-zinc-200 min-h-screen md:ml-60 w-full">
+                      <div className="fixed md:static bg-main-bg dark:bg-main-dark-bg navbar w-full">
+                        <Navbar />
+                      </div>
+                      <div>
+                        <Routes>
+                          <Route path="/" element={<Dashboard />} />
+                          <Route path="/reservations" element={<Reservations />} />
+                          <Route path="/addreservations" element={<AddReservations />} />
+                          <Route path="/updatereservations" element={<UpdateReservations />} />
+                          <Route path="/location" element={<Location />} />
+                          <Route path="/addlocation" element={<AddLocation />} />
+                          <Route path="/updatelocation" element={<UpdateLocation />} />
+                          <Route path="/cabins" element={<Cabins />} />
+                          <Route path="/addcabins" element={<AddCabins />} />
+                          <Route path="/updatecabins" element={<UpdateCabins />} />
+                          <Route path="/staff" element={<Staff />} />
+                          <Route path="/addstaff" element={<AddStaff />} />
+                          <Route path="/updatestaff" element={<UpdateStaff />} />
+                          <Route path="/analytics" element={<Analytics />} />
+                          <Route path="/feedback" element={<Feedback />} />
+                          <Route path="/priceoptions/seasonalrule" element={<SeasonalRule />} />
+                          <Route path="/addseasonalrule" element={<AddSeasonalRule />} />
+                          <Route path="/priceoptions/extracharge" element={<ExtraCharge />} />
+                          <Route path="/addextracharge" element={<AddExtraCharge />} />
+                          <Route path="/priceoptions/coupons" element={<Coupons />} />
+                          <Route path="/addcoupons" element={<AddCoupon />} />
+                          <Route path="/priceoptions/packages" element={<Packages />} />
+                          <Route path="/createpackage" element={<CreatePackage />} />
+                          <Route path="/settings/generalsettings" element={<GeneralSettings />} />
+                          <Route path="/settings/emails" element={<Emails />} />
+                          <Route path="/settings/policies" element={<Policies />} />
+                          <Route path="/settings/extras" element={<Extras />} />
+                        </Routes>
+                      </div>
+                    </div>
+                  </div>
+                </>
+              ) : (
+                <SignIn handleSignIn={handleSignIn} />
+              )
+            }
+          />
+        </Routes>
       </BrowserRouter>
     </div>
   );
