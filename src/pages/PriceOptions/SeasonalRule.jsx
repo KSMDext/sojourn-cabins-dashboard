@@ -1,6 +1,8 @@
 import React from 'react';
 import { FaEllipsisV } from 'react-icons/fa';
 import { GridComponent, ColumnsDirective, ColumnDirective, Page, Inject } from '@syncfusion/ej2-react-grids';
+import {Link} from "react-router-dom"
+
 
 import { useState } from 'react';
 
@@ -84,7 +86,9 @@ const SeasonalRule = () => {
       <div className="flex items-center justify-between mb-4">
         <p className="text-xl">Seasonal Rule</p>
         <button className="text-white p-1 hover:bg-zinc-600 bg-zinc-800 rounded-md bold text-14">
-          <span className="mr-2">+</span>Add Seasonal Rule
+        <Link to='/addseasonalrule'>
+        <span className="mr-2">+</span>Add Seasonal Rule
+</Link>
         </button>
       </div>
       <GridComponent dataSource={SeasonalRuleData} enableHover={false} allowPaging pageSettings={{ pageCount: 5 }}>
