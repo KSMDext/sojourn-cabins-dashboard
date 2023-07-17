@@ -23,9 +23,9 @@ const SignIn = ({ handleSignIn }) => {
   return (
     <div className="flex flex-col lg:flex-row h-screen">
       <div className="w-full lg:w-1/2 flex flex-col justify-center items-center bg-gray-100">
-        <img src={logo} alt="Logo" className="w-24 h-24 mb-4" />
+        <img src={logo} alt="Logo" className="w-44 h-22 mb-4" />
         <form className="p-4 w-5/6 lg:w-3/4 xl:w-2/3 mx-auto">
-          <h2 className="text-2xl font-bold mb-2 text-center font-lato">Welcome back</h2>
+          <h2 className="text-5xl font-bold mb-2 text-center font-lato">Welcome back</h2>
           <h3 className="text-lg text-gray-500 mb-4 text-center font-lato">Sign into your account</h3>
           <div className="mb-4">
             <label htmlFor="email" className="block mb-2 font-lato">
@@ -34,7 +34,7 @@ const SignIn = ({ handleSignIn }) => {
             <input
               type="email"
               id="email"
-              className="border border-gray-300 bg-white px-2 py-1 w-full rounded font-lato"
+              className="border border-gray-300 bg-white px-2 py-1 w-full rounded-300 font-lato"
               placeholder="Enter your email"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
@@ -58,7 +58,7 @@ const SignIn = ({ handleSignIn }) => {
             <label htmlFor="rememberMe" className="font-lato">Remember me</label>
           </div>
           <button
-            className="bg-black text-white py-2 px-4 rounded hover:bg-gray-900 w-full font-lato"
+            className="bg-black text-white py-2 px-4 rounded-lg hover:bg-gray-900 w-full font-lato"
             onClick={handleButtonClick}
           >
             Sign In

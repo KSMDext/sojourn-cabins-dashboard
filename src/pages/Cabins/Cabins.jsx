@@ -3,6 +3,7 @@ import { FaEllipsisV } from 'react-icons/fa';
 import { GridComponent, Edit, ExcelExport, PdfExport, ContextMenu, ColumnsDirective, ColumnDirective, Page, Inject } from '@syncfusion/ej2-react-grids';
 import cabin1 from '../../data/cabin1.jpeg';
 import cabin2 from '../../data/cabin2.jpeg';
+import { Link } from "react-router-dom";
 
 const Cabins = () => {
   const editing = { allowDeleting: true, allowEditing: true };
@@ -134,7 +135,9 @@ const Cabins = () => {
       <div className="flex items-center justify-between mb-4">
         <p className="text-xl">Cabins</p>
         <button className="text-white p-1 hover:bg-zinc-600 bg-zinc-800 rounded-md bold text-14">
-          <span className="mr-2">+</span>Add Cabins
+        <Link to='/addreservation'>
+        <span className="mr-2">+</span>Add Cabins
+</Link>
         </button>
       </div>
       <GridComponent
