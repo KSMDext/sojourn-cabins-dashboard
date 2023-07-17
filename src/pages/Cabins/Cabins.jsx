@@ -1,24 +1,50 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { FaEllipsisV } from 'react-icons/fa';
 import { GridComponent, ColumnsDirective, ColumnDirective, Page, Inject } from '@syncfusion/ej2-react-grids';
 import cabin1 from '../../data/cabin1.jpeg';
 import cabin2 from '../../data/cabin2.jpeg';
 
-import { useState } from 'react';
-
 const Cabins = () => {
   const [showMenu, setShowMenu] = useState(false);
+  const [selectedCabin, setSelectedCabin] = useState(null);
+  const [showConfirmation, setShowConfirmation] = useState(false);
+  const [cabinsData, setCabinsData] = useState([
+    {
+      PaymentBg: '#8BE78B',
+      CabinName: 'Cabin 1',
+      Facility: 'Ac, Shower, Wifi',
+      CabinImage: cabin1,
+      Status: 'Booked',
+      StatusBg: '#8BE78B',
+      CabinType: 'Standard',
+      ExtraCharges: 'Splash pool, Tourism',
+      Rate: '$100',
+      Menu: '.',
+    },
+    {
+      PaymentBg: '#8BE78B',
+      CabinName: 'Cabin 2',
+      Facility: 'Ac, Shower, Wifi',
+      ProjectName: 'Weekly WP Theme',
+      Status: 'UnBooked',
+      CabinImage: cabin2,
+      StatusBg: 'red',
+      CabinType: 'Double',
+      ExtraCharges: 'Grill, Tourism',
+      Rate: '$150',
+    },
+  ]);
 
   const toggleMenu = () => {
     setShowMenu(!showMenu);
   };
 
-  const handleMenuClick = (menuItem) => {
-    // Handle the menu item click event
+  const handleMenuClick = (menuItem, cabin) => {
+    setSelectedCabin(cabin);
     switch (menuItem) {
       case 'Delete':
         console.log('Delete clicked');
-        // Add your delete logic here
+        showDeleteConfirmation();
         break;
       case 'Edit':
         console.log('Edit clicked');
@@ -45,17 +71,17 @@ const Cabins = () => {
     </button>
   );
 
-  const gridCabinMenu = () => (
+  const gridCabinMenu = (props) => (
     <div className="menu-container">
       <button onClick={toggleMenu} className="menu-button">
-        <FaEllipsisV /> {/* Replace with the desired menu button icon */}
+        <FaEllipsisV />
       </button>
       {showMenu && (
         <div className="dropdown-menu">
-          <button onClick={() => handleMenuClick('Delete')} className="dropdown-menu-item">
+          <button onClick={() => handleMenuClick('Delete', props)} className="dropdown-menu-item">
             Delete
           </button>
-          <button onClick={() => handleMenuClick('Edit')} className="dropdown-menu-item">
+          <button onClick={() => handleMenuClick('Edit', props)} className="dropdown-menu-item">
             Edit
           </button>
         </div>
@@ -73,32 +99,34 @@ const Cabins = () => {
     { field: 'Menu', headerText: '', width: '50', template: gridCabinMenu },
   ];
 
-  const cabinsData = [
-    {
-      PaymentBg: '#8BE78B',
-      CabinName: 'Cabin 1',
-      Facility: 'Ac, Shower, Wifi',
-      CabinImage: cabin1,
-      Status: 'Booked',
-      StatusBg: '#8BE78B',
-      CabinType: 'Standard',
-      ExtraCharges: 'Splash pool, Tourism',
-      Rate: '$100',
-      Menu: '.',
-    },
-    {
-      PaymentBg: '#8BE78B',
-      CabinName: 'Cabin 2',
-      Facility: 'Ac, Shower, Wifi',
-      ProjectName: 'Weekly WP Theme',
-      Status: 'UnBooked',
-      CabinImage: cabin2,
-      StatusBg: 'red',
-      CabinType: 'Double',
-      ExtraCharges: 'Grill, Tourism',
-      Rate: '$150',
-    },
-  ];
+  const showDeleteConfirmation = () => {
+    setShowConfirmation(true);
+  };
+
+  const hideDeleteConfirmation = () => {
+    setShowConfirmation(false);
+  };
+
+  const deleteCabin = () => {
+    if (selectedCabin) {
+      const updatedData = cabinsData.filter((cabin) => cabin !== selectedCabin);
+      setCabinsData(updatedData);
+      setSelectedCabin(null);
+      hideDeleteConfirmation();
+    }
+  };
+
+  const ConfirmationPopup = ({ onCancel, onConfirm }) => (
+    <div className="confirmation-popup">
+      <p>Are you sure you want to delete this cabin?</p>
+      <button onClick={onCancel} className="confirmation-popup-button">
+        Cancel
+      </button>
+      <button onClick={onConfirm} className="confirmation-popup-button">
+        Delete
+      </button>
+    </div>
+  );
 
   return (
     <div className="m-2 md:m-10 mt-24 p-2 md:p-10 bg-white rounded-3xl">
@@ -116,8 +144,11 @@ const Cabins = () => {
         </ColumnsDirective>
         <Inject services={[Page]} />
       </GridComponent>
+      {showConfirmation && (
+        <ConfirmationPopup onCancel={hideDeleteConfirmation} onConfirm={deleteCabin} />
+      )}
     </div>
   );
-    };
+};
 
 export default Cabins;
