@@ -6,6 +6,7 @@ import avatar from '../../data/avatar.jpg';
 import avatar2 from '../../data/avatar2.jpg';
 import avatar3 from '../../data/avatar3.png';
 import avatar4 from '../../data/avatar4.jpg';
+import { Link } from "react-router-dom";
 
 import { useState } from 'react';
 
@@ -364,7 +365,9 @@ return (
         <div className="flex items-center justify-between mb-4">
           <p className="text-xl">Staff</p>
           <button className="text-white p-1 hover:bg-zinc-600 bg-zinc-800 rounded-md bold text-14">
-            <span className="mr-2">+</span>Add Staff
+          <Link to='/addstaff'>
+          <span className="mr-2">+</span>Add Staff
+          </Link> 
           </button>
         </div>
         <GridComponent dataSource={staffsData} enableHover={false} allowPaging pageSettings={{ pageCount: 5 }}>
