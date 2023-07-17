@@ -10,6 +10,8 @@ import location5 from '../../data/location5.jpeg';
 import location6 from '../../data/location6.jpeg';
 import location7 from '../../data/location7.jpeg';
 import { useState } from 'react';
+import {Link} from "react-router-dom"
+
 
 
 const Location = () => {
