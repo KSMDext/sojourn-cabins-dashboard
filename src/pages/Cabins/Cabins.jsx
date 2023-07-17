@@ -1,9 +1,11 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { FaEllipsisV } from 'react-icons/fa';
-import { GridComponent, Edit, ExcelExport, PdfExport, ContextMenu, ColumnsDirective, ColumnDirective, Page, Inject } from '@syncfusion/ej2-react-grids';
+import { GridComponent,  Edit,ExcelExport, PdfExport, ContextMenu,ColumnsDirective, ColumnDirective, Page, Inject } from '@syncfusion/ej2-react-grids';
 import cabin1 from '../../data/cabin1.jpeg';
 import cabin2 from '../../data/cabin2.jpeg';
 import { Link } from "react-router-dom";
+
+import { useState } from 'react';
 
 const Cabins = () => {
   const editing = { allowDeleting: true, allowEditing: true };
@@ -29,6 +31,7 @@ const Cabins = () => {
     }
   };
 
+
   const contextMenuItems = [
     'AutoFit',
     'AutoFitAll',
@@ -47,6 +50,11 @@ const Cabins = () => {
     'LastPage',
     'NextPage',
   ];
+  
+
+
+
+
 
   const cabinGridImage = (props) => (
     <div className="image flex gap-10">
@@ -64,34 +72,23 @@ const Cabins = () => {
     </button>
   );
 
-  const gridCabinMenu = () => {
-    const handleContextMenuClick = (menuItem, event) => {
-      event.preventDefault();
-      handleMenuClick(menuItem);
-      setShowMenu(false);
-    };
-
-    return (
-      <div className="menu-container">
-        <button onClick={toggleMenu} className="menu-button">
-          <FaEllipsisV />
-        </button>
-        {showMenu && (
-          <div className="dropdown-menu">
-            {contextMenuItems.map((item, index) => (
-              <button
-                key={index}
-                onClick={(event) => handleContextMenuClick(item, event)}
-                className="dropdown-menu-item"
-              >
-                {item}
-              </button>
-            ))}
-          </div>
-        )}
-      </div>
-    );
-  };
+  const gridCabinMenu = () => (
+    <div className="menu-container">
+      <button onClick={toggleMenu} className="menu-button">
+        <FaEllipsisV /> {/* Replace with the desired menu button icon */}
+      </button>
+      {showMenu && (
+        <div className="dropdown-menu">
+          <button onClick={() => handleMenuClick('Delete')} className="dropdown-menu-item">
+            Delete
+          </button>
+          <button onClick={() => handleMenuClick('Edit')} className="dropdown-menu-item">
+            Edit
+          </button>
+        </div>
+      )}
+    </div>
+  );
 
   const cabinsGrid = [
     { headerText: '', width: '120', template: cabinGridImage, textAlign: 'Center' },
@@ -131,7 +128,7 @@ const Cabins = () => {
   ];
 
   return (
-    <div className="m-2 md:m-10 mt-24 p-2 md:p-10 bg-white">
+    <div className="m-2 md:m-10 mt-24 p-2 md:p-10 bg-white rounded-3xl">
       <div className="flex items-center justify-between mb-4">
         <p className="text-xl">Cabins</p>
         <button className="text-white p-1 hover:bg-zinc-600 bg-zinc-800 rounded-md bold text-14">
@@ -140,16 +137,12 @@ const Cabins = () => {
 </Link>
         </button>
       </div>
-      <GridComponent
-        dataSource={cabinsData}
-        enableHover={false}
-        allowPaging
-        pageSettings={{ pageCount: 5 }}
-        allowExcelExport
-        allowPdfExport
-        contextMenuItems={contextMenuItems}
-        editSettings={editing}
-      >
+      <GridComponent dataSource={cabinsData} enableHover={false} allowPaging pageSettings={{ pageCount: 5 }}
+       allowExcelExport
+       allowPdfExport
+       contextMenuItems={contextMenuItems}
+       editSettings={editing}>
+     
         <ColumnsDirective>
           {cabinsGrid.map((item, index) => (
             <ColumnDirective key={index} {...item} />
@@ -159,6 +152,6 @@ const Cabins = () => {
       </GridComponent>
     </div>
   );
-};
+    };
 
 export default Cabins;
