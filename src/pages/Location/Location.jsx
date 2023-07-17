@@ -12,6 +12,7 @@ import location7 from '../../data/location7.jpeg';
 import { useState } from 'react';
 
 
+
 const Location = () => {
 
 const [showMenu, setShowMenu] = useState(false);
