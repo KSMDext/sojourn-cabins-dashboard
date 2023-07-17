@@ -1,7 +1,7 @@
 import React from 'react';
 import { GridComponent, ColumnsDirective, ColumnDirective,Page, Inject } from '@syncfusion/ej2-react-grids';
 import { FaEllipsisV } from 'react-icons/fa';
-
+import { Link} from 'react-router-dom';
 import location1 from '../../data/location1.jpeg';
 import location2 from '../../data/location2.jpeg';
 import location3 from '../../data/location3.jpeg';
@@ -210,7 +210,9 @@ return (
         <div className="flex items-center justify-between mb-4">
           <p className="text-xl">Location</p>
           <button className="text-white p-1 hover:bg-zinc-600 bg-zinc-800 rounded-md bold text-14">
-            <span className="mr-2">+</span>Add Location
+          <Link to='/addlocation'>
+          <span className="mr-2">+</span>Add Location
+          </Link> 
           </button>
         </div>
         <GridComponent dataSource={locationsData} enableHover={false} allowPaging pageSettings={{ pageCount: 5 }}>
