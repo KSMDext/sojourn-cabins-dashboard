@@ -40,7 +40,7 @@ const handleMenuClick = (menuItem) => {
 const gridLocationImage = (props) => (
   <div>
     <img
-      className="rounded-xl h-20 md:ml-3"
+      className="h-20 md:ml-3"
       src={props.LocationImage}
       alt="location-item"
     />
@@ -72,7 +72,7 @@ const gridLocationMenu = () => (
     headerText: 'Location',
     template: gridLocationImage,
     textAlign: 'Center',
-    width: '120',
+    width: '130',
   },
 
   {

@@ -36,15 +36,23 @@ const handleMenuClick = (menuItem) => {
   }
 };
 
- const gridPaymentStatus = (props) => (
-  <button
-    type="button"
-    style={{ color: props.PaymentBg }}
-    // className="text-white py-1 px-2 capitalize rounded-2xl text-md"
-  >
-    {props.Payment}
-  </button>
-);
+const gridPaymentStatus = (props) => {
+  let buttonStyle = {
+    color: props.Payment === 'Paid' ? 'green' : 'red'
+  };
+
+  return (
+    <button
+      type="button"
+      style={buttonStyle}
+       className="text-white py-1 px-2 capitalize  text-md"
+    >
+      {props.Payment}
+    </button>
+  );
+};
+
+
 const reservationGridImage = (props) => (
   <div className="image flex gap-4">
     <img
@@ -62,7 +70,6 @@ const reservationGridImage = (props) => (
 
 const gridReservationStatus = (props) => (
   <div className="flex gap-2 justify-center items-center text-gray-700 capitalize">
-    <p style={{ background: props.StatusBg }} className="rounded-full h-3 w-3" />
     <p>{props.Status}</p>
   </div>
 );
@@ -142,27 +149,23 @@ const gridReservationMenu = () => (
  const reservationsData = [
   {
     Payment: 'Paid',
-    PaymentBg: '#8BE78B',
     ReservationName: 'Nirav Joshi',
     Email: 'nirav@gmail.com',
     ReservationImage:
       avatar2,
     Status: 'Booked',
-    StatusBg: '#8BE78B',
     Phone: '+233595309592',
     CheckIn: "2023-05-03",
     CheckOut: '2023-06-06',
   },
   {
-    Payment: 'PAID',
-    PaymentBg: '#8BE78B',
+    Payment: 'Paid',
     ReservationName: 'Sunil Joshi',
     Email: 'sunil@gmail.com',
     ProjectName: 'Elite Admin',
     Status: 'Booked',
     ReservationImage:
       avatar,
-    StatusBg: '#8BE78B',
     Phone: '+233547932587',
     CheckIn: '2023-04-05',
     CheckOut: '2023-07-07',
@@ -170,27 +173,23 @@ const gridReservationMenu = () => (
   
   {
     Payment: 'UnPaid',
-    PaymentBg: 'red',
     ReservationName: 'Nirav Joshi',
     Email: 'nirav@gmail.com',
     ReservationImage:
       avatar4,
     Status: 'Booked',
-    StatusBg: '#8BE78B',
     Phone: '+233595309592',
     CheckIn: "2023-05-03",
     CheckOut: '2023-07-07',
   },
   {
     Payment: 'Paid',
-    PaymentBg: '#8BE78B',
     ReservationName: 'Sunil Joshi',
     Email: 'sunil@gmail.com',
     ProjectName: 'Elite Admin',
     Status: 'Booked',
     ReservationImage:
       avatar3,
-    StatusBg: '#8BE78B',
     Phone: '+233547932587',
     CheckIn: '2023-04-05',
     CheckOut: '2023-07-07',
@@ -199,13 +198,11 @@ const gridReservationMenu = () => (
  
   {
     Payment: 'Paid',
-    PaymentBg: '#8BE78B',
     ReservationName: 'Nirav Joshi',
     Email: 'nirav@gmail.com',
     ReservationImage:
       avatar2,
     Status: 'Booked',
-    StatusBg: '#8BE78B',
     Phone: '+233595309592',
     CheckIn: "2023-05-03",
     CheckOut: '2023-07-07',
@@ -213,27 +210,23 @@ const gridReservationMenu = () => (
   
   {
     Payment: "UnPaid",
-    PaymentBg: 'red',
     ReservationName: 'Nirav Joshi',
     Email: 'nirav@gmail.com',
     ReservationImage:
       avatar,
     Status: 'Booked',
-    StatusBg: '#8BE78B',
     Phone: '+233595309592',
     CheckIn: "2023-05-03",
     CheckOut: '2023-07-07',
   },
   {
     Payment: "UnPaid",
-    PaymentBg: 'red',
     ReservationName: 'Sunil Joshi',
     Email: 'sunil@gmail.com',
     ProjectName: 'Elite Admin',
     Status: 'Booked',
     ReservationImage:
       avatar4,
-    StatusBg: '#8BE78B',
     Phone: '+233547932587',
     CheckIn : '2023-04-05',
     CheckOut: '2023-07-07',
@@ -242,7 +235,6 @@ const gridReservationMenu = () => (
   
   {
     Payment: 'Paid',
-    PaymentBg: '#8BE78B',
     ReservationName: 'Michael',
     Email: 'michael@gmail.com',
     ProjectName: 'Weekly WP Theme',
@@ -256,13 +248,11 @@ const gridReservationMenu = () => (
   },
   {
     Payment: 'Paid',
-    PaymentBg: '#8BE78B',
     ReservationName: 'Nirav Joshi',
     Email: 'nirav@gmail.com',
     ReservationImage:
       avatar3,
     Status: 'Booked',
-    StatusBg: '#8BE78B',
     Phone: '+233595309592',
     CheckIn : "2023-05-03",
     CheckOut: '2023-07-07',
@@ -270,7 +260,6 @@ const gridReservationMenu = () => (
 
   {
     Payment: 'Paid',
-    PaymentBg: '#8BE78B',
     ReservationName: 'Sunil Joshi',
     Email: 'sunil@gmail.com',
     ProjectName: 'Elite Admin',
@@ -278,7 +267,6 @@ const gridReservationMenu = () => (
     ReservationImage:
       avatar3,
 
-    StatusBg: '#8BE78B',
     Phone: '+233547932587',
     CheckIn : '2023-04-05',
     CheckOut: '2023-07-07',
@@ -287,7 +275,6 @@ const gridReservationMenu = () => (
  
   {
     Payment: 'Paid',
-    PaymentBg: '#8BE78B',
     ReservationName: 'Michael',
     Email: 'michael@gmail.com',
     Status:'UnBooked',
@@ -300,27 +287,23 @@ const gridReservationMenu = () => (
   },
   {
     Payment: 'Paid',
-    PaymentBg: 'red',
     ReservationName: 'Nirav Joshi',
     Email: 'nirav@gmail.com',
     ReservationImage:
       avatar3,
     Status: 'Booked',
-    StatusBg: '#8BE78B',
     Phone: '+233595309592',
     CheckIn : "2023-05-03",
     CheckOut: '2023-07-07',
   },
   {
     Payment: 'Paid',
-    PaymentBg: '#8BE78B',
     ReservationName: 'Sunil Joshi',
     Email: 'sunil@gmail.com',
     ProjectName: 'Elite Admin',
     Status: 'Booked',
     ReservationImage:
       avatar,
-    StatusBg: '#8BE78B',
     Phone: '+233547932587',
     CheckIn : '2023-04-05',
     CheckOut: '2023-07-07',
@@ -329,7 +312,6 @@ const gridReservationMenu = () => (
 
   {
     Payment: 'Paid',
-    PaymentBg: '#8BE78B',
     ReservationName: 'Michael',
     Email: 'michael@gmail.com',
     ProjectName: 'Weekly WP Theme',
@@ -343,27 +325,23 @@ const gridReservationMenu = () => (
   },
   {
     Payment: 'Paid',
-    PaymentBg: '#8BE78B',
     ReservationName: 'Nirav Joshi',
     Email: 'nirav@gmail.com',
     ReservationImage:
       avatar3,
     Status: 'Booked',
-    StatusBg: '#8BE78B',
     Phone: '+233595309592',
     CheckIn : "20230503",
     CheckOut: '20230707',
   },
   {
     Payment: 'Paid',
-    PaymentBg: '#8BE78B',
     ReservationName: 'Sunil Joshi',
     Email: 'sunil@gmail.com',
     ProjectName: 'Elite Admin',
     Status: 'Booked',
     ReservationImage:
       avatar,
-    StatusBg: '#8BE78B',
     Phone: '+233547932587',
     CheckIn : '20230405',
     CheckOut: '20230707',
@@ -371,27 +349,23 @@ const gridReservationMenu = () => (
  
   {
     Payment: 'Paid',
-    PaymentBg: '#8BE78B',
     ReservationName: 'Nirav Joshi',
     Email: 'nirav@gmail.com',
     ReservationImage:
       avatar2,
     Status: 'Booked',
-    StatusBg: '#8BE78B',
     Phone: '+233595309592',
     CheckIn : "20230503",
     CheckOut: '20230707',
   },
   {
     Payment: 'Paid',
-    PaymentBg: '#8BE78B',
     ReservationName: 'Sunil Joshi',
     Email: 'sunil@gmail.com',
     ProjectName: 'Elite Admin',
     Status: 'Booked',
     ReservationImage:
       avatar,
-    StatusBg: '#8BE78B',
     Phone: '+233547932587',
     CheckIn : '20230702',
     CheckOut: '20230707',
@@ -401,7 +375,7 @@ const gridReservationMenu = () => (
 return (
       <div className="m-2 md:m-10 mt-24 p-2 md:p-10 bg-white">
         <div className="flex items-center justify-between mb-4">
-          <p className="text-xl">Location</p>
+          <p className="text-xl">Reservation</p>
           <button className="text-white p-1 hover:bg-zinc-600 bg-zinc-800 rounded-md bold text-14">
           <Link to='/addreservation'>
           <span className="mr-2">+</span>Add Reservation

@@ -58,7 +58,7 @@ const Cabins = () => {
 
   const cabinGridImage = (props) => (
     <div className="image flex gap-10">
-      <img className="rounded-xl h-20 md:ml-3" src={props.CabinImage} alt="cabin" />
+      <img className=" h-20 md:ml-3" src={props.CabinImage} alt="cabin" />
     </div>
   );
 
@@ -128,7 +128,7 @@ const Cabins = () => {
   ];
 
   return (
-    <div className="m-2 md:m-10 mt-24 p-2 md:p-10 bg-white rounded-3xl">
+    <div className="m-2 md:m-10 mt-24 p-2 md:p-10 bg-white ">
       <div className="flex items-center justify-between mb-4">
         <p className="text-xl">Cabins</p>
         <button className="text-white p-1 hover:bg-zinc-600 bg-zinc-800 rounded-md bold text-14">
