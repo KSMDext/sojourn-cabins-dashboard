@@ -64,25 +64,30 @@ const Cabins = () => {
   
 
 
-
-
-
   const cabinGridImage = (props) => (
     <div className="image flex gap-10">
-      <img className=" h-20 md:ml-3" src={props.CabinImage} alt="cabin" />
+      <img className="rounded-xl h-20 md:ml-3" src={props.CabinImage} alt="cabin" />
     </div>
   );
 
-  const gridCabinStatus = (props) => (
-    <button
-      type="button"
-      style={{ background: props.StatusBg }}
-      className="text-white py-1 px-2 capitalize rounded-2xl text-md"
-    >
-      {props.Status}
-    </button>
-  );
 
+  const gridCabinStatus = (props) => {
+    let buttonStyle = {
+      color: props.Status === 'Available' ? 'green' : 'red'
+    };
+  
+    return (
+      <button
+        type="button"
+        style={buttonStyle}
+         className="text-white py-1 px-2 capitalize  text-md"
+      >
+        {props.Status}
+      </button>
+    );
+  };
+
+ 
   const gridCabinMenu = () => (
     <div className="menu-container">
       <button onClick={toggleMenu} className="menu-button">
@@ -118,7 +123,6 @@ const Cabins = () => {
       Facility: 'Ac, Shower, Wifi',
       CabinImage: cabin1,
       Status: 'Booked',
-      StatusBg: '#8BE78B',
       CabinType: 'Standard',
       ExtraCharges: 'Splash pool, Tourism',
       Rate: '$100',
@@ -129,9 +133,53 @@ const Cabins = () => {
       CabinName: 'Cabin 2',
       Facility: 'Ac, Shower, Wifi',
       ProjectName: 'Weekly WP Theme',
-      Status: 'UnBooked',
+      Status: 'Available',
       CabinImage: cabin2,
-      StatusBg: 'red',
+      CabinType: 'Double',
+      ExtraCharges: 'Grill, Tourism',
+      Rate: '$150',
+    },
+
+    {
+      PaymentBg: '#8BE78B',
+      CabinName: 'Cabin 1',
+      Facility: 'Ac, Shower, Wifi',
+      CabinImage: cabin1,
+      Status: 'Booked',
+      CabinType: 'Standard',
+      ExtraCharges: 'Splash pool, Tourism',
+      Rate: '$100',
+      Menu: '.',
+    },
+    {
+      PaymentBg: '#8BE78B',
+      CabinName: 'Cabin 2',
+      Facility: 'Ac, Shower, Wifi',
+      ProjectName: 'Weekly WP Theme',
+      Status: 'Available',
+      CabinImage: cabin2,
+      CabinType: 'Double',
+      ExtraCharges: 'Grill, Tourism',
+      Rate: '$150',
+    },
+    {
+      PaymentBg: '#8BE78B',
+      CabinName: 'Cabin 1',
+      Facility: 'Ac, Shower, Wifi',
+      CabinImage: cabin1,
+      Status: 'Booked',
+      CabinType: 'Standard',
+      ExtraCharges: 'Splash pool, Tourism',
+      Rate: '$100',
+      Menu: '.',
+    },
+    {
+      PaymentBg: '#8BE78B',
+      CabinName: 'Cabin 2',
+      Facility: 'Ac, Shower, Wifi',
+      ProjectName: 'Weekly WP Theme',
+      Status: 'Available',
+      CabinImage: cabin2,
       CabinType: 'Double',
       ExtraCharges: 'Grill, Tourism',
       Rate: '$150',

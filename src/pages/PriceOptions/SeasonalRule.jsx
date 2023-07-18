@@ -2,11 +2,21 @@ import React from 'react';
 import { FaEllipsisV } from 'react-icons/fa';
 import { GridComponent, ColumnsDirective, ColumnDirective, Page, Inject } from '@syncfusion/ej2-react-grids';
 import {Link} from "react-router-dom"
-
+import { IoMdArrowBack } from 'react-icons/io';
+import {IoArrowForward} from 'react-icons/io5';
 
 import { useState } from 'react';
 
 const SeasonalRule = () => {
+  const [currentPage, setCurrentPage] = useState(1);
+
+  const handlePreviousPage = () => {
+    setCurrentPage((prevPage) => prevPage - 1);
+  };
+
+  const handleNextPage = () => {
+    setCurrentPage((prevPage) => prevPage + 1);
+  };
   const [showMenu, setShowMenu] = useState(false);
 
   const toggleMenu = () => {
@@ -81,6 +91,11 @@ const SeasonalRule = () => {
     },
   ];
 
+  const itemsPerPage = 10;
+  const totalPages = Math.ceil(SeasonalRuleData.length / itemsPerPage);
+  const startIndex = (currentPage - 1) * itemsPerPage;
+  const visibleData = SeasonalRuleData.slice(startIndex, startIndex + itemsPerPage);
+
   return (
     <div className="m-2 md:m-10 mt-24 p-2 md:p-10 bg-white ">
       <div className="flex items-center justify-between mb-4">
@@ -91,7 +106,7 @@ const SeasonalRule = () => {
 </Link>
         </button>
       </div>
-      <GridComponent dataSource={SeasonalRuleData} enableHover={false} allowPaging pageSettings={{ pageCount: 5 }}>
+      <GridComponent dataSource={visibleData} enableHover={false} >
         <ColumnsDirective>
           {SeasonalRuleGrid.map((item, index) => (
             <ColumnDirective key={index} {...item} />
@@ -99,6 +114,37 @@ const SeasonalRule = () => {
         </ColumnsDirective>
         <Inject services={[Page]} />
       </GridComponent>
+      <div className="flex justify-between mt-4 bg-ash ">
+        <button
+          className="bg-white rounded-full p-  flex items-center"
+          disabled={currentPage === 1}
+          onClick={handlePreviousPage}
+        >
+          <IoMdArrowBack className="mr-1" />
+          Previous
+        </button>
+        <div className="flex items-center mx-2 bg-ash rounded-lg p-1">
+          {Array.from({ length: totalPages }, (_, index) => index + 1).map((page) => (
+            <span
+              key={page}
+              className={`mx-1 cursor-pointer ${
+                page === currentPage ? 'font-bold bg-white rounded-full px-1' : ''
+              }`}
+              onClick={() => setCurrentPage(page)}
+            >
+              {page}
+            </span>
+          ))}
+        </div>
+        <button
+          className="bg-white rounded-full p-1  flex items-center"
+          disabled={currentPage === totalPages}
+          onClick={handleNextPage}
+        >
+          Next
+          <IoArrowForward className="ml-1" />
+        </button>
+      </div>
     </div>
   );
     };
