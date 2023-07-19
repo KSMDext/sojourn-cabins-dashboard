@@ -2,7 +2,8 @@ import React from 'react';
 import { GridComponent, ColumnsDirective, ColumnDirective, Page, Inject } from '@syncfusion/ej2-react-grids';
 import { FaEllipsisV } from 'react-icons/fa';
 import {Link} from "react-router-dom"
-
+import { IoMdArrowBack } from 'react-icons/io';
+import {IoArrowForward} from 'react-icons/io5';
 
 import avatar from '../../data/avatar.jpg';
 import avatar2 from '../../data/avatar2.jpg';
@@ -13,6 +14,16 @@ import { useState } from 'react';
 
 
 const Reservations = () => {
+  const [currentPage, setCurrentPage] = useState(1);
+
+  const handlePreviousPage = () => {
+    setCurrentPage((prevPage) => prevPage - 1);
+  };
+
+  const handleNextPage = () => {
+    setCurrentPage((prevPage) => prevPage + 1);
+  };
+
 
 const [showMenu, setShowMenu] = useState(false);
 
@@ -36,15 +47,23 @@ const handleMenuClick = (menuItem) => {
   }
 };
 
- const gridPaymentStatus = (props) => (
-  <button
-    type="button"
-    style={{ color: props.PaymentBg }}
-    // className="text-white py-1 px-2 capitalize rounded-2xl text-md"
-  >
-    {props.Payment}
-  </button>
-);
+const gridPaymentStatus = (props) => {
+  let buttonStyle = {
+    color: props.Payment === 'Paid' ? 'green' : 'red'
+  };
+
+  return (
+    <button
+      type="button"
+      style={buttonStyle}
+       className="text-white py-1 px-2 capitalize  text-md"
+    >
+      {props.Payment}
+    </button>
+  );
+};
+
+
 const reservationGridImage = (props) => (
   <div className="image flex gap-4">
     <img
@@ -62,7 +81,6 @@ const reservationGridImage = (props) => (
 
 const gridReservationStatus = (props) => (
   <div className="flex gap-2 justify-center items-center text-gray-700 capitalize">
-    <p style={{ background: props.StatusBg }} className="rounded-full h-3 w-3" />
     <p>{props.Status}</p>
   </div>
 );
@@ -142,27 +160,23 @@ const gridReservationMenu = () => (
  const reservationsData = [
   {
     Payment: 'Paid',
-    PaymentBg: '#8BE78B',
     ReservationName: 'Nirav Joshi',
     Email: 'nirav@gmail.com',
     ReservationImage:
       avatar2,
-    Status: 'Booked',
-    StatusBg: '#8BE78B',
+    Status: 'Reserved',
     Phone: '+233595309592',
     CheckIn: "2023-05-03",
     CheckOut: '2023-06-06',
   },
   {
-    Payment: 'PAID',
-    PaymentBg: '#8BE78B',
+    Payment: 'Paid',
     ReservationName: 'Sunil Joshi',
     Email: 'sunil@gmail.com',
     ProjectName: 'Elite Admin',
-    Status: 'Booked',
+    Status: 'Checked In',
     ReservationImage:
       avatar,
-    StatusBg: '#8BE78B',
     Phone: '+233547932587',
     CheckIn: '2023-04-05',
     CheckOut: '2023-07-07',
@@ -170,27 +184,23 @@ const gridReservationMenu = () => (
   
   {
     Payment: 'UnPaid',
-    PaymentBg: 'red',
     ReservationName: 'Nirav Joshi',
     Email: 'nirav@gmail.com',
     ReservationImage:
       avatar4,
-    Status: 'Booked',
-    StatusBg: '#8BE78B',
+    Status: 'Checked Out',
     Phone: '+233595309592',
     CheckIn: "2023-05-03",
     CheckOut: '2023-07-07',
   },
   {
     Payment: 'Paid',
-    PaymentBg: '#8BE78B',
     ReservationName: 'Sunil Joshi',
     Email: 'sunil@gmail.com',
     ProjectName: 'Elite Admin',
-    Status: 'Booked',
+    Status: 'Not Available',
     ReservationImage:
       avatar3,
-    StatusBg: '#8BE78B',
     Phone: '+233547932587',
     CheckIn: '2023-04-05',
     CheckOut: '2023-07-07',
@@ -199,13 +209,11 @@ const gridReservationMenu = () => (
  
   {
     Payment: 'Paid',
-    PaymentBg: '#8BE78B',
     ReservationName: 'Nirav Joshi',
     Email: 'nirav@gmail.com',
     ReservationImage:
       avatar2,
-    Status: 'Booked',
-    StatusBg: '#8BE78B',
+    Status: 'Cancelled',
     Phone: '+233595309592',
     CheckIn: "2023-05-03",
     CheckOut: '2023-07-07',
@@ -213,27 +221,23 @@ const gridReservationMenu = () => (
   
   {
     Payment: "UnPaid",
-    PaymentBg: 'red',
     ReservationName: 'Nirav Joshi',
     Email: 'nirav@gmail.com',
     ReservationImage:
       avatar,
-    Status: 'Booked',
-    StatusBg: '#8BE78B',
+    Status: 'Reserved',
     Phone: '+233595309592',
     CheckIn: "2023-05-03",
     CheckOut: '2023-07-07',
   },
   {
     Payment: "UnPaid",
-    PaymentBg: 'red',
     ReservationName: 'Sunil Joshi',
     Email: 'sunil@gmail.com',
     ProjectName: 'Elite Admin',
-    Status: 'Booked',
+    Status: 'Checked In',
     ReservationImage:
       avatar4,
-    StatusBg: '#8BE78B',
     Phone: '+233547932587',
     CheckIn : '2023-04-05',
     CheckOut: '2023-07-07',
@@ -242,11 +246,10 @@ const gridReservationMenu = () => (
   
   {
     Payment: 'Paid',
-    PaymentBg: '#8BE78B',
     ReservationName: 'Michael',
     Email: 'michael@gmail.com',
     ProjectName: 'Weekly WP Theme',
-    Status:'UnBooked',
+    Status:'Checked Out',
     ReservationImage:
       avatar2,
     StatusBg: 'red',
@@ -256,13 +259,11 @@ const gridReservationMenu = () => (
   },
   {
     Payment: 'Paid',
-    PaymentBg: '#8BE78B',
     ReservationName: 'Nirav Joshi',
     Email: 'nirav@gmail.com',
     ReservationImage:
       avatar3,
-    Status: 'Booked',
-    StatusBg: '#8BE78B',
+    Status: 'Not Available',
     Phone: '+233595309592',
     CheckIn : "2023-05-03",
     CheckOut: '2023-07-07',
@@ -270,15 +271,13 @@ const gridReservationMenu = () => (
 
   {
     Payment: 'Paid',
-    PaymentBg: '#8BE78B',
     ReservationName: 'Sunil Joshi',
     Email: 'sunil@gmail.com',
     ProjectName: 'Elite Admin',
-    Status: 'Booked',
+    Status: 'Cancelled',
     ReservationImage:
       avatar3,
 
-    StatusBg: '#8BE78B',
     Phone: '+233547932587',
     CheckIn : '2023-04-05',
     CheckOut: '2023-07-07',
@@ -287,10 +286,9 @@ const gridReservationMenu = () => (
  
   {
     Payment: 'Paid',
-    PaymentBg: '#8BE78B',
     ReservationName: 'Michael',
     Email: 'michael@gmail.com',
-    Status:'UnBooked',
+    Status:'Reserved',
     ReservationImage:
       avatar4,
     StatusBg: 'red',
@@ -300,27 +298,23 @@ const gridReservationMenu = () => (
   },
   {
     Payment: 'Paid',
-    PaymentBg: 'red',
     ReservationName: 'Nirav Joshi',
     Email: 'nirav@gmail.com',
     ReservationImage:
       avatar3,
-    Status: 'Booked',
-    StatusBg: '#8BE78B',
+    Status: 'Checked In',
     Phone: '+233595309592',
     CheckIn : "2023-05-03",
     CheckOut: '2023-07-07',
   },
   {
     Payment: 'Paid',
-    PaymentBg: '#8BE78B',
     ReservationName: 'Sunil Joshi',
     Email: 'sunil@gmail.com',
     ProjectName: 'Elite Admin',
-    Status: 'Booked',
+    Status: 'Checked Out',
     ReservationImage:
       avatar,
-    StatusBg: '#8BE78B',
     Phone: '+233547932587',
     CheckIn : '2023-04-05',
     CheckOut: '2023-07-07',
@@ -329,11 +323,10 @@ const gridReservationMenu = () => (
 
   {
     Payment: 'Paid',
-    PaymentBg: '#8BE78B',
     ReservationName: 'Michael',
     Email: 'michael@gmail.com',
     ProjectName: 'Weekly WP Theme',
-    Status:'UnBooked',
+    Status:'Not Available',
     ReservationImage:
       avatar2,
     StatusBg: 'red',
@@ -343,27 +336,23 @@ const gridReservationMenu = () => (
   },
   {
     Payment: 'Paid',
-    PaymentBg: '#8BE78B',
     ReservationName: 'Nirav Joshi',
     Email: 'nirav@gmail.com',
     ReservationImage:
       avatar3,
-    Status: 'Booked',
-    StatusBg: '#8BE78B',
+    Status: 'Cancelled',
     Phone: '+233595309592',
     CheckIn : "20230503",
     CheckOut: '20230707',
   },
   {
     Payment: 'Paid',
-    PaymentBg: '#8BE78B',
     ReservationName: 'Sunil Joshi',
     Email: 'sunil@gmail.com',
     ProjectName: 'Elite Admin',
-    Status: 'Booked',
+    Status: 'Reserved',
     ReservationImage:
       avatar,
-    StatusBg: '#8BE78B',
     Phone: '+233547932587',
     CheckIn : '20230405',
     CheckOut: '20230707',
@@ -371,44 +360,46 @@ const gridReservationMenu = () => (
  
   {
     Payment: 'Paid',
-    PaymentBg: '#8BE78B',
     ReservationName: 'Nirav Joshi',
     Email: 'nirav@gmail.com',
     ReservationImage:
       avatar2,
-    Status: 'Booked',
-    StatusBg: '#8BE78B',
+    Status: 'Checked In',
     Phone: '+233595309592',
     CheckIn : "20230503",
     CheckOut: '20230707',
   },
   {
     Payment: 'Paid',
-    PaymentBg: '#8BE78B',
     ReservationName: 'Sunil Joshi',
     Email: 'sunil@gmail.com',
     ProjectName: 'Elite Admin',
-    Status: 'Booked',
+    Status: 'Checked Out',
     ReservationImage:
       avatar,
-    StatusBg: '#8BE78B',
     Phone: '+233547932587',
     CheckIn : '20230702',
     CheckOut: '20230707',
   },
 ];
+
+
+const itemsPerPage = 10;
+const totalPages = Math.ceil(reservationsData.length / itemsPerPage);
+const startIndex = (currentPage - 1) * itemsPerPage;
+const visibleData = reservationsData.slice(startIndex, startIndex + itemsPerPage);
  
 return (
-      <div className="m-2 md:m-10 mt-24 p-2 md:p-10 bg-white rounded-3xl">
+      <div className="m-2 md:m-10 mt-24 p-2 md:p-10 bg-white">
         <div className="flex items-center justify-between mb-4">
-          <p className="text-xl">Location</p>
+          <p className="text-xl">Reservation</p>
           <button className="text-white p-1 hover:bg-zinc-600 bg-zinc-800 rounded-md bold text-14">
           <Link to='/addreservation'>
           <span className="mr-2">+</span>Add Reservation
 </Link>
           </button>
         </div>
-        <GridComponent dataSource={reservationsData} enableHover={false} allowPaging pageSettings={{ pageCount: 5 }}>
+        <GridComponent dataSource={visibleData} enableHover={false} >
           <ColumnsDirective>
             {reservationsGrid.map((item, index) => (
               <ColumnDirective key={index} {...item} />
@@ -416,6 +407,37 @@ return (
           </ColumnsDirective>
           <Inject services={[Page]} />
         </GridComponent>
+        <div className="flex justify-between mt-4 bg-ash ">
+        <button
+          className="bg-white rounded-full p-  flex items-center"
+          disabled={currentPage === 1}
+          onClick={handlePreviousPage}
+        >
+          <IoMdArrowBack className="mr-1" />
+          Previous
+        </button>
+        <div className="flex items-center mx-2 bg-ash rounded-lg p-1">
+          {Array.from({ length: totalPages }, (_, index) => index + 1).map((page) => (
+            <span
+              key={page}
+              className={`mx-1 cursor-pointer ${
+                page === currentPage ? 'font-bold bg-white rounded-full px-1' : ''
+              }`}
+              onClick={() => setCurrentPage(page)}
+            >
+              {page}
+            </span>
+          ))}
+        </div>
+        <button
+          className="bg-white rounded-full p-1  flex items-center"
+          disabled={currentPage === totalPages}
+          onClick={handleNextPage}
+        >
+          Next
+          <IoArrowForward className="ml-1" />
+        </button>
+      </div>
       </div>
     );
             };
