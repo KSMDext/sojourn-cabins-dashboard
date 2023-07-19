@@ -46,64 +46,73 @@ const GeneralSettings = () => {
 
          <div className="w-1/8">
           <div className="mb-4 bg-white p-4">
-            <form>
-              <div className="info_name">Address</div>
-              <input
-              type="text"
-              id="name"
-              />
-       <div className="flex justify-start">
-      <div className="flex flex-col">
-        <input
-          type="text"
-          className="border rounded p-2 mb-2"
-          placeholder="Anomabo,Central region,Ghana"
-        />
-        <input
-          type="text"
-          className="border rounded p-2 mb-2"
-          placeholder="5VCF+Q8"
-        />
-        <input
-          type="text"
-          className="border rounded p-2 mb-2"
-          placeholder="Input 3"
-        />
-      </div>
+          <form>
+  <div className="info_name">Address</div>
+  <input type="text" id="name" />
+  <div className="flex justify-start items-center mb-4">
+    <div className="flex flex-col mr-4">
+      <input
+        type="text"
+        className="border rounded p-2 mb-2"
+        placeholder="Anomabo, Central region, Ghana"
+      />
+      <input
+        type="text"
+        className="border rounded p-2 mb-2"
+        placeholder="5VCF+Q8"
+      />
+      <input
+        type="text"
+        className="border rounded p-2 mb-2"
+        placeholder="Input 3"
+      />
     </div>
-      </form>
+    {/* Add the Google Map as an iframe */}
+    <div className="border rounded overflow-hidden">
+      <iframe
+        title="Google Map"
+        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3959.472020101909!2d-1.1266588852656467!3d5.171908650496125!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xfde057a668fbb1b%3A0x724f8f20e7e68e74!2sSojourn%20Cabins!5e0!3m2!1sen!2s!4v1631225516235!5m2!1sen!2s"
+        width="1000"
+        height="350"
+        style={{ border: 0 }}
+        allowFullScreen=""
+        loading="lazy"
+      ></iframe>
+    </div>
+  </div>
+</form>
+
   </div>
 </div>
         <div className="w-1/8">
           <div className="mb-4 bg-white p-4">
-            <form>
-              <div className="info_name">Regional Settings</div>
-              <input
-              type="text"
-              id="name"
-              />
-         <div className="flex justify-center">
-      <div className="w-1/4">
-        <input
-          type="text"
-          className="border rounded p-2 px-2 mb-2 w-full"
-          placeholder="Left Textbox"
-        />
-      </div>
-      <div className="w-1/4 flex flex-col justify">
-        <input
-          type="text"
-          className="border rounded p-2 px-2 mb-2 py-2 min-w-full"
-          placeholder="Right Textbox 1"
-        />
-        <input
-          type="text"
-          className="border rounded p-2 px-2 br-8"
-          placeholder="Right Textbox 2"
-        />
-      </div>
+          <form>
+  <div className="info_name">Regional Settings</div>
+  <input type="text" id="name" />
+  <div className="flex justify-center">
+    <div className="w-1/4">
+      <input
+        type="text"
+        className="border rounded p-2 px-2 mb-2 w-full"
+        placeholder="Left Textbox"
+      />
     </div>
-      </form>
+    <div className="w-1/4 flex flex-col justify">
+      <input
+        type="text"
+        className="border rounded p-2 px-2 mb-2 py-2 min-w-full"
+        placeholder="Right Textbox 1"
+      />
+      {/* Add margin to create space */}
+      <input
+        type="text"
+        className="border rounded p-2 px-2 br-4 mb-2"
+        placeholder="Right Textbox 2"
+      />
+    </div>
+  </div>
+</form>
+
   </div>
 </div>
 
@@ -123,7 +132,7 @@ const GeneralSettings = () => {
 
 <input
           type="text"
-          className="w-38 px-4 py-2 mb-4 border border-gray-300 rounded mr-5"
+          className="w-38 px-4 py-2 mb-4 border border-gray-300 rounded mr-8"
           
         />
 
