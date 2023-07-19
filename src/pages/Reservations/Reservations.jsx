@@ -394,7 +394,7 @@ return (
         <div className="flex items-center justify-between mb-4">
           <p className="text-xl">Reservation</p>
           <button className="text-white p-1 hover:bg-zinc-600 bg-zinc-800 rounded-md bold text-14">
-          <Link to='/addreservation'>
+          <Link to='/addreservations'>
           <span className="mr-2">+</span>Add Reservation
 </Link>
           </button>
