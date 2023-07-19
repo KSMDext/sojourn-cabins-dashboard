@@ -7,40 +7,41 @@ const GeneralSettings = () => {
         <div class="text-xl mb-2">General Settings</div>
          <div className="w-1/8">
           <div className="mb-4 bg-white p-4">
-            <form>
-              <div className="info_name">Business Info</div>
-              <input
-              type="text"
-              id="name"
-              />
-        <div className="flex justify-center">
-      <div className="flex flex-col items-center mr-8">
-        <input
-          type="text"
-          className="w-48 px-4 py-2 mb-4 border border-gray-300 rounded"
-          placeholder="Sojourn cabins"
-        />
-        <input
-          type="text"
-          className="w-48 px-6 py-2 border border-gray-300 rounded"
-          placeholder="theteam@sojourngh.com"
-        />
-      </div>
-      <div className="flex flex-col items-center">
-        <input
-          type="text"
-          className="w-48 px-4 py-2 mb-4 border border-gray-300 rounded"
-          placeholder="Vacation Rental"
-        />
-        <input
-          type="integers"
-          className="w-48 px-4 py-2 border border-gray-300 rounded"
-          placeholder="+44 72 8392018"
-        />
-        
-      </div>
+          <form>
+  <div className="info_name">Business Info</div>
+  <input type="text" id="name" />
+  <div className="flex justify-center">
+    <div className="flex flex-col items-center mr-8">
+      <div className="mb-2">Property Name*</div>
+      <input
+        type="text"
+        className="w-48 px-4 py-2 mb-4 border border-gray-300 rounded"
+        placeholder="Sojourn cabins"
+      />
+      <div className="mb-2">Email Address*</div>
+      <input
+        type="text"
+        className="w-48 px-6 py-2 border border-gray-300 rounded"
+        placeholder="theteam@sojourngh.com"
+      />
     </div>
-      </form>
+    <div className="flex flex-col items-center">
+      <div className="mb-2">Property Type*</div>
+      <input
+        type="text"
+        className="w-48 px-4 py-2 mb-4 border border-gray-300 rounded"
+        placeholder="Vacation Rental"
+      />
+      <div className="mb-2">Phone*</div>
+      <input
+        type="integers"
+        className="w-48 px-4 py-2 border border-gray-300 rounded"
+        placeholder="+44 72 8392018"
+      />
+    </div>
+  </div>
+</form>
+
   </div>
 </div>
 
@@ -51,16 +52,19 @@ const GeneralSettings = () => {
   <input type="text" id="name" />
   <div className="flex justify-start items-center mb-4">
     <div className="flex flex-col mr-4">
+      City, State, Country*
       <input
         type="text"
         className="border rounded p-2 mb-2"
         placeholder="Anomabo, Central region, Ghana"
       />
+      Street Address*
       <input
         type="text"
         className="border rounded p-2 mb-2"
         placeholder="5VCF+Q8"
       />
+      Zip/Postal Code*
       <input
         type="text"
         className="border rounded p-2 mb-2"
@@ -91,27 +95,33 @@ const GeneralSettings = () => {
   <input type="text" id="name" />
   <div className="flex justify-center">
     <div className="w-1/4">
+      Time Zone
       <input
         type="text"
-        className="border rounded p-2 px-2 mb-2 w-full"
-        placeholder="Left Textbox"
+        className="border rounded p-2 px-2 py-2 mb-2 w-full"
+        placeholder="(GMT+00:00)Europe/London"
       />
+      Your Weekend Night Are:
     </div>
     <div className="w-1/4 flex flex-col justify">
+      Measurement Units
       <input
         type="text"
-        className="border rounded p-2 px-2 mb-2 py-2 min-w-full"
-        placeholder="Right Textbox 1"
+        className="border rounded p-2 px-2 mb-2 py-2 w-full"
+        placeholder="Square Feet"
       />
       {/* Add margin to create space */}
       <input
         type="text"
-        className="border rounded p-2 px-2 br-4 mb-2"
-        placeholder="Right Textbox 2"
+        className="border rounded p-2 px-2 mb-2 py-2 w-full mr-4"
+        placeholder="English"
       />
     </div>
   </div>
 </form>
+
+
+
 
   </div>
 </div>
@@ -119,36 +129,44 @@ const GeneralSettings = () => {
 
 <div className="w-1/8">
   <div className="mb-4 bg-white p-4">
-    <form>
-      <div className="info_name">Length of stay</div>
-      <input type="text" id="name" />
+  <form>
+  <div className="info_name">Length of stay</div>
+  <input type="text" id="name" />
 
-      <div className="flex justify-center">
+  <div className="flex justify-center flex-col items-center">
+    <div className="flex justify-center">
+      <div className="flex flex-col items-center mr-8">
+        <div className="mb-2">Check-In time</div>
         <input
           type="text"
-          className="w-48 px-4 py-2 mb-4 border border-gray-300 rounded mr-8"
-          
+          className="w-48 px-4 py-2 mb-4 border border-gray-300 rounded"
         />
-
-<input
-          type="text"
-          className="w-38 px-4 py-2 mb-4 border border-gray-300 rounded mr-8"
-          
-        />
-
-        <input
-          type="text"
-          className="w-24 px-4 py-2 mb-4 border border-gray-300 rounded mr-8" 
-        />
-        
-<input
-          type="text"
-          className="w-24 px-4 py-2 mb-4 border border-gray-300 rounded mr-8"
-         
-        />
-
       </div>
-    </form>
+      <div className="flex flex-col items-center mr-8">
+        <div className="mb-2">Check-Out Time</div>
+        <input
+          type="text"
+          className="w-38 px-4 py-2 mb-4 border border-gray-300 rounded"
+        />
+      </div>
+      <div className="flex flex-col items-center mr-8">
+        <div className="mb-2">Min. Nights</div>
+        <input
+          type="text"
+          className="w-24 px-4 py-2 mb-4 border border-gray-300 rounded"
+        />
+      </div>
+      <div className="flex flex-col items-center">
+        <div className="mb-2">Max. Nights</div>
+        <input
+          type="text"
+          className="w-24 px-4 py-2 mb-4 border border-gray-300 rounded"
+        />
+      </div>
+    </div>
+  </div>
+</form>
+
   </div>
 </div>
 
