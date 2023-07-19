@@ -3,10 +3,10 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 
 import { Navbar, Sidebar } from './components';
 import { Dashboard,  Analytics, Feedback } from './pages';
-import {Location} from './pages';
-import {Cabins} from './pages';
+import {Location, AddLocation} from './pages';
+import {Cabins, AddCabins} from './pages';
 import {Reservations} from './pages';
-import {Staff} from './pages';
+import {Staff, AddStaff} from './pages';
 import SignIn from './SignIn';
 
 
@@ -67,13 +67,13 @@ const App = () => {
                 <Route path="/addreservations" element="AddReservation" />
                 <Route path="/updatereservations" element="UpdateReservation" />
                 <Route path="/location" element={<Location/>} />
-                <Route path="/addlocation" element="AddLocation" />
+                <Route path="/addlocation" element= {<AddLocation/>} />
                 <Route path="/updatelocation" element="UpdateLocation" />
                 <Route path="/cabins" element={<Cabins/>} />
-                <Route path="/addcabins" element="AddCabins" />
+                <Route path="/addcabins" element= {<AddCabins/>} />
                 <Route path="/updatecabins" element="UpdateCabins" />
                 <Route path="/staff" element={<Staff/>} />
-                <Route path="/addstaff" element="AddStaff" />
+                <Route path="/addstaff" element= {<AddStaff/>} />
                 <Route path="/updatestaff" element="UpdateStaff" />
                 <Route path="/analytics" element={<Analytics/>} />
                 <Route path="/feedback" element={<Feedback/>} />
