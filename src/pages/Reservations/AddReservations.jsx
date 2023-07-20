@@ -5,7 +5,7 @@ import {Link} from "react-router-dom";
 const AddReservations = () => {
   return (
     <div>
-    <p className="mx-[95px] mt-[40px] text-4xl font-semibold	">AddReservations</p>
+    <p className="mx-[95px] mt-[40px] text-4xl font-semibold	">Add Reservations</p>
 
     {/* Booking Details Section */}
       <div className="p-[30px] pt-[10px] grid grid-cols-3 mt-[40px] mb-[10px] m-[100px] bg-white w-[1119px] h-[252px]">

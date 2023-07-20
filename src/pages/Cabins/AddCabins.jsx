@@ -6,7 +6,7 @@ import {RiArrowDropDownLine} from "react-icons/ri";
 const AddCabins = () => {
   return (
     <div>
-      <p className="mx-[95px] mt-[20px] text-4xl font-semibold">AddCabins</p>
+      <p className="mx-[95px] mt-[20px] text-4xl font-semibold">Add Cabins</p>
 
     {/* Cabin Details */}
     <div className="grid grid-cols-2 gap-[300px] p-[20px] pt-[10px] mr-[0px] mt-[20px] mb-[10px] m-[100px] bg-white w-[1107px] h-[166px] ">
