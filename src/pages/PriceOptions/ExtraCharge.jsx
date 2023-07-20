@@ -106,7 +106,7 @@ const ExtraCharge = () => {
         <p className="text-xl">Extra Charge</p>
         <button className="text-white p-1 hover:bg-zinc-600 bg-zinc-800 rounded-md bold text-14">
         <Link to='/addextracharge'>
-        <span className="mr-2">+</span>AddExtraCharge
+        <span className="mr-2">+</span>Add Extra Charge
 </Link>
         </button>
       </div>

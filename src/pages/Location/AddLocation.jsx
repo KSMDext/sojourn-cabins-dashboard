@@ -3,9 +3,9 @@ import {Link} from "react-router-dom"
 
 export const AddLocation = () => {
   return (
-    <div>
-      <p className="mx-[95px] mt-[40px] text-4xl font-semibold	">AddLocation</p>
-    <div className="p-[100px] pt-[10px] mt-[40px] m-[100px] bg-white w-[1104px] h-[481px]">
+    <div> <p className="mx-[95px] mt-[40px] text-4xl font-semibold	">Add Location</p>
+    <div 
+     className="p-[100px] pt-[10px] mt-[40px] m-[100px] bg-white w-[1104px] h-[481px]">
       <form className="text-left grid lg:grid-cols-2 space-y-[50px] text-slate-500 mt-[20px]">
           <label className="w-[310px] h-[40px]">
             Location Name*

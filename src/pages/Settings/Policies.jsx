@@ -10,7 +10,7 @@ const Policies = () => {
           <input
             type="text"
             id="name"
-            className="w-full px-3 py-2 border border-gray-300 h-64"
+            className="w-full px-3 py-2 border border-gray-300 h-96"
           />
           </div>
           </form>
@@ -19,7 +19,7 @@ const Policies = () => {
           <input
             type="text"
             id="name"
-            className="w-full px-3 py-2 border border-gray-300 h-64"
+            className="w-full px-3 py-2 border border-gray-300 h-96"
           />
           </div>
           <div className="flex justify-end">

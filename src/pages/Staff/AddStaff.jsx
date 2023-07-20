@@ -4,7 +4,7 @@ import { Link} from 'react-router-dom';
 const AddStaff = () => {
   return (
     <div>
-      <p className="mx-[95px] mt-[40px] text-4xl font-semibold	">AddStaff</p>
+      <p className="mx-[95px] mt-[40px] text-4xl font-semibold	">Add Staff</p>
     <div className="p-[70px] pt-[10px] mt-[50px] m-[100px] mr-[200px] bg-white">
       <form className="text-left grid lg:grid-cols-2 space-y-[50px] text-slate-500 mt-[20px]">
           <label className="w-[310px] h-[40px]">
