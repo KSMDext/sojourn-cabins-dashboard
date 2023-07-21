@@ -1,13 +1,13 @@
 import React, { useState } from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
-
 import { Navbar, Sidebar } from './components';
-import { Dashboard,  Analytics, Feedback} from './pages';
+import { Dashboard,  Analytics, Feedback,AddExtraCharge} from './pages';
 import {Location, AddLocation} from './pages';
 import {Cabins, AddCabins} from './pages';
 import {Reservations, AddReservations} from './pages';
 import {Staff, AddStaff} from './pages';
 import SignIn from './SignIn';
+import AddCoupon from "./pages/Cabins/AddCabins"
 import { useStateContext } from './contexts/ContextProvider';
 import './App.css';
 import SeasonalRule from './pages/PriceOptions/SeasonalRule';
@@ -78,9 +78,9 @@ const App = () => {
                 <Route path="/priceoptions/seasonalrule" element={<SeasonalRule/>} />
                 <Route path="/addseasonalrule" element="AddSeasonalRule" />
                 <Route path="/priceoptions/extracharge" element={<ExtraCharge/>} />
-                <Route path="/addextracharge" element="AddExtraCharge" />
+                <Route path="/addextracharge" element={<AddExtraCharge/>}/>
                 <Route path="/priceoptions/coupons" element={<Coupons/>} />
-                <Route path="/addcoupons" element="AddCoupons" />
+                <Route path="/addcoupons" element={<AddCoupon/>} />
                 <Route path="/priceoptions/packages" element={<Packages/>} />
                 <Route path="/createpackage" element="CreatePackage" />
                 <Route path="/settings/generalsettings" element={<GeneralSettings/>} />
