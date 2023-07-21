@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 
 import { Navbar, Sidebar } from './components';
-import { Dashboard,  Analytics, Feedback } from './pages';
+import { Dashboard,  Analytics, Feedback} from './pages';
 import {Location, AddLocation} from './pages';
 import {Cabins, AddCabins} from './pages';
 import {Reservations, AddReservations} from './pages';
