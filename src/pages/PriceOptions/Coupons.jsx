@@ -123,9 +123,9 @@ const Coupons = () => {
       <div className="flex items-center justify-between mb-4">
         <p className="text-xl">Coupons</p>
         <button className="text-white p-1 hover:bg-zinc-600 bg-zinc-800 rounded-md bold text-14">
-        <Link to='/addreservation'>
-        <span className="mr-2">+</span>Add Coupons
-</Link>
+        <Link to='/addcoupons'>
+          <span className="mr-2">+</span>Add Coupons
+        </Link>
         </button>
       </div>
       <GridComponent dataSource={visibleData} enableHover={false} >
