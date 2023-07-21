@@ -5,11 +5,9 @@ import { Navbar, Sidebar } from './components';
 import { Dashboard,  Analytics, Feedback } from './pages';
 import {Location, AddLocation} from './pages';
 import {Cabins, AddCabins} from './pages';
-import {Reservations} from './pages';
+import {Reservations, AddReservations} from './pages';
 import {Staff, AddStaff} from './pages';
 import SignIn from './SignIn';
-
-
 import { useStateContext } from './contexts/ContextProvider';
 import './App.css';
 import SeasonalRule from './pages/PriceOptions/SeasonalRule';
@@ -64,7 +62,7 @@ const App = () => {
                 <Route path="/" element={<Dashboard/>} />
                 <Route path="/dashboard" element={<Dashboard/>} />
                 <Route path="/reservations" element={<Reservations/>} />
-                <Route path="/addreservations" element="AddReservation" />
+                <Route path="/addreservations" element= {<AddReservations/>} />
                 <Route path="/updatereservations" element="UpdateReservation" />
                 <Route path="/location" element={<Location/>} />
                 <Route path="/addlocation" element= {<AddLocation/>} />
