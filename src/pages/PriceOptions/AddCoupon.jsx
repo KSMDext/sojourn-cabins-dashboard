@@ -2,8 +2,8 @@ import React from 'react'
 
 const AddCoupon = () => {
   return (
-    <div>AddCoupon</div>
+    <div></div>
   )
 }
 
-export default AddCoupon
+export default AddCoupon;

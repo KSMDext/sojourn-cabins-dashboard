@@ -22,7 +22,7 @@ const AddCabins = () => {
           </div>
           <input 
             className="w-[334px] h-[34px] p-2 border-1 border-slate-400 rounded-lg mt-2"
-            type="number"
+            type="text"
           />
       </div>
       <div className="grid grid-cols-2">
@@ -106,16 +106,6 @@ const AddCabins = () => {
             
           </select>
       </div>
-      <div className="grid grid-cols-2">
-      <div className="flex flex-col items-left">
-          <div className="flex items-center">
-          </div>
-          <select className="w-[334px] h-[34px]  border-1 border-slate-400 rounded-lg mt-2"> 
-            <option value="">Choose bed type</option>
-            
-          </select>
-      </div>
-      </div>
       </div>
       </form>
       <form>
@@ -127,10 +117,6 @@ const AddCabins = () => {
             type="number"
             className="w-[127px] h-[34px] p-2 border-1 border-slate-400 rounded-lg "        
           />
-        <input 
-        type="number"
-        className="w-[127px] h-[34px] p-2 border-1 border-slate-400 rounded-lg mt-2"        
-        />
       </div>
       
         </form>
