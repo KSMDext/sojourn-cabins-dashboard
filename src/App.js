@@ -1,11 +1,12 @@
 import React, { useState } from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import { Navbar, Sidebar } from './components';
-import { Dashboard,  Analytics, Feedback,AddExtraCharge} from './pages';
-import {Location, AddLocation} from './pages';
-import {Cabins, AddCabins} from './pages';
-import {Reservations, AddReservations} from './pages';
-import {Staff, AddStaff} from './pages';
+
+import { Navbar, Sidebar} from './components';
+import { Dashboard,  Analytics, Feedback, AddReservations, UpdateReservations, AddLocation, AddCabins, UpdateCabins, AddStaff, UpdateStaff, AddSeasonalRule, AddExtraCharge, CreatePackage } from './pages';
+import {Location} from './pages';
+import {Cabins} from './pages';
+import {Reservations} from './pages';
+import {Staff} from './pages';
 import SignIn from './SignIn';
 
 
