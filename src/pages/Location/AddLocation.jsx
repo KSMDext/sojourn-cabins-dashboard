@@ -1,61 +1,59 @@
 import React from 'react'
 import {Link} from "react-router-dom"
+import ImageUploader from '../../components/ImageUploader'
 
-export const AddLocation = () => {
+const AddLocation = () => {
   return (
-    <div> <p className="mx-[95px] mt-[40px] text-4xl font-semibold	">Add Location</p>
+    <div> 
+      <p className="mx-[35px] mt-[20px] text-2xl font-medium	">Add Location</p>
     <div 
-     className="p-[100px] pt-[10px] mt-[40px] m-[100px] bg-white w-[1104px] h-[481px]">
-      <form className="text-left grid lg:grid-cols-2 space-y-[50px] text-slate-500 mt-[20px]">
-          <label className="w-[310px] h-[40px]">
+     className="p-[50px] pt-[10px] mt-[40px] m-[35px] bg-white  ">
+      <form className="text-left grid lg:grid-cols-2  space-y-[40px] text-slate-500 mt-[20px]">
+          <label className="w-[310px] h-[30px] text-[14px]">
             Location Name*
             <input 
-            className="w-[400px] h-[44px] p-2 border-1 border-slate-400 rounded-lg"
+            className="w-[350px] h-[32px] p-2 border-1 border-slate-200 rounded"
             type="text" />
           </label>
 
           <label 
-          className="w-[310px] h-[40px] md: mt-[50px]"
+          className="w-[310px] h-[30px] text-[14px] mt-[50px] ml-12"
           style={{marginTop: "0px"}}>
             Location Address*
             <input 
-            className="w-[400px] h-[44px] p-2 border-1  border-slate-400 rounded-lg "
+            className="w-[350px] h-[32px] p-2 border-1 border-slate-200 rounded "
             type="text" />
           </label>
 
           <label 
-            className="w-[310px] h-[40px]">
+            className="w-[310px] h-[30px] text-[14px]">
             Country*
             <input 
-            className="w-[400px] h-[44px] p-2 border-1  border-slate-400 rounded-lg"
+            className="w-[350px] h-[32px] p-2 border-1 border-slate-200 rounded"
             type="text" />
           </label>
 
           <label
-          className="w-[310px] h-[40px]">
+          className="w-[310px] h-[30px] text-[14px] mt-[50px] ml-12">
             Description*
             <input 
-            className="w-[400px] h-[44px] p-2 border-1 border-slate-400 rounded-lg"
+            className="w-[350px] h-[32px] p-2 border-1 border-slate-200 rounded"
             type="text" />
           </label>
           <select
-            className="grid md:grid-cols-6 w-[209px] h-[44px] p-2 border-1 border-slate-400 rounded text-sm"
+            className="grid md:grid-cols-6 w-[210px] h-[37px] p-2 border-1 border-slate-200 rounded text-[14px]"
             name="Choose Location Manager">
             <option value="Manager1">Choose Location Manager</option>
             <option value="Manager1">Manager2</option>
             <option value="Manager1">Manager3</option>
         </select>
-        <label htmlFor="photo" className="cursor-pointer w-[239px] h-[115px] ml-[160px] bg-neutral-300	p-[20px] mr-[70px] rounded-xl">
-                Add Photo
-           
-          <input type="file" id="photo" className="mb-2 w-[220px]" accept="image/*" />
-          </label>
+        <ImageUploader/>
          
       </form>
       
     </div>
-    <div className="ml-[1000px] mb-[20px]">
-    <button className="bg-white rounded-lg mr-[10px]  rounded w-[98px] h-[32px]" type="button"><Link to="/location">Cancel</Link></button> 
+    <div className="ml-[900px] mb-[20px] mt-[220px] flex align-bottom ">
+    <button className="bg-white rounded-lg mr-[10px]  w-[98px] h-[32px]" type="button"><Link to="/location">Cancel</Link></button> 
     <button className="bg-black  rounded-lg text-white w-[98px] h-[32px] text-center" type="button">Save</button>
     </div>
     

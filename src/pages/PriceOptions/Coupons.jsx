@@ -8,7 +8,6 @@ import {IoArrowForward} from 'react-icons/io5';
 import { useState } from 'react';
 
 const Coupons = () => {
-
   const [currentPage, setCurrentPage] = useState(1);
 
   const handlePreviousPage = () => {
@@ -117,41 +116,45 @@ const Coupons = () => {
   const totalPages = Math.ceil(CouponsData.length / itemsPerPage);
   const startIndex = (currentPage - 1) * itemsPerPage;
   const visibleData = CouponsData.slice(startIndex, startIndex + itemsPerPage);
-
   return (
-    <div className="m-2 md:m-10 mt-24 p-2 md:p-10 bg-white">
-      <div className="flex items-center justify-between mb-4">
-        <p className="text-xl">Coupons</p>
-        <button className="text-white p-1 hover:bg-zinc-600 bg-zinc-800 rounded-md bold text-14">
-        <Link to='/addcoupons'>
-          <span className="mr-2">+</span>Add Coupons
-        </Link>
-        </button>
-      </div>
-      <GridComponent dataSource={visibleData} enableHover={false} >
-        <ColumnsDirective>
-          {CouponsGrid.map((item, index) => (
-            <ColumnDirective key={index} {...item} />
-          ))}
-        </ColumnsDirective>
-        <Inject services={[Page]} />
-      </GridComponent>
-
-      <div className="flex justify-between mt-4 bg-ash ">
+    <div>
+      <div className=" grid grid-cols-3 gap-64 ">
+          <div className=" text-xl mt-4 ml-5 ">Coupons</div>
+          <div> </div>
+          <div> 
+          <button className=" text-white p-1  hover:bg-zinc-600 bg-zinc-800 rounded-md mt-4 bold text-14 w-40 ml-12 ">
+            <Link to="/addcoupons">
+            <span className="mr-2">+</span>Add Coupons
+            </Link>
+          </button>
+          </div>
+        </div>
+        <div>
+        <div className="m-5  mt-6 rounded-md p-2  bg-white">
+        <GridComponent dataSource={visibleData} enableHover={false} >
+          <ColumnsDirective>
+            {CouponsGrid.map((item, index) => (
+              <ColumnDirective key={index} {...item} />
+            ))}
+          </ColumnsDirective>
+          <Inject services={[Page]} />
+        </GridComponent>
+        </div>
+        <div className="flex justify-between mt-4 bg-zinc-300  h-12  items-center rounded-md p-1 m-5 ">
         <button
-          className="bg-white rounded-full p-  flex items-center"
+          className="bg-white rounded-md p-2 ml-4 w-28 h-7 text-sm flex items-center pl-4"
           disabled={currentPage === 1}
           onClick={handlePreviousPage}
         >
           <IoMdArrowBack className="mr-1" />
           Previous
         </button>
-        <div className="flex items-center mx-2 bg-ash rounded-lg p-1">
+        <div className="flex items-center mx-2 text-sm rounded-md p-2 ml-4 w-28 h-7 ">
           {Array.from({ length: totalPages }, (_, index) => index + 1).map((page) => (
             <span
               key={page}
               className={`mx-1 cursor-pointer ${
-                page === currentPage ? 'font-bold bg-white rounded-full px-1' : ''
+                page === currentPage ? 'font-bold bg-white rounded-md px-2' : ''
               }`}
               onClick={() => setCurrentPage(page)}
             >
@@ -160,18 +163,18 @@ const Coupons = () => {
           ))}
         </div>
         <button
-          className="bg-white rounded-full p-1  flex items-center"
+          className="bg-white rounded-md p-2 mr-4 w-28 h-7 text-sm flex items-center pl-8"
           disabled={currentPage === totalPages}
           onClick={handleNextPage}
         >
           Next
           <IoArrowForward className="ml-1" />
         </button>
+        </div>
       </div>
-    
-    </div>
-  
-  );
-    };
 
-export default Coupons;
+    </div>
+  )
+}
+
+export default Coupons

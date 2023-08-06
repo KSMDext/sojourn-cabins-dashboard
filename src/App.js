@@ -1,14 +1,15 @@
 import React, { useState } from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 
-import { Navbar, Sidebar } from './components';
-import { Dashboard,  Analytics, Feedback,AddExtraCharge } from './pages';
-import {Location, AddLocation} from './pages';
-import {Cabins, AddCabins} from './pages';
-import {Reservations, AddReservations} from './pages';
-import {Staff, AddStaff} from './pages';
+import { Navbar, Sidebar} from './components';
+import { Dashboard,  Analytics, Feedback, AddReservations, UpdateReservations, AddLocation, AddCabins, UpdateCabins, AddStaff, UpdateStaff, AddSeasonalRule, AddExtraCharge, CreatePackage } from './pages';
+import {Location} from './pages';
+import {Cabins} from './pages';
+import {Reservations} from './pages';
+import {Staff} from './pages';
 import SignIn from './SignIn';
-import AddCoupon from "./pages/Cabins/AddCabins"
+
+
 import { useStateContext } from './contexts/ContextProvider';
 import './App.css';
 import SeasonalRule from './pages/PriceOptions/SeasonalRule';
@@ -19,6 +20,8 @@ import GeneralSettings from './pages/Settings/GeneralSettings';
 import Extras from './pages/Settings/Extras';
 import Emails from './pages/Settings/Emails';
 import Policies from './pages/Settings/Policies';
+import UpdateLocation from './pages/Location/UpdateLocation';
+import AddCoupon from './pages/PriceOptions/AddCoupon';
 
 
 const App = () => {
@@ -63,27 +66,27 @@ const App = () => {
                 <Route path="/" element={<Dashboard/>} />
                 <Route path="/dashboard" element={<Dashboard/>} />
                 <Route path="/reservations" element={<Reservations/>} />
-                <Route path="/addreservations" element= {<AddReservations/>} />
-                <Route path="/updatereservations" element="UpdateReservation" />
+                <Route path="/addreservations" element={<AddReservations/>} />
+                <Route path="/updatereservations" element={<UpdateReservations/>} />
                 <Route path="/location" element={<Location/>} />
-                <Route path="/addlocation" element= {<AddLocation/>} />
-                <Route path="/updatelocation" element="UpdateLocation" />
+                <Route path="/addlocation" element={<AddLocation/>} />
+                <Route path="/updatelocation" element={<UpdateLocation/>} />
                 <Route path="/cabins" element={<Cabins/>} />
-                <Route path="/addcabins" element= {<AddCabins/>} />
-                <Route path="/updatecabins" element="UpdateCabins" />
+                <Route path="/addcabins" element={<AddCabins/>} />
+                <Route path="/updatecabins" element={<UpdateCabins/>} />
                 <Route path="/staff" element={<Staff/>} />
-                <Route path="/addstaff" element= {<AddStaff/>} />
-                <Route path="/updatestaff" element="UpdateStaff" />
+                <Route path="/addstaff" element={<AddStaff/>} />
+                <Route path="/updatestaff" element={<UpdateStaff/>} />
                 <Route path="/analytics" element={<Analytics/>} />
                 <Route path="/feedback" element={<Feedback/>} />
                 <Route path="/priceoptions/seasonalrule" element={<SeasonalRule/>} />
-                <Route path="/addseasonalrule" element="AddSeasonalRule" />
+                <Route path="/addseasonalrule" element={<AddSeasonalRule/>} />
                 <Route path="/priceoptions/extracharge" element={<ExtraCharge/>} />
-                <Route path="/addextracharge" element={<AddExtraCharge/>}/>
+                <Route path="/addextracharge" element={<AddExtraCharge/>} />
                 <Route path="/priceoptions/coupons" element={<Coupons/>} />
                 <Route path="/addcoupons" element={<AddCoupon/>} />
                 <Route path="/priceoptions/packages" element={<Packages/>} />
-                <Route path="/createpackage" element="CreatePackage" />
+                <Route path="/createpackage" element={<CreatePackage/>} />
                 <Route path="/settings/generalsettings" element={<GeneralSettings/>} />
                 <Route path="/settings/emails" element={<Emails/>} />
                 <Route path="/settings/policies" element={<Policies/>} />

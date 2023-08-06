@@ -34,20 +34,20 @@ const SignIn = ({ handleSignIn }) => {
             <input
               type="email"
               id="email"
-              className="border border-gray-300 bg-white px-2 py-2 w-full rounded-lg font-lato"
+              className="border border-gray-300 bg-white px-2 py-1 w-full rounded-300 font-lato"
               placeholder="Enter your email"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
             />
           </div>
           <div className="mb-4">
-            <label htmlFor="password" className="block mb-2 font-lato rounded">
+            <label htmlFor="password" className="block mb-2 font-lato">
               Password
             </label>
             <input
               type="password"
               id="password"
-              className="border border-gray-300 bg-white px-2 py-2 w-full rounded-lg font-lato"
+              className="border border-gray-300 bg-white px-2 py-1 w-full rounded font-lato"
               placeholder="********"
               value={password}
               onChange={(e) => setPassword(e.target.value)}
@@ -58,7 +58,7 @@ const SignIn = ({ handleSignIn }) => {
             <label htmlFor="rememberMe" className="font-lato">Remember me</label>
           </div>
           <button
-            className="bg-black text-white py-2 px-4 rounded-xl hover:bg-gray-900 w-full font-lato"
+            className="bg-black text-white py-2 px-4 rounded-lg hover:bg-gray-900 w-full font-lato"
             onClick={handleButtonClick}
           >
             Sign In

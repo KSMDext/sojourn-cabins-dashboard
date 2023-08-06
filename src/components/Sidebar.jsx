@@ -62,7 +62,6 @@ const links = [
 export const SidebarData = [
   {
     title: 'Price Options',
-    path: '/priceoptions',
     icon: <AiOutlineDollar className="text-white"/>,
     iconClosed: <RiIcons.RiArrowDownSLine className="ml-2"/>,
     iconOpened: <RiIcons.RiArrowUpSLine className="ml-2"/>,
@@ -88,7 +87,6 @@ export const SidebarData = [
   },
   {
     title: 'Settings',
-    path: '/settings',
     icon: <FiSettings className="text-white"/>,
     iconClosed: <RiIcons.RiArrowDownSLine className="ml-12"/>,
     iconOpened: <RiIcons.RiArrowUpSLine className="ml-12"/>,
