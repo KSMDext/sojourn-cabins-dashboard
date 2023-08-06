@@ -1,6 +1,6 @@
 import React from 'react'
 import { FaEllipsisV } from 'react-icons/fa';
-import { GridComponent,  Edit,ExcelExport, PdfExport, ContextMenu,ColumnsDirective, ColumnDirective, Page, Inject } from '@syncfusion/ej2-react-grids';
+import { GridComponent, ColumnsDirective, ColumnDirective, Page, Inject } from '@syncfusion/ej2-react-grids';
 import cabin1 from '../../data/cabin1.jpeg';
 import { IoMdArrowBack } from 'react-icons/io';
 import {IoArrowForward} from 'react-icons/io5';
@@ -18,7 +18,6 @@ const Cabins = () => {
   const handleNextPage = () => {
     setCurrentPage((prevPage) => prevPage + 1);
   };
-  const editing = { allowDeleting: true, allowEditing: true };
   const [showMenu, setShowMenu] = useState(false);
 
   const toggleMenu = () => {
@@ -42,24 +41,7 @@ const Cabins = () => {
   };
 
 
-  const contextMenuItems = [
-    'AutoFit',
-    'AutoFitAll',
-    'SortAscending',
-    'SortDescending',
-    'Copy',
-    'Edit',
-    'Delete',
-    'Save',
-    'Cancel',
-    'PdfExport',
-    'ExcelExport',
-    'CsvExport',
-    'FirstPage',
-    'PrevPage',
-    'LastPage',
-    'NextPage',
-  ];
+ 
   
 
 
