@@ -255,21 +255,21 @@ const Feedback = () => {
         </ColumnsDirective>
         <Inject services={[Page]} />
       </GridComponent>
-      <div className="flex justify-between mt-4 bg-ash">
+      <div className="flex justify-between mt-4 bg-zinc-600  h-12  items-center rounded-md p-1 m-5">
         <button
-          className="bg-white rounded-full p-2 flex items-center"
+          className="bg-white rounded-md p-2 ml-4 w-28 h-7 text-sm flex items-center pl-4"
           disabled={currentPage === 1}
           onClick={handlePreviousPage}
         >
           <IoMdArrowBack className="mr-1" />
           Previous
         </button>
-        <div className="flex items-center mx-2 bg-ash rounded-lg p-1">
+        <div className="flex items-center mx-2 text-sm rounded-md p-2 ml-4 w-28 h-7 ">
           {Array.from({ length: totalPages }, (_, index) => index + 1).map((page) => (
             <span
               key={page}
               className={`mx-1 cursor-pointer ${
-                page === currentPage ? 'font-bold bg-white rounded-full px-2' : ''
+                page === currentPage ? 'font-bold bg-white rounded-md px-2' : ''
               }`}
               onClick={() => setCurrentPage(page)}
             >
@@ -278,14 +278,14 @@ const Feedback = () => {
           ))}
         </div>
         <button
-          className="bg-white rounded-full p-2 flex items-center"
+          className="bg-white rounded-md p-2 mr-4 w-28 h-7 text-sm flex items-center pl-8"
           disabled={currentPage === totalPages}
           onClick={handleNextPage}
         >
           Next
           <IoArrowForward className="ml-1" />
         </button>
-      </div>
+        </div>
     </div>
   );
 };
