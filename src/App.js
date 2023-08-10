@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 
 import { Navbar, Sidebar} from './components';
-import { Dashboard,  Analytics, Feedback, AddReservations, UpdateReservations, AddLocation, AddCabins, UpdateCabins, AddStaff, UpdateStaff, AddSeasonalRule, AddExtraCharge, CreatePackage } from './pages';
+import { Dashboard,  Analytics, Feedback, AddReservations, UpdateReservations, AddLocation, AddCabins, UpdateCabins, AddStaff, UpdateStaff, AddSeasonalRule, AddExtraCharge, CreatePackage} from './pages';
 import {Location} from './pages';
 import {Cabins} from './pages';
 import {Reservations} from './pages';
@@ -22,6 +22,9 @@ import Emails from './pages/Settings/Emails';
 import Policies from './pages/Settings/Policies';
 import UpdateLocation from './pages/Location/UpdateLocation';
 import AddCoupon from './pages/PriceOptions/AddCoupon';
+import AddFaq from './pages/Settings/AddFaq';
+import AddTestimonial from './pages/Settings/AddTestimonial';
+import AddToGallery from './pages/Settings/AddToGallery';
 
 
 const App = () => {
@@ -91,6 +94,9 @@ const App = () => {
                 <Route path="/settings/emails" element={<Emails/>} />
                 <Route path="/settings/policies" element={<Policies/>} />
                 <Route path="/settings/extras" element={<Extras/>} />
+                <Route path="/addfaq" element={<AddFaq/>} />
+                <Route path="/addtestimonial" element={<AddTestimonial/>} />
+                <Route path="/addtestogallery" element={<AddToGallery/>} />
                 
               </Routes>
             </div>

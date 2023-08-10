@@ -1,5 +1,5 @@
 import React from 'react';
-
+import { Link } from 'react-router-dom';
 
 const ExtrasTable = ({ xtrasData }) => (
   <table>
@@ -63,7 +63,9 @@ const Extras = () => {
             <p className='italic ml-2'>These are some of the expected frequently asked questions that customers ask.</p>
           </div>
           <button className="bg-black rounded text-white h-[32px] w-[200px] text-center mt-10 flex items-center mb-1">
+            <Link to = "/addfaq">
             <span className="mr-2 p-5 mb-1"><span className="p-2">+</span> Add FAQ</span>
+            </Link>
           </button>
           <input type="text" className="mt-2" />
         </div>
@@ -88,7 +90,9 @@ const Extras = () => {
           <div className='h-[200px] w-[200px]'>
             <p className='italic ml-2'>This entails random photos of locations, cabins, staff and events that happen at various places, relating to Sojourn Cabins.</p>
             <button className="bg-black rounded text-white h-[32px] w-[200px] text-center mt-10 flex items-center">
+            <Link to = "/addgallery">
               <span className="mr-2 p-5"><span className="p-2">+</span> Add To Gallery</span>
+              </Link>
             </button>
           </div>
         </div>
@@ -119,7 +123,9 @@ const Extras = () => {
         <div className='h-[150px] w-[200px]'>
         <p className='italic ml-1'>These are some of the expected frequently asked questions that customers ask.</p>
         <button className="bg-black rounded text-white h-[32px] w-[200px] text-center mt-10 flex items-center">
-        <span className="mr-2 p-4"><span className="p-2">+</span> Add Testimonials</span>
+        <Link to = "/addgallery">  
+      <span className="mr-2 p-4"><span className="p-2">+</span> Add Testimonials</span>
+      </Link>
     </button>
     </div>
   </div>
