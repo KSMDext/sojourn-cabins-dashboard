@@ -5,7 +5,7 @@ const Emails = () => {
   return (
     <div className="ml-10 flex gap-36">
       <div>
-                <div className="text-xl mb-2">Email</div>
+                <div className="text-xl mb-2 ml-40 w-12">Email</div>
 
           <div className="flex align-right ">
           <div className="w-1/3">

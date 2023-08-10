@@ -44,16 +44,7 @@ const Policies = () => {
       </div>
       </form>
 
-     {/* <form className='w-7/8'>
-    <div className='mb-4'>
-      <input
-        type="text"
-        id="name"
-        className="w-full px-3 py-2 border border-gray-300 h-96"
-      />
-      </div>
-      </form> */}
-      {/* <div className="flex justify-end"> */}
+      <div className="ml-[950px] mb-[20px] mt-[20px] flex align-bottom ">
         <button
           type="button"
           className="px-5 py-2 bg-white text-black rounded hover:bg-gray-200 mr-2"
@@ -67,7 +58,7 @@ const Policies = () => {
           Save
         </button>
       </div>
-    // </div>
+     </div>
   );
 };
 
