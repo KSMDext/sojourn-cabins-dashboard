@@ -1,5 +1,5 @@
 import React from 'react';
-
+import { Link } from 'react-router-dom';
 
 const ExtrasTable = ({ xtrasData }) => (
   <table>
@@ -63,7 +63,9 @@ const Extras = () => {
             <p className='italic ml-2'>These are some of the expected frequently asked questions that customers ask.</p>
           </div>
           <button className="bg-black rounded text-white h-[32px] w-[200px] text-center mt-10 flex items-center mb-1">
+            <Link to = "/addfaq">
             <span className="mr-2 p-5 mb-1"><span className="p-2">+</span> Add FAQ</span>
+            </Link>
           </button>
           <input type="text" className="mt-2" />
         </div>
@@ -88,27 +90,29 @@ const Extras = () => {
           <div className='h-[200px] w-[200px]'>
             <p className='italic ml-2'>This entails random photos of locations, cabins, staff and events that happen at various places, relating to Sojourn Cabins.</p>
             <button className="bg-black rounded text-white h-[32px] w-[200px] text-center mt-10 flex items-center">
+            <Link to = "/addgallery">
               <span className="mr-2 p-5"><span className="p-2">+</span> Add To Gallery</span>
+              </Link>
             </button>
           </div>
         </div>
         <div>
           <div className="flex flex-col">
             <div className="flex flex-row br-4 space-x-6">
-            <img src="http://localhost:3001/static/media/location2.d7ce5fb621170477a271.jpeg" alt="" className="mb-2 border w-[200px] h-[100px] rounded" />
-            <img src="http://localhost:3001/static/media/location4.79d5bc1dfa3177bc0ff4.jpeg" alt="" className="mb-2 border w-[200px] h-[100px] rounded" />
-            <img src="http://localhost:3001/static/media/location1.0b8824b7cd237d98fd70.jpeg" alt="" className="mb-2 border w-[200px] h-[100px] rounded" />
-            <img src="http://localhost:3001/static/media/location4.79d5bc1dfa3177bc0ff4.jpeg" alt="" className="mb-2 border w-[200px] h-[100px] rounded" />
-            <img src="http://localhost:3001/static/media/location1.0b8824b7cd237d98fd70.jpeg" alt="" className="mb-2 border w-[200px] h-[100px] rounded" />
+            <img src="https://media.istockphoto.com/id/1444295286/photo/view-from-the-pool-above-the-water-level-clear-water-of-pure-blue-color-in-the-background-a.webp?b=1&s=170667a&w=0&k=20&c=oJT4Ku5CsEvMTXTz9yeeBdBLO3nNPB_0OSvUaKY7aEY=" alt="" className="mb-2 border w-[200px] h-[100px] rounded" />
+            <img src="https://media.istockphoto.com/id/1001765878/photo/in-the-pool.webp?b=1&s=170667a&w=0&k=20&c=l1PbBT9LpFFSlFabe7IdI9g7AxtkCVaHUxXqhoPGh5o=" alt="" className="mb-2 border w-[200px] h-[100px] rounded" />
+            <img src="https://media.istockphoto.com/id/1332857654/photo/aerial-top-view-male-swimmer-swimming-in-swimming-pool-professional-determined-athlete.webp?b=1&s=170667a&w=0&k=20&c=JQ48D9dgwHAXaKeXBuARMZzBFDdrvooQRbbovCJUYt0=" alt="" className="mb-2 border w-[200px] h-[100px] rounded" />
+            <img src="https://media.istockphoto.com/id/1451002406/photo/portrait-of-a-senior-man-at-swimming-pool.webp?b=1&s=170667a&w=0&k=20&c=xtUxxEGOs1zm4y_UvnXEqVAZbhb2aNYWTKTB2aBON0k="alt="" className="mb-2 border w-[200px] h-[100px] rounded" />
+            <img src="https://media.istockphoto.com/id/1372510773/photo/a-supported-swim.webp?b=1&s=170667a&w=0&k=20&c=VQjW9R-9EmZIRTzKC_BdMWsY6nDQyMwXDQvcYgQ2P6k=" alt="" className="mb-2 border w-[200px] h-[100px] rounded" />
             </div>
           </div>
           <div className="flex flex-col">
             <div className="flex flex-row br-4 space-x-6">
-            <img src="	http://localhost:3001/static/media/location4.79d5bc1dfa3177bc0ff4.jpeg" alt="" className="mb-2 border w-[200px] h-[100px] rounded" />
-            <img src="	http://localhost:3001/static/media/location4.79d5bc1dfa3177bc0ff4.jpeg" alt="" className="mb-2 border w-[200px] h-[100px] rounded" />
-            <img src="http://localhost:3001/static/media/location2.d7ce5fb621170477a271.jpeg" alt="" className="mb-2 border w-[200px] h-[100px] rounded" />
-            <img src="http://localhost:3001/static/media/location1.0b8824b7cd237d98fd70.jpeg" alt="" className="mb-2 border w-[200px] h-[100px] rounded" />
-            <img src="http://localhost:3001/static/media/location1.0b8824b7cd237d98fd70.jpeg" alt="" className="mb-2 border w-[200px] h-[100px] rounded" />
+            <img src="https://images.unsplash.com/photo-1519315901367-f34ff9154487?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8OHx8c3dpbW1lcnxlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&w=500&q=60" alt="" className="mb-2 border w-[200px] h-[100px] rounded" />
+            <img src="https://images.unsplash.com/photo-1600965962323-6362f726c3f8?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTh8fHN3aW1tZXJ8ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&w=500&q=60" alt="" className="mb-2 border w-[200px] h-[100px] rounded" />
+            <img src="https://images.unsplash.com/photo-1480109866847-0b432ceb666a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTZ8fHN3aW1tZXJ8ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&w=500&q=60" alt="" className="mb-2 border w-[200px] h-[100px] rounded" />
+            <img src="https://images.unsplash.com/photo-1480109866847-0b432ceb666a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTZ8fHN3aW1tZXJ8ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&w=500&q=60" alt="" className="mb-2 border w-[200px] h-[100px] rounded" />
+            <img src="https://media.istockphoto.com/id/1332857654/photo/aerial-top-view-male-swimmer-swimming-in-swimming-pool-professional-determined-athlete.webp?b=1&s=170667a&w=0&k=20&c=JQ48D9dgwHAXaKeXBuARMZzBFDdrvooQRbbovCJUYt0="alt="" className="mb-2 border w-[200px] h-[100px] rounded" />
           </div>
           </div>
         </div>
@@ -119,7 +123,9 @@ const Extras = () => {
         <div className='h-[150px] w-[200px]'>
         <p className='italic ml-1'>These are some of the expected frequently asked questions that customers ask.</p>
         <button className="bg-black rounded text-white h-[32px] w-[200px] text-center mt-10 flex items-center">
-        <span className="mr-2 p-4"><span className="p-2">+</span> Add Testimonials</span>
+        <Link to = "/addgallery">  
+      <span className="mr-2 p-4"><span className="p-2">+</span> Add Testimonials</span>
+      </Link>
     </button>
     </div>
   </div>
@@ -154,5 +160,3 @@ const Extras = () => {
 }
 
 export default Extras;
-
-
