@@ -1,5 +1,57 @@
 import React from 'react';
 
+
+const ExtrasTable = ({ xtrasData }) => (
+  <table>
+    <tbody>
+      {xtrasData.map((item, index) => (
+        <tr key={index}>
+          <td>
+            <input type="checkbox" className="h-8 w-8 mt-1 mb-2" />
+          </td>
+          <td>
+            <img className="rounded-full w-10 h-8" src={item.ExtrasImage} alt="feedback" />
+          </td>
+          <td>
+            <p>{item.ExtrasName}</p>
+            <p>{item.ExtrasMessage}</p>
+          </td>
+        </tr>
+      ))}
+    </tbody>
+  </table>
+);
+
+const xtrasData = [
+  {
+    ExtrasName: 'Nirav Joshi',
+    ExtrasMessage: 'Yea yea this is know how it is. Sho sho sho, you know AB in the building',
+    ExtrasImage: 'https://images.unsplash.com/photo-1480429370139-e0132c086e2a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NXx8bWFufGVufDB8fDB8fHww&auto=format&fit=crop&w=500&q=60',
+  },
+      
+  {
+    ExtrasName: 'Sunil Joshi',
+    ExtrasMessage:'Everything went smooth; from the swimming to the massages and even the dishes prepared by the master chef. Such great culinary skill',
+    ExtrasImage:
+      'https://images.unsplash.com/photo-1615109398623-88346a601842?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTV8fG1hbnxlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&w=500&q=60',
+  },
+  
+  { 
+    ExtrasName: 'Nirav Joshi',
+    ExtrasMessage:'Excellent customer service!! I’ll surely come back here with my side-chicks.',
+    ExtrasImage:
+      'https://images.unsplash.com/photo-1564564321837-a57b7070ac4f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8OHx8bWFufGVufDB8fDB8fHww&auto=format&fit=crop&w=500&q=60',
+  },
+
+  {
+    ExtrasName: 'Sunil Joshi',
+    ExtrasMessage:'Excellent customer service!! I’ll surely come back here with my side-chicks.',
+    ExtrasImage:
+      'https://images.unsplash.com/photo-1564564321837-a57b7070ac4f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8OHx8bWFufGVufDB8fDB8fHww&auto=format&fit=crop&w=500&q=60',
+   
+  },
+
+];
 const Extras = () => {
   return (
     <div>
@@ -43,20 +95,20 @@ const Extras = () => {
         <div>
           <div className="flex flex-col">
             <div className="flex flex-row br-4 space-x-6">
-            <img src="http://localhost:3001/static/media/location2.d7ce5fb621170477a271.jpeg" alt="" className="mb-2 border w-[200px] h-[100px] rounded" />
-            <img src="http://localhost:3001/static/media/location4.79d5bc1dfa3177bc0ff4.jpeg" alt="" className="mb-2 border w-[200px] h-[100px] rounded" />
-            <img src="http://localhost:3001/static/media/location1.0b8824b7cd237d98fd70.jpeg" alt="" className="mb-2 border w-[200px] h-[100px] rounded" />
-            <img src="http://localhost:3001/static/media/location4.79d5bc1dfa3177bc0ff4.jpeg" alt="" className="mb-2 border w-[200px] h-[100px] rounded" />
-            <img src="http://localhost:3001/static/media/location1.0b8824b7cd237d98fd70.jpeg" alt="" className="mb-2 border w-[200px] h-[100px] rounded" />
+            <img src="https://media.istockphoto.com/id/1444295286/photo/view-from-the-pool-above-the-water-level-clear-water-of-pure-blue-color-in-the-background-a.webp?b=1&s=170667a&w=0&k=20&c=oJT4Ku5CsEvMTXTz9yeeBdBLO3nNPB_0OSvUaKY7aEY=" alt="" className="mb-2 border w-[200px] h-[100px] rounded" />
+            <img src="https://media.istockphoto.com/id/1001765878/photo/in-the-pool.webp?b=1&s=170667a&w=0&k=20&c=l1PbBT9LpFFSlFabe7IdI9g7AxtkCVaHUxXqhoPGh5o=" alt="" className="mb-2 border w-[200px] h-[100px] rounded" />
+            <img src="https://media.istockphoto.com/id/1332857654/photo/aerial-top-view-male-swimmer-swimming-in-swimming-pool-professional-determined-athlete.webp?b=1&s=170667a&w=0&k=20&c=JQ48D9dgwHAXaKeXBuARMZzBFDdrvooQRbbovCJUYt0=" alt="" className="mb-2 border w-[200px] h-[100px] rounded" />
+            <img src="https://media.istockphoto.com/id/1451002406/photo/portrait-of-a-senior-man-at-swimming-pool.webp?b=1&s=170667a&w=0&k=20&c=xtUxxEGOs1zm4y_UvnXEqVAZbhb2aNYWTKTB2aBON0k="alt="" className="mb-2 border w-[200px] h-[100px] rounded" />
+            <img src="https://media.istockphoto.com/id/1372510773/photo/a-supported-swim.webp?b=1&s=170667a&w=0&k=20&c=VQjW9R-9EmZIRTzKC_BdMWsY6nDQyMwXDQvcYgQ2P6k=" alt="" className="mb-2 border w-[200px] h-[100px] rounded" />
             </div>
           </div>
           <div className="flex flex-col">
             <div className="flex flex-row br-4 space-x-6">
-            <img src="	http://localhost:3001/static/media/location4.79d5bc1dfa3177bc0ff4.jpeg" alt="" className="mb-2 border w-[200px] h-[100px] rounded" />
-            <img src="	http://localhost:3001/static/media/location4.79d5bc1dfa3177bc0ff4.jpeg" alt="" className="mb-2 border w-[200px] h-[100px] rounded" />
-            <img src="http://localhost:3001/static/media/location2.d7ce5fb621170477a271.jpeg" alt="" className="mb-2 border w-[200px] h-[100px] rounded" />
-            <img src="http://localhost:3001/static/media/location1.0b8824b7cd237d98fd70.jpeg" alt="" className="mb-2 border w-[200px] h-[100px] rounded" />
-            <img src="http://localhost:3001/static/media/location1.0b8824b7cd237d98fd70.jpeg" alt="" className="mb-2 border w-[200px] h-[100px] rounded" />
+            <img src="https://images.unsplash.com/photo-1519315901367-f34ff9154487?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8OHx8c3dpbW1lcnxlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&w=500&q=60" alt="" className="mb-2 border w-[200px] h-[100px] rounded" />
+            <img src="https://images.unsplash.com/photo-1600965962323-6362f726c3f8?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTh8fHN3aW1tZXJ8ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&w=500&q=60" alt="" className="mb-2 border w-[200px] h-[100px] rounded" />
+            <img src="https://images.unsplash.com/photo-1480109866847-0b432ceb666a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTZ8fHN3aW1tZXJ8ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&w=500&q=60" alt="" className="mb-2 border w-[200px] h-[100px] rounded" />
+            <img src="https://images.unsplash.com/photo-1480109866847-0b432ceb666a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTZ8fHN3aW1tZXJ8ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&w=500&q=60" alt="" className="mb-2 border w-[200px] h-[100px] rounded" />
+            <img src="https://media.istockphoto.com/id/1332857654/photo/aerial-top-view-male-swimmer-swimming-in-swimming-pool-professional-determined-athlete.webp?b=1&s=170667a&w=0&k=20&c=JQ48D9dgwHAXaKeXBuARMZzBFDdrvooQRbbovCJUYt0="alt="" className="mb-2 border w-[200px] h-[100px] rounded" />
           </div>
           </div>
         </div>
@@ -73,11 +125,11 @@ const Extras = () => {
   </div>
   <div className="flex flex-col justify-between">
   <div className="flex flex-row br-4 space-x-6">
-    <div className="flex flex-col ml-2 mb-2">
-      <input type="checkbox" className="h-8 w-8 mb-5" />
-      <input type="checkbox" className="h-8 w-8 mb-5" />
-      <input type="checkbox" className="h-8 w-8" />
-    </div>
+  <div className='bg-white mt-8 m-[30px] p-[30px]'>
+        <div className="mr-8">
+          <ExtrasTable xtrasData={xtrasData} />
+        </div>
+      </div>
   </div>
 </div>
 
