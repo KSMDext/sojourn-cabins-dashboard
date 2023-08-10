@@ -1,5 +1,57 @@
 import React from 'react';
 
+
+const ExtrasTable = ({ xtrasData }) => (
+  <table>
+    <tbody>
+      {xtrasData.map((item, index) => (
+        <tr key={index}>
+          <td>
+            <input type="checkbox" className="h-8 w-8 mt-1 mb-2" />
+          </td>
+          <td>
+            <img className="rounded-full w-10 h-8" src={item.ExtrasImage} alt="feedback" />
+          </td>
+          <td>
+            <p>{item.ExtrasName}</p>
+            <p>{item.ExtrasMessage}</p>
+          </td>
+        </tr>
+      ))}
+    </tbody>
+  </table>
+);
+
+const xtrasData = [
+  {
+    ExtrasName: 'Nirav Joshi',
+    ExtrasMessage: 'Yea yea this is know how it is. Sho sho sho, you know AB in the building',
+    ExtrasImage: 'https://images.unsplash.com/photo-1480429370139-e0132c086e2a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NXx8bWFufGVufDB8fDB8fHww&auto=format&fit=crop&w=500&q=60',
+  },
+      
+  {
+    ExtrasName: 'Sunil Joshi',
+    ExtrasMessage:'Everything went smooth; from the swimming to the massages and even the dishes prepared by the master chef. Such great culinary skill',
+    ExtrasImage:
+      'https://images.unsplash.com/photo-1615109398623-88346a601842?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTV8fG1hbnxlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&w=500&q=60',
+  },
+  
+  { 
+    ExtrasName: 'Nirav Joshi',
+    ExtrasMessage:'Excellent customer service!! I’ll surely come back here with my side-chicks.',
+    ExtrasImage:
+      'https://images.unsplash.com/photo-1564564321837-a57b7070ac4f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8OHx8bWFufGVufDB8fDB8fHww&auto=format&fit=crop&w=500&q=60',
+  },
+
+  {
+    ExtrasName: 'Sunil Joshi',
+    ExtrasMessage:'Excellent customer service!! I’ll surely come back here with my side-chicks.',
+    ExtrasImage:
+      'https://images.unsplash.com/photo-1564564321837-a57b7070ac4f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8OHx8bWFufGVufDB8fDB8fHww&auto=format&fit=crop&w=500&q=60',
+   
+  },
+
+];
 const Extras = () => {
   return (
     <div>
@@ -73,11 +125,11 @@ const Extras = () => {
   </div>
   <div className="flex flex-col justify-between">
   <div className="flex flex-row br-4 space-x-6">
-    <div className="flex flex-col ml-2 mb-2">
-      <input type="checkbox" className="h-8 w-8 mb-5" />
-      <input type="checkbox" className="h-8 w-8 mb-5" />
-      <input type="checkbox" className="h-8 w-8" />
-    </div>
+  <div className='bg-white mt-8 m-[30px] p-[30px]'>
+        <div className="mr-8">
+          <ExtrasTable xtrasData={xtrasData} />
+        </div>
+      </div>
   </div>
 </div>
 
@@ -102,3 +154,5 @@ const Extras = () => {
 }
 
 export default Extras;
+
+
