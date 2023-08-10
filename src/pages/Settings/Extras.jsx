@@ -90,7 +90,7 @@ const Extras = () => {
           <div className='h-[200px] w-[200px]'>
             <p className='italic ml-2'>This entails random photos of locations, cabins, staff and events that happen at various places, relating to Sojourn Cabins.</p>
             <button className="bg-black rounded text-white h-[32px] w-[200px] text-center mt-10 flex items-center">
-            <Link to = "/addgallery">
+            <Link to = "/addtogallery">
               <span className="mr-2 p-5"><span className="p-2">+</span> Add To Gallery</span>
               </Link>
             </button>
