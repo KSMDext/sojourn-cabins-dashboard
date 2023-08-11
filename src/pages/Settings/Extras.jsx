@@ -123,7 +123,7 @@ const Extras = () => {
         <div className='h-[150px] w-[200px]'>
         <p className='italic ml-1'>These are some of the expected frequently asked questions that customers ask.</p>
         <button className="bg-black rounded text-white h-[32px] w-[200px] text-center mt-10 flex items-center">
-        <Link to = "/addgallery">  
+        <Link to = "/addtestimonial">  
       <span className="mr-2 p-4"><span className="p-2">+</span> Add Testimonials</span>
       </Link>
     </button>
