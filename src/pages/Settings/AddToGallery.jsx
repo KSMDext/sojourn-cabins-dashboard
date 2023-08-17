@@ -40,10 +40,13 @@ const AddToGallery = () => {
             />
           </label>
 
-          <ImageUploader />
-          <div className="border-b border-slate-200 mt-4"></div>
         </form>
       </div>
+
+      <div className="flex items-center mt-[20px] ml-[675px]">
+        <ImageUploader />
+      </div>
+
       <div className="ml-[950px] mb-[20px] mt-[20px] flex align-bottom">
         <button className="bg-white mr-[10px] rounded w-[98px] h-[32px] hover:bg-gray-100" type="button">
           <Link to="/staff" className="hover:text-gray-800">
