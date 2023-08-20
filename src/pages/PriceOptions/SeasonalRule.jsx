@@ -7,7 +7,6 @@ import MOCK_DATA from './MOCK_DATAs.json';
 import { COLUMNS } from './ColumnsSeasonal';
 import './table.css';
 import { GlobalFilter } from '../../components/GlobalFilter';
-import { useState } from 'react';
 
 const SeasonalRule = () => {
   const columns = useMemo(() => COLUMNS, []);
