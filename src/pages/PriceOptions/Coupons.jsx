@@ -1,178 +1,132 @@
-import React from 'react';
-import { FaEllipsisV } from 'react-icons/fa';
-import { GridComponent, ColumnsDirective, ColumnDirective, Page, Inject } from '@syncfusion/ej2-react-grids';
-import {Link} from "react-router-dom"
+import React, { useMemo } from 'react';
+import { useTable, useGlobalFilter, usePagination } from 'react-table';
 import { IoMdArrowBack } from 'react-icons/io';
 import {IoArrowForward} from 'react-icons/io5';
+import { Link } from 'react-router-dom'
+import MOCK_DATA from './MOCK_DATAc.json';
+import { COLUMNS } from './ColumnsCoupon';
+import './table.css';
+import { GlobalFilter } from '../../components/GlobalFilter';
 
-import { useState } from 'react';
 
 const Coupons = () => {
-  const [currentPage, setCurrentPage] = useState(1);
+  const columns = useMemo(() => COLUMNS, []);
+  const data = useMemo(() => MOCK_DATA, []);
 
-  const handlePreviousPage = () => {
-    setCurrentPage((prevPage) => prevPage - 1);
-  };
-
-  const handleNextPage = () => {
-    setCurrentPage((prevPage) => prevPage + 1);
-  };
-  const [showMenu, setShowMenu] = useState(false);
-
-  const toggleMenu = () => {
-    setShowMenu(!showMenu);
-  };
-
-  const handleMenuClick = (menuItem) => {
-    // Handle the menu item click event
-    switch (menuItem) {
-      case 'Delete':
-        console.log('Delete clicked');
-        // Add your delete logic here
-        break;
-      case 'Edit':
-        console.log('Edit clicked');
-        // Add your edit logic here
-        break;
-      default:
-        break;
-    }
-  };
-
- 
-
-
-  const gridCouponsMenu = () => (
-    <div className="menu-container">
-      <button onClick={toggleMenu} className="menu-button">
-        <FaEllipsisV /> {/* Replace with the desired menu button icon */}
-      </button>
-      {showMenu && (
-        <div className="dropdown-menu">
-          <button onClick={() => handleMenuClick('Delete')} className="dropdown-menu-item">
-            Delete
-          </button>
-          <button onClick={() => handleMenuClick('Edit')} className="dropdown-menu-item">
-            Edit
-          </button>
-        </div>
-      )}
-    </div>
+  const {
+    getTableProps,
+    getTableBodyProps,
+    headerGroups,
+    page,
+    nextPage,
+    previousPage,
+    canNextPage,
+    canPreviousPage,
+    prepareRow,
+    state,
+    pageOptions,
+    setGlobalFilter,
+  } = useTable(
+    {
+      columns,
+      data,
+      initialState: { pageSize: 5 }, 
+    },
+    useGlobalFilter,
+    usePagination
   );
 
-  const CouponsGrid = [
-    
-    { field: 'CouponID', headerText: 'Coupon ID', width: '180', textAlign: 'Center' },
-    { field: 'CouponCode', headerText: 'Coupon Code', width: '150', textAlign: 'Center' },
-    { field: 'StartDate', headerText: 'Start Date', width: '140', textAlign: 'Center' },
-    { field: 'ExpiryDate', headerText: 'ExpiryDate', width: '140', textAlign: 'Center' },
-    { field: 'Discount', headerText: '%Discount', width: '140', textAlign: 'Center' },
-    { field: 'Usage', headerText: 'Usage', width: '140', textAlign: 'Center' },
-    { field: '', headerText: '', width: '50', template: gridCouponsMenu },
-  ];
+  const { globalFilter } = state;
+  const { pageIndex } = state;
 
-  const CouponsData = [
-    {
-      CouponID: 'Kingsley Yankson',
-      CouponCode: "002HDJSKS",
-      StartDate: '11/02/2022',
-      ExpiryDate: '12/02/2023', 
-      Discount: '10%', 
-      Usage: '0/100', 
-      Menu: '.',
-    },
-    {
-      CouponID: 'Kingsley Yankson',
-      CouponCode: "001HDJSKS",
-      StartDate: '11/02/2022',
-      ExpiryDate: '12/02/2023', 
-      Discount: '10%', 
-      Usage: '0/100', 
-      Menu: '.',
-    },
-
-    {
-      CouponID: 'Abdul Aziz',
-      CouponCode: "002HDJSKS",
-      StartDate: '11/02/2022',
-      ExpiryDate: '12/02/2023', 
-      Discount: '10%', 
-      Usage: '0/100', 
-      Menu: '.',
-    },
-
-    {
-      CouponID: 'Wisdom Senya',
-      CouponCode: "003HDJSKS",
-      StartDate: '11/02/2022',
-      ExpiryDate: '12/02/2023', 
-      Discount: '10%', 
-      Usage: '0/100', 
-      Menu: '.',
-    },
-  ];
-
-  const itemsPerPage = 10;
-  const totalPages = Math.ceil(CouponsData.length / itemsPerPage);
-  const startIndex = (currentPage - 1) * itemsPerPage;
-  const visibleData = CouponsData.slice(startIndex, startIndex + itemsPerPage);
+ 
   return (
     <div>
-      <div className=" grid grid-cols-3 gap-64 ">
-          <div className=" text-xl mt-4 ml-5 ">Coupons</div>
-          <div> </div>
-          <div> 
-          <button className=" text-white p-1  hover:bg-zinc-600 bg-zinc-800 rounded-md mt-4 bold text-14 w-40 ml-12 ">
+      <div className="flex space-x-[380px] mt-4 items-center">
+        <div className="text-2xl ml-5 mr-96">Coupon</div>
+        <div></div>
+        <div>
+          <button className="text-white p-1 hover:bg-zinc-300 bg-zinc-800 rounded-md bold text-14 w-40">
             <Link to="/addcoupons">
-            <span className="mr-2">+</span>Add Coupons
+              <span className="mr-4">+</span>Add Coupons
             </Link>
           </button>
-          </div>
-        </div>
-        <div>
-        <div className="m-5  mt-6 rounded-md p-2  bg-white">
-        <GridComponent dataSource={visibleData} enableHover={false} >
-          <ColumnsDirective>
-            {CouponsGrid.map((item, index) => (
-              <ColumnDirective key={index} {...item} />
-            ))}
-          </ColumnsDirective>
-          <Inject services={[Page]} />
-        </GridComponent>
-        </div>
-        <div className="flex justify-between mt-4 bg-zinc-300  h-12  items-center rounded-md p-1 m-5 ">
-        <button
-          className="bg-white rounded-md p-2 ml-4 w-28 h-7 text-sm flex items-center pl-4"
-          disabled={currentPage === 1}
-          onClick={handlePreviousPage}
-        >
-          <IoMdArrowBack className="mr-1" />
-          Previous
-        </button>
-        <div className="flex items-center mx-2 text-sm rounded-md p-2 ml-4 w-28 h-7 ">
-          {Array.from({ length: totalPages }, (_, index) => index + 1).map((page) => (
-            <span
-              key={page}
-              className={`mx-1 cursor-pointer ${
-                page === currentPage ? 'font-bold bg-white rounded-md px-2' : ''
-              }`}
-              onClick={() => setCurrentPage(page)}
-            >
-              {page}
-            </span>
-          ))}
-        </div>
-        <button
-          className="bg-white rounded-md p-2 mr-4 w-28 h-7 text-sm flex items-center pl-8"
-          disabled={currentPage === totalPages}
-          onClick={handleNextPage}
-        >
-          Next
-          <IoArrowForward className="ml-1" />
-        </button>
         </div>
       </div>
+      <div className="flex space-x-[500px] mt-4">
+        <div className="w-80 border rounded text-sm ml-5 mr-96">
+          <GlobalFilter filter={globalFilter} setFilter={setGlobalFilter} />
+        </div>
+        <div>
+          <select className="w-[190px] h-9 border-slate-200 border-1 rounded text-sm">
+            <option>All Location</option>
+            <option>Location 1</option>
+            <option>Location 2</option>
+          </select>
+        </div>
+      </div>
+      <div className="m-5">
+        <div className="rounded-md bg-white mb-6">
+          <table {...getTableProps()}>
+            <thead>
+              {headerGroups.map((headerGroup) => (
+                <tr {...headerGroup.getHeaderGroupProps()}>
+                  {headerGroup.headers.map((column) => (
+                    <th {...column.getHeaderProps()}>{column.render('Header')}</th>
+                  ))}
+                </tr>
+              ))}
+            </thead>
+            <tbody {...getTableBodyProps()}>
+              {page.map((row) => {
+                prepareRow(row);
+                return (
+                  <tr {...row.getRowProps()}>
+                    {row.cells.map((cell) => {
+                      return <td {...cell.getCellProps()}>{cell.render('Cell')}</td>;
+                    })}
+                  </tr>
+                );
+              })}
+            </tbody>
+          </table>
+        </div>
 
+        <div className="flex justify-between mt-16 bg-zinc-400 h-12 items-center rounded-md p-1">
+          <button
+            className="bg-white rounded-md p-2 ml-4 w-28 h-7 text-sm flex items-center pl-4"
+            onClick={() => previousPage()}
+            disabled={!canPreviousPage}
+          >
+            <IoMdArrowBack className="mr-1" />
+            Previous
+          </button>
+
+          <div className="flex items-center mx-2 text-sm rounded-md p-2 ml-4 w-28 h-7">
+            {Array.from({ length: pageOptions.length }, (_, pageIndex) => pageIndex + 1).map(
+              (page) => (
+                <span
+                  key={page}
+                  className={`mx-1 cursor-pointer ${
+                    page === pageIndex + 1 ? 'font-bold bg-white rounded-md px-2' : ''
+                  }`}
+                >
+                  {page}
+                </span>
+              )
+            )}
+          </div>
+
+          <button
+            className="bg-white rounded-md p-2 mr-4 w-28 h-7 text-sm flex items-center pl-8"
+            onClick={() => nextPage()}
+            disabled={!canNextPage}
+          >
+            Next
+            <IoArrowForward className="ml-1" />
+          </button>
+        </div>
+      </div>
     </div>
   )
 }

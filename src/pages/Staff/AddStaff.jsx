@@ -90,9 +90,9 @@ const AddStaff = () => {
       </form>
       
     </div>
-    <div className="ml-[890px] mb-[20px]">
-    <button className="bg-white  mr-[10px]  rounded w-[98px] h-[32px] hover:bg-current  " type="button"><Link to="/staff" className="hover:text-white">Cancel</Link></button> 
-    <button className="bg-black  rounded-lg text-white w-[98px] h-[32px] text-center hover:bg-current" type="button"><Link to="/staff" className="hover:text-black">Save</Link></button>
+    <div className=" flex   flex-row-reverse gap-6 mt-4 mr-5">
+        <button className="bg-white rounded-lg mr-[10px]  w-[98px] h-[32px]" type="button"><Link to="/staff">Cancel</Link></button> 
+        <button className="bg-black  rounded-lg text-white w-[98px] h-[32px] text-center" type="button">Save</button>
     </div>
     
     </div>

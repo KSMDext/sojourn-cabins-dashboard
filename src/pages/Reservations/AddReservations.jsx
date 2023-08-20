@@ -100,9 +100,6 @@ const AddReservations = () => {
           />
           </div>
       </div>
-  {/* Price Details Section*/}
-
- 
       <div className=" grid grid-rows-3  bg-white  mx-[35px] mt-[20px] px-[35px] py-[35px] rounded">
       <div className="mt-[10px]">
       <p className=" text-xl  text-sky-700	">Price Details</p>
@@ -117,7 +114,6 @@ const AddReservations = () => {
             </tr>
           </thead>
           <tbody>
-            {/* Add more rows here if needed */}
           </tbody>
       </table>
     </div>
@@ -144,9 +140,9 @@ const AddReservations = () => {
     </div>
 
   </div>
-  <div className="ml-[950px] mb-[20px] mt-[20px] flex align-bottom ">
-    <button className="bg-white rounded-lg mr-[10px]  w-[98px] h-[32px]" type="button"><Link to="/reservations">Cancel</Link></button> 
-    <button className="bg-black  rounded-lg text-white w-[98px] h-[32px] text-center" type="button">Save</button>
+  <div className=" flex   flex-row-reverse gap-6 mt-4 mr-5">
+        <button className="bg-white rounded-lg mr-[10px]  w-[98px] h-[32px]" type="button"><Link to="/reservations">Cancel</Link></button> 
+        <button className="bg-black  rounded-lg text-white w-[98px] h-[32px] text-center" type="button">Save</button>
     </div>
     </>
   )

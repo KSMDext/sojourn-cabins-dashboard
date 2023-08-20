@@ -108,10 +108,10 @@ const AddExtraCharge = () => {
         </div>
 
       </div>
-      <div className="mt-[230px] ml-[1050px] mb-[20px]">
-        <button className="bg-white rounded w-[98px] h-[32px] hover:bg-current  " type="button"><Link to="/addextracharge" className="hover:text-white">Cancel</Link></button> 
-        <button className="bg-black  rounded-lg text-white w-[98px] h-[32px] text-center hover:bg-current" type="button"><Link to="" className="hover:text-black">Save</Link></button>
-      </div>
+      <div className=" flex   flex-row-reverse gap-6 mt-4 mr-5">
+        <button className="bg-white rounded-lg mr-[10px]  w-[98px] h-[32px]" type="button"><Link to="/priceoptions/extracharge">Cancel</Link></button> 
+        <button className="bg-black  rounded-lg text-white w-[98px] h-[32px] text-center" type="button">Save</button>
+    </div>
     </div>
   )
 }

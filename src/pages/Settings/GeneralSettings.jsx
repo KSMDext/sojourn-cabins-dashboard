@@ -3,14 +3,13 @@ import { Link } from 'react-router-dom'
 
 const GeneralSettings = () => {
   return (
-    <div class="p-5 h-scree bg-black-50">
-      <div className="mx-[35px] mt-[20px] text-2xl font-medium	mb-4">General Settings</div>
+    <div class="p-5 bg-black-50">
+      <div className="mx-[5px] mt-[10px] text-2xl mb-4">General Settings</div>
          <div className="w-1/8">
             <div className="mb-4 bg-white p-4">
     <form>
       <div className="info_name text-blue-900 font-bold font-display-latto">Business Info</div>
-         <input type="text" id="name" />
-    <div className="flex gap-40">
+    <div className="flex gap-48">
     <div className="flex flex-col mr-8  text-slate-500 ml-40">
       <div className="mb-2">Property Name*</div>
       <input
@@ -51,16 +50,16 @@ const GeneralSettings = () => {
  </div>
  </div>
 <div className="w-1/8">
-          <div className="mb-4 bg-white p-4">
-          <form>
-            <div className="">
+ <div className="mb-4 bg-white p-4">
+  <form>
+  <div className="">
   <div className="info_name text-blue-900 font-bold">Address</div>
-  <div className="flex items-center mb-4">
+  <div className="flex  mb-4">
     <div className="flex flex-col  text-slate-500 text-14 mr-6">
       City, State, Country*
       <input
       type="text"
-      className="border rounded p-2 mb-2 text-gray-700 " // Apply text color to the input
+      className="border rounded p-2 mb-2 text-gray-700 w-64" // Apply text color to the input
       placeholder="Anomabo, Central region, Ghana"
       />
       Street Address*
@@ -78,11 +77,11 @@ const GeneralSettings = () => {
     </div>
     
     {/* Add the Google Map as an iframe */}
-    <div className="border rounded overflow-hidden">
+    <div className="border rounded overflow-hidden ml-10">
       <iframe
         title="Google Map"
         src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3959.472020101909!2d-1.1266588852656467!3d5.171908650496125!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xfde057a668fbb1b%3A0x724f8f20e7e68e74!2sSojourn%20Cabins!5e0!3m2!1sen!2s!4v1631225516235!5m2!1sen!2s"
-        width="900"
+        width="1000"
         height="350"
         style={{ border: 0 }}
         allowFullScreen=""
@@ -99,35 +98,28 @@ const GeneralSettings = () => {
 <div className="w-1/8">
           <div className="mb-4 bg-white p-4">
           <form>
-  <div className="info_name  text-blue-900 font-bold">Regional Settings</div>
-  <input type="text" id="name" />
-  <div className="flex justify-center gap-24  text-slate-500 ">
+  <div className="info_name text-blue-900 font-bold font-display-latto">Regional Settings</div>
+  <div className="flex gap-48  mr-8  text-slate-500 ml-40">
     <div className="w-1/4">
-      Time Zone
-      <input
-        type="text"
-        className="border rounded p-2 py-2 mb-2 w-72 col-sm-5  text-blue-900   "
-        placeholder="(GMT+00:00)Europe/London "
-      />
+      <div>
+          Time Zone
+        <input
+          type="text"
+          className="border rounded p-2 py-2 mb-2 w-72 col-sm-5  text-blue-900   "
+          placeholder="(GMT+00:00)Europe/London "
+        />
+      </div>
+      <div>
       Your Weekend Night Are:
+      </div>
+     
     </div>
     <div className="w-1/4 flex flex-col ">
       Measurement Units
       <div className="relative inline-block">
-        <input
-          type="text"
-          className="border rounded items-center p-2 px-2 mb-2 py-2 w-72  pr-10" // Add paddingRight for the dropdown button
-          placeholder="Square Feet"
-        />
         <select
-          className="absolute top-0 right-0 mt-2 mr-2" // Position the dropdown button
-          style={{
-            borderRadius: '0.25rem',
-            padding: '0.25rem',
-            border: 'none', // Remove the border
-            backgroundColor: 'transparent', // Remove the background color
-            cursor: 'pointer',
-          }}
+          className=" border rounded items-center p-2 px-2 mb-2 py-2 w-72  pr-10" // Position the dropdown button
+          
         >
           <option value="square_feet">Square Feet</option>
           <option value="square_meters">Square Meters</option>
@@ -138,20 +130,8 @@ const GeneralSettings = () => {
       {/* Add margin to create space */}
       <div className="relative inline-block">
         Primary English
-        <input
-          type="text"
-          className="border rounded p-2 px-2 mb-2 py-2 w-72 pr-10" // Add paddingRight for the dropdown button
-          placeholder="English"
-        />
         <select
-          className="absolute top-0 right-0 mt-2 mr-2" // Position the dropdown button
-          style={{
-            borderRadius: '0.25rem',
-            padding: '1.5rem',
-            border: 'none', // Remove the border
-            backgroundColor: 'transparent', // Remove the background color
-            cursor: 'pointer',
-          }}
+          className="border rounded p-2 px-2 mb-2 py-2 w-72 pr-10" // Position the dropdown button
         >
           <option value="english">English</option>
           <option value="spanish">Spanish</option>
@@ -166,18 +146,16 @@ const GeneralSettings = () => {
 </div>
      <div className="w-1/8">
   <div className="mb-4 bg-white p-4">
-  <form> 
   <div className="info_name  text-blue-900 font-bold">Length of stay</div>
-  
-
-  <div className="flex justify-center flex-col items-center">
-    <div className="flex justify-center">
+  <form> 
+  <div className="">
+    <div className="flex gap-16  mr-8  text-slate-500 ml-40">
       <div className="flex flex-col mr-8  text-xs  text-slate-500 ">
         <div className="mb-2"></div>
         Check-In time
         <input
           type="text"
-          className="w-94 px-4 py-3 mb-4 border border-gray-300 rounded"
+          className="w-[250px] px-4 py-3 mb-4 border border-gray-300 rounded"
         />
       </div>
       <div className="flex flex-col mr-8  text-xs  text-slate-500">
@@ -185,7 +163,7 @@ const GeneralSettings = () => {
         Check-Out Time
         <input
           type="text"
-          className="w-94 px-4 py-3 mb-4 border border-gray-300 rounded"
+          className="w-[250px] px-4 py-3 mb-4 border border-gray-300 rounded"
         />
       </div>
       <div className="flex flex-col  text-xs  text-slate-500">
@@ -201,7 +179,7 @@ const GeneralSettings = () => {
         Max. Nights
         <input
           type="text"
-          className="w-20 px-4 py-3 ml-5 border rounded"
+          className="w-20 px-4 py-3 g-6 border border-gray-300 rounded"
         />
       </div>
     </div>
@@ -210,8 +188,8 @@ const GeneralSettings = () => {
 
   </div>
 </div> 
-<div className="ml-[950px] mb-[20px] mt-[20px] flex align-bottom ">
-    <button className="bg-white rounded-lg mr-[10px]  w-[98px] h-[32px]" type="button"><Link to="/reservations">Cancel</Link></button> 
+<div className=" flex   flex-row-reverse gap-6">
+    <button className="bg-white rounded-lg mr-[10px]  w-[98px] h-[32px]" type="button"><Link to="/dashboard">Cancel</Link></button> 
     <button className="bg-black  rounded-lg text-white w-[98px] h-[32px] text-center" type="button">Save</button>
     </div>
  </div>

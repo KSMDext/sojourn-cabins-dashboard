@@ -1,194 +1,129 @@
-import React from 'react'
-import { FaEllipsisV } from 'react-icons/fa';
-import { GridComponent, ColumnsDirective, ColumnDirective, Page, Inject } from '@syncfusion/ej2-react-grids';
-import { Link } from 'react-router-dom'
+import React, { useMemo } from 'react';
+import { useTable, useGlobalFilter, usePagination } from 'react-table';
 import { IoMdArrowBack } from 'react-icons/io';
 import {IoArrowForward} from 'react-icons/io5';
-
+import { Link } from 'react-router-dom'
+import MOCK_DATA from './MOCK_DATAs.json';
+import { COLUMNS } from './ColumnsSeasonal';
+import './table.css';
+import { GlobalFilter } from '../../components/GlobalFilter';
 import { useState } from 'react';
 
 const SeasonalRule = () => {
-  const [currentPage, setCurrentPage] = useState(1);
+  const columns = useMemo(() => COLUMNS, []);
+  const data = useMemo(() => MOCK_DATA, []);
 
-  const handlePreviousPage = () => {
-    setCurrentPage((prevPage) => prevPage - 1);
-  };
-
-  const handleNextPage = () => {
-    setCurrentPage((prevPage) => prevPage + 1);
-  };
-  const [showMenu, setShowMenu] = useState(false);
-
-  const toggleMenu = () => {
-    setShowMenu(!showMenu);
-  };
-
-  const handleMenuClick = (menuItem) => {
-    // Handle the menu item click event
-    switch (menuItem) {
-      case 'Delete':
-        console.log('Delete clicked');
-        // Add your delete logic here
-        break;
-      case 'Edit':
-        console.log('Edit clicked');
-        // Add your edit logic here
-        break;
-      default:
-        break;
-    }
-  };
-
- 
-
-
-  const gridSeasonalRuleMenu = () => (
-    <div className="menu-container">
-      <button onClick={toggleMenu} className="menu-button">
-        <FaEllipsisV /> {/* Replace with the desired menu button icon */}
-      </button>
-      {showMenu && (
-        <div className="dropdown-menu">
-          <button onClick={() => handleMenuClick('Delete')} className="dropdown-menu-item">
-            Delete
-          </button>
-          <button onClick={() => handleMenuClick('Edit')} className="dropdown-menu-item">
-            Edit
-          </button>
-        </div>
-      )}
-    </div>
+  const {
+    getTableProps,
+    getTableBodyProps,
+    headerGroups,
+    page,
+    nextPage,
+    previousPage,
+    canNextPage,
+    canPreviousPage,
+    prepareRow,
+    state,
+    pageOptions,
+    setGlobalFilter,
+  } = useTable(
+    {
+      columns,
+      data,
+      initialState: { pageSize: 10 }, 
+    },
+    useGlobalFilter,
+    usePagination
   );
 
-  
+  const { globalFilter } = state;
+  const { pageIndex } = state;
 
-  const SeasonalRuleGrid = [
-    
-    { field: 'SeasonalRule', headerText: 'Seasonal Rule', width: '180', textAlign: 'Center' },
-    { field: 'Location', headerText: 'Location', width: '150', textAlign: 'Center', height:'150' },
-    { field: 'Cabin', headerText: 'Cabin', width: '140', textAlign: 'Center', height:'150' },
-    { field: 'StartDate', headerText: 'Start Date', width: '140', textAlign: 'Center',height:'150' },
-    { field: 'ExpiryDate', headerText: 'ExpiryDate', width: '140', textAlign: 'Center', height:'150' },
-    { field: 'Menu', headerText: '', width: '50', template: gridSeasonalRuleMenu },
-  ];
-
-  const SeasonalRuleData = [
-    {
-      SeasonalRule: 'Valentine Weekend Package',
-      Location: "Location1, Location2",
-      Cabin: 'All Cabins',
-      StartDate: '11/02/2022',
-      ExpiryDate: '12/02/2023', 
-      Menu: '.',
-    },
-    {
-      SeasonalRule: 'New Year',
-      Location: "All Locations",
-      Cabin: 'All Cabins',
-      StartDate: '15/12/2022',
-      ExpiryDate: '27/12/2022', 
-      Menu: '.',
-    },
-    {
-      SeasonalRule: 'New Year',
-      Location: "All Locations",
-      Cabin: 'All Cabins',
-      StartDate: '15/12/2022',
-      ExpiryDate: '27/12/2022', 
-      Menu: '.',
-    },
-    {
-      SeasonalRule: 'New Year',
-      Location: "All Locations",
-      Cabin: 'All Cabins',
-      StartDate: '15/12/2022',
-      ExpiryDate: '27/12/2022', 
-      Menu: '.',
-    },
-    {
-      SeasonalRule: 'New Year',
-      Location: "All Locations",
-      Cabin: 'All Cabins',
-      StartDate: '15/12/2022',
-      ExpiryDate: '27/12/2022', 
-      Menu: '.',
-    },
-    {
-      SeasonalRule: 'Valentine Weekend Package',
-      Location: "Location1, Location2",
-      Cabin: 'All Cabins',
-      StartDate: '11/02/2022',
-      ExpiryDate: '12/02/2023', 
-      Menu: '.',
-    },
-    {
-      SeasonalRule: 'Valentine Weekend Package',
-      Location: "Location1, Location2",
-      Cabin: 'All Cabins',
-      StartDate: '11/02/2022',
-      ExpiryDate: '12/02/2023', 
-      Menu: '.',
-    },
-  ];
-
-  const itemsPerPage = 10;
-  const totalPages = Math.ceil(SeasonalRuleData.length / itemsPerPage);
-  const startIndex = (currentPage - 1) * itemsPerPage;
-  const visibleData = SeasonalRuleData.slice(startIndex, startIndex + itemsPerPage);
   return (
     <div>
-      <div className=" grid grid-cols-3 gap-64 ">
-          <div className=" text-xl mt-4 ml-5 ">Seasonal Rule</div>
-          <div> </div>
-          <div> 
-          <button className=" text-white p-1  hover:bg-zinc-600 bg-zinc-800 rounded-md mt-4 bold text-14 w-40 ml-12 ">
-            <Link to="/addreservations">
-            <span className="mr-2">+</span>Add Seasonal Rule
+      <div className="flex space-x-[345px] mt-4 items-center">
+        <div className="text-2xl ml-5 mr-96">Seasonal Rule</div>
+        <div></div>
+        <div>
+          <button className="text-white p-1 hover:bg-zinc-300 bg-zinc-800 rounded-md bold text-14 w-40">
+            <Link to="/addseasonalrule">
+              <span className="mr-4">+</span>Add SeasonalRule
             </Link>
           </button>
-          </div>
+        </div>
+      </div>
+      <div className="flex space-x-[500px] mt-4">
+        <div className="w-80 border rounded text-sm ml-5 mr-96">
+          <GlobalFilter filter={globalFilter} setFilter={setGlobalFilter} />
         </div>
         <div>
-        <div className="m-5  mt-6 rounded-md p-2  bg-white">
-        <GridComponent dataSource={visibleData} enableHover={false} >
-          <ColumnsDirective>
-            {SeasonalRuleGrid.map((item, index) => (
-              <ColumnDirective key={index} {...item} />
-            ))}
-          </ColumnsDirective>
-          <Inject services={[Page]} />
-        </GridComponent>
+          <select className="w-[190px] h-9 border-slate-200 border-1 rounded text-sm">
+            <option>All Location</option>
+            <option>Location 1</option>
+            <option>Location 2</option>
+          </select>
         </div>
-        <div className="flex justify-between mt-4 bg-zinc-300  h-12  items-center rounded-md p-1 m-5 ">
-        <button
-          className="bg-white rounded-md p-2 ml-4 w-28 h-7 text-sm flex items-center pl-4"
-          disabled={currentPage === 1}
-          onClick={handlePreviousPage}
-        >
-          <IoMdArrowBack className="mr-1" />
-          Previous
-        </button>
-        <div className="flex items-center mx-2 text-sm rounded-md p-2 ml-4 w-28 h-7 ">
-          {Array.from({ length: totalPages }, (_, index) => index + 1).map((page) => (
-            <span
-              key={page}
-              className={`mx-1 cursor-pointer ${
-                page === currentPage ? 'font-bold bg-white rounded-md px-2' : ''
-              }`}
-              onClick={() => setCurrentPage(page)}
-            >
-              {page}
-            </span>
-          ))}
+      </div>
+      <div className="m-5">
+        <div className="rounded-md bg-white mb-6">
+          <table {...getTableProps()}>
+            <thead>
+              {headerGroups.map((headerGroup) => (
+                <tr {...headerGroup.getHeaderGroupProps()}>
+                  {headerGroup.headers.map((column) => (
+                    <th {...column.getHeaderProps()}>{column.render('Header')}</th>
+                  ))}
+                </tr>
+              ))}
+            </thead>
+            <tbody {...getTableBodyProps()}>
+              {page.map((row) => {
+                prepareRow(row);
+                return (
+                  <tr {...row.getRowProps()}>
+                    {row.cells.map((cell) => {
+                      return <td {...cell.getCellProps()}>{cell.render('Cell')}</td>;
+                    })}
+                  </tr>
+                );
+              })}
+            </tbody>
+          </table>
         </div>
-        <button
-          className="bg-white rounded-md p-2 mr-4 w-28 h-7 text-sm flex items-center pl-8"
-          disabled={currentPage === totalPages}
-          onClick={handleNextPage}
-        >
-          Next
-          <IoArrowForward className="ml-1" />
-        </button>
+
+        <div className="flex justify-between mt-16 bg-zinc-400 h-12 items-center rounded-md p-1">
+          <button
+            className="bg-white rounded-md p-2 ml-4 w-28 h-7 text-sm flex items-center pl-4"
+            onClick={() => previousPage()}
+            disabled={!canPreviousPage}
+          >
+            <IoMdArrowBack className="mr-1" />
+            Previous
+          </button>
+
+          <div className="flex items-center mx-2 text-sm rounded-md p-2 ml-4 w-28 h-7">
+            {Array.from({ length: pageOptions.length }, (_, pageIndex) => pageIndex + 1).map(
+              (page) => (
+                <span
+                  key={page}
+                  className={`mx-1 cursor-pointer ${
+                    page === pageIndex + 1 ? 'font-bold bg-white rounded-md px-2' : ''
+                  }`}
+                >
+                  {page}
+                </span>
+              )
+            )}
+          </div>
+
+          <button
+            className="bg-white rounded-md p-2 mr-4 w-28 h-7 text-sm flex items-center pl-8"
+            onClick={() => nextPage()}
+            disabled={!canNextPage}
+          >
+            Next
+            <IoArrowForward className="ml-1" />
+          </button>
         </div>
       </div>
     </div>

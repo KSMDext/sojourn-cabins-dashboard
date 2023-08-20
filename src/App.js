@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 
 import { Navbar, Sidebar} from './components';
-import { Dashboard,  Analytics, Feedback, AddReservations, UpdateReservations, AddLocation, AddCabins, UpdateCabins, AddStaff, UpdateStaff, AddSeasonalRule, AddExtraCharge, CreatePackage} from './pages';
+import { Dashboard,  Analytics, Feedback, AddReservations, UpdateReservations, AddLocation, AddCabins, UpdateCabins, AddStaff, UpdateStaff, AddSeasonalRule, AddExtraCharge, CreatePackage, UpdateExtraCharge, UpdateSeasonalRule} from './pages';
 import {Location} from './pages';
 import {Cabins} from './pages';
 import {Reservations} from './pages';
@@ -25,6 +25,7 @@ import AddCoupon from './pages/PriceOptions/AddCoupon';
 import AddFaq from './pages/Settings/AddFaq';
 import AddTestimonial from './pages/Settings/AddTestimonial';
 import AddToGallery from './pages/Settings/AddToGallery';
+import UpdateCoupon from './pages/PriceOptions/UpdateCoupon';
 
 
 const App = () => {
@@ -97,6 +98,9 @@ const App = () => {
                 <Route path="/addfaq" element={<AddFaq/>} />
                 <Route path="/addtestimonial" element={<AddTestimonial/>} />
                 <Route path="/addtogallery" element={<AddToGallery/>} />
+                <Route path="/updatecoupon" element ={<UpdateCoupon/>}/>
+                <Route path="/updateextracharge" element={<UpdateExtraCharge/>}/>
+                <Route path="/updateseasonalrule" element={<UpdateSeasonalRule/>}/>
                 
               </Routes>
             </div>

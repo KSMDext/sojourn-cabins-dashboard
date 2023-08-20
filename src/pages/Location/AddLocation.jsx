@@ -52,9 +52,9 @@ const AddLocation = () => {
       </form>
       
     </div>
-    <div className="ml-[900px] mb-[20px] mt-[220px] flex align-bottom ">
-    <button className="bg-white rounded-lg mr-[10px]  w-[98px] h-[32px]" type="button"><Link to="/location">Cancel</Link></button> 
-    <button className="bg-black  rounded-lg text-white w-[98px] h-[32px] text-center" type="button">Save</button>
+    <div className=" flex   flex-row-reverse gap-6 mt-4 mr-5">
+        <button className="bg-white rounded-lg mr-[10px]  w-[98px] h-[32px]" type="button"><Link to="/location">Cancel</Link></button> 
+        <button className="bg-black  rounded-lg text-white w-[98px] h-[32px] text-center" type="button">Save</button>
     </div>
     
     </div>

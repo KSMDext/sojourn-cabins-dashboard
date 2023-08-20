@@ -48,18 +48,10 @@ const AddTestimonial = () => {
         <ImageUploader />
       </div>
 
-      <div className="ml-[950px] mb-[20px] mt-[20px] flex align-bottom">
-        <button className="bg-white mr-[10px] rounded w-[98px] h-[32px] hover:bg-gray-100" type="button">
-          <Link to="/staff" className="hover:text-gray-800">
-            Cancel
-          </Link>
-        </button>
-        <button className="bg-black rounded-lg text-white w-[98px] h-[32px] text-center hover:bg-gray-800" type="button">
-          <Link to="/staff" className="hover:text-black">
-            Save
-          </Link>
-        </button>
-      </div>
+      <div className=" flex   flex-row-reverse gap-6 mt-4 mr-5">
+        <button className="bg-white rounded-lg mr-[10px]  w-[98px] h-[32px]" type="button"><Link to="/settings/extras">Cancel</Link></button> 
+        <button className="bg-black  rounded-lg text-white w-[98px] h-[32px] text-center" type="button">Save</button>
+    </div>
     </div>
   );
 };

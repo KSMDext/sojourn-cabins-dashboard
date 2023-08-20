@@ -158,8 +158,8 @@ const Sidebar = () => {
             
           ))}
         </div>
-        <div className="mt-40 border-t-2 border-black content-center">
-            <div className="mt-8 ml-3 mr-3">
+        <div className="mt-40 border-t-2 border-black  relative">
+            <div className="mt-8 ml-5   fixed bottom-0 pr-5">
                 <NavLink to={`/${Link.name}`} key={Link.name} onClick={()=>{}} className={({ isActive})=> isActive? activeLink:normalLink}>
                   {<GoSignOut className="text-white"/>}
                   <span className="capitalize text-white">
