@@ -76,7 +76,6 @@ export const COLUMNS =
     {
         Header: 'Name',
         accessor: 'ReservationImage',
-        accessor: 'ReservationName',
         Cell: reservationGridImage,
         width: 150,
 
