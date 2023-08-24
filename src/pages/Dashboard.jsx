@@ -1,9 +1,16 @@
-import React from 'react'
+import React , {useState}from 'react'
 import { FiArrowUp,  FiArrowDown} from 'react-icons/fi';
 import { Link } from 'react-router-dom';
 
 
+import CustomCalendar from '../components/Calendar'
+import 'react-calendar/dist/Calendar.css';
+
 const Dashboard = () => {
+  const [date] = useState(new Date());
+
+ 
+
   return (
     <div>
         <div className=" text-2xl ml-6 mt-6">Dashboard</div>
@@ -32,9 +39,26 @@ const Dashboard = () => {
         </div>
       <div className=" w-auto mr-6 bg-white h-96 mt-10 ml-6 rounded-lg">
         </div>
+
+        <div className=" w-auto mr-6 bg-white h-96 mt-10 ml-6 rounded-lg">
+
+        <div className="w-auto mr-6 bg-white h-96 mt-10 ml-6 rounded-lg">
+          
+        <div className="w-auto mr-6 bg-white h-96 mt-10 ml-6 rounded-lg">
+        <div className="flex w-auto mr-6 mt-10 ml-6 space-x-4">
+          <div className="flex-none w-1/2 bg-white h-96 rounded-lg">
+            <CustomCalendar selectedDate={date} />
+          </div>
+          <div className="flex-none w-1/2 bg-white h-96 rounded-lg">
+            <CustomCalendar selectedDate={date} />
+          </div>
+        </div>
+        </div>
+        </div>
+        </div>
       
     </div>
   )
 }
 
-export default Dashboard
+export default Dashboard  
