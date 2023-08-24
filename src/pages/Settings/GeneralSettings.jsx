@@ -27,8 +27,8 @@ const GeneralSettings = () => {
     <div className="flex flex-col  text-slate-500">
       <div className="mb-2">Property Type*</div>
       <select
-        className="w-72 px-4 py-2 mb-4 border border-gray-300 rounded  text-slate-500" // Use the same styling as the input field
-        defaultValue="" // Set the default selected option (empty) so the placeholder shows
+        className="w-72 px-4 py-2 mb-4 border border-gray-300 rounded  text-slate-500" 
+        defaultValue="" 
       >
       <option value="" disabled hidden>
        Select a property type
@@ -36,7 +36,6 @@ const GeneralSettings = () => {
         <option value="vacation_rental">Vacation Rental</option>
         <option value="hotel">Hotel</option>
         <option value="guest_house">Guest House</option>
-        {/* Add more options if needed */}
       </select>
       <div className="mb-2">Phone*</div>
       <input
