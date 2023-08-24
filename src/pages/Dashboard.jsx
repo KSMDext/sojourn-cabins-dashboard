@@ -37,7 +37,10 @@ const Dashboard = () => {
             </div>
           </Link>
         </div>
+
       <div className=" w-auto mr-6 bg-white h-96 mt-10 ml-6 rounded-lg">
+      <div classname=''>CABIN REVENUES/ 24HRS ($)</div>
+
         </div>
 
         <div className=" w-auto mr-6 bg-white h-96 mt-10 ml-6 rounded-lg">
