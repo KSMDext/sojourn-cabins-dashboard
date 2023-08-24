@@ -6,7 +6,7 @@ const generateMonthGrid = (year, month) => {
   const firstDay = new Date(year, month, 1);
   const lastDay = new Date(year, month + 1, 0);
   const daysInMonth = lastDay.getDate();
-  const firstDayIndex = firstDay.getDay(); // 0 - Sunday, 1 - Monday, ..., 6 - Saturday
+  const firstDayIndex = firstDay.getDay(); 
 
   const grid = [];
   let dayCounter = 1;
@@ -15,7 +15,7 @@ const generateMonthGrid = (year, month) => {
     const week = [];
     for (let j = 0; j < 7; j++) {
       if ((i === 0 && j < firstDayIndex) || dayCounter > daysInMonth) {
-        week.push(null); // Placeholder for empty cells
+        week.push(null); 
       } else {
         week.push(dayCounter);
         dayCounter++;
@@ -51,7 +51,11 @@ const CalendarComponent = () => {
   const handleDateClick = (day) => {
     // Handle the date click event here
     setSelectedDate(new Date(year, month, day));
+    setShowModal(true); // Set a state to show the modal
+
   };
+  const [showModal, setShowModal] = useState(false);
+
 
   return (
     <div className="w-auto mr-6 bg-white h-96 mt-2 ml-6 rounded-lg">
@@ -91,7 +95,22 @@ const CalendarComponent = () => {
         ))
       )}
     </div>
-  </div>
+    {showModal && (
+        <div className="fixed inset-0 flex items-center justify-center z-50">
+          <div className="bg-white p-8 rounded-lg shadow-lg max-w-lg w-full">
+            <h2 className="mb-4 text-xl font-semibold">Reservations for {selectedDate.toDateString()}</h2>
+            <div className="flex justify-end"> {/* Added this div for alignment */}
+              <button
+                className="px-4 py-2  text-black rounded-md border border-black"
+                onClick={() => setShowModal(false)}
+              >
+                Back
+              </button>
+              </div>
+          </div>
+        </div>
+      )}
+    </div>
 );
 };
 
