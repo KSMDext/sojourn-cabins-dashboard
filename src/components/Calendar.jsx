@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { IoMdArrowBack } from 'react-icons/io';
 import {IoArrowForward} from 'react-icons/io5';
+import ReservationsTable from '../pages/Reservations/ReservationsTable';
 
 const generateMonthGrid = (year, month) => {
   const firstDay = new Date(year, month, 1);
@@ -59,6 +60,8 @@ const CalendarComponent = () => {
 
   return (
     <div className="w-auto mr-6 bg-white h-96 mt-2 ml-6 rounded-lg">
+                   
+
        <div className="flex items-center justify-center mt-"> 
           <button className="bg-white rounded-md p-2 ml-4 w-28 h-7 text-sm flex items-center pl-4" onClick={handlePrevMonth} >
             <IoMdArrowBack className="mr-1" />
@@ -96,21 +99,29 @@ const CalendarComponent = () => {
       )}
     </div>
     {showModal && (
-        <div className="fixed inset-0 flex items-center justify-center z-50">
-          <div className="bg-white p-8 rounded-lg shadow-lg  max-w-lg w-full h-96">
-            <h2 className="mb-4 text-xl font-semibold">Reservations for {selectedDate.toDateString()}</h2>
-            
-            <div className="flex justify-end"> {/* Added this div for alignment */}
-              <button
-                className="px-4 py-2  text-black rounded-md border border-black"
-                onClick={() => setShowModal(false)}
-              >
-                Back
-              </button>
-              </div>
-          </div>
-        </div>
-      )}
+  <div className="fixed inset-0 flex items-center justify-center z-50">
+    <div className="bg-white p-8 rounded-lg shadow-lg max-w-screen-lg w-full h-97 overflow-hidden">
+      <h2 className="mb-4 text-xl font-semibold">
+        Reservations for {selectedDate.toDateString()}
+        <div className=" left-0 w-full p-2  text-right">
+        <button
+          className="px-4 py-2 text-black rounded-md border border-black "
+          onClick={() => setShowModal(false)}
+        >
+          Backs
+        </button>
+      </div>
+      </h2>
+      
+      {/* Render ReservationsTable only if the modal is open */}
+      {showModal && <ReservationsTable />}
+
+      {/* Back button at the bottom */}
+      
+    </div>
+  </div>
+)}
+
     </div>
 );
 };
