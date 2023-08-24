@@ -97,8 +97,9 @@ const CalendarComponent = () => {
     </div>
     {showModal && (
         <div className="fixed inset-0 flex items-center justify-center z-50">
-          <div className="bg-white p-8 rounded-lg shadow-lg max-w-lg w-full">
+          <div className="bg-white p-8 rounded-lg shadow-lg  max-w-lg w-full h-96">
             <h2 className="mb-4 text-xl font-semibold">Reservations for {selectedDate.toDateString()}</h2>
+            
             <div className="flex justify-end"> {/* Added this div for alignment */}
               <button
                 className="px-4 py-2  text-black rounded-md border border-black"
