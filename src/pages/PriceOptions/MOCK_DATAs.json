@@ -1,0 +1,51 @@
+[
+    {
+      "SeasonalRule": "Valentine Weekend Package",
+      "Location": "Location1, Location2",
+      "Cabin": "All Cabins",
+      "StartDate": "11/02/2022",
+      "ExpiryDate": "12/02/2023"
+    },
+    {
+      "SeasonalRule": "New Year",
+      "Location": "All Locations",
+      "Cabin": "All Cabins",
+      "StartDate": "15/12/2022",
+      "ExpiryDate": "27/12/2022"
+    },
+    {
+      "SeasonalRule": "New Year",
+      "Location": "All Locations",
+      "Cabin": "All Cabins",
+      "StartDate": "15/12/2022",
+      "ExpiryDate": "27/12/2022"
+    },
+    {
+      "SeasonalRule": "New Year",
+      "Location": "All Locations",
+      "Cabin": "All Cabins",
+      "StartDate": "15/12/2022",
+      "ExpiryDate": "27/12/2022"
+    },
+    {
+      "SeasonalRule": "New Year",
+      "Location": "All Locations",
+      "Cabin": "All Cabins",
+      "StartDate": "15/12/2022",
+      "ExpiryDate": "27/12/2022"
+    },
+    {
+      "SeasonalRule": "Valentine Weekend Package",
+      "Location": "Location1, Location2",
+      "Cabin": "All Cabins",
+      "StartDate": "11/02/2022",
+      "ExpiryDate": "12/02/2023"
+    },
+    {
+      "SeasonalRule": "Valentine Weekend Package",
+      "Location": "Location1, Location2",
+      "Cabin": "All Cabins",
+      "StartDate": "11/02/2022",
+      "ExpiryDate": "12/02/2023" 
+    }
+  ]

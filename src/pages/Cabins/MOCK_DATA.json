@@ -1,0 +1,67 @@
+[
+    {
+      "PaymentBg": "#8BE78B",
+      "CabinName": "Cabin 1",
+      "Facility": "Ac, Shower, Wifi",
+      "CabinImage": "https://images.pexels.com/photos/106399/pexels-photo-106399.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
+      "Status": "Booked",
+      "CabinType": "Standard",
+      "ExtraCharges": "Splash pool, Tourism",
+      "Rate": "$100"
+    },
+    {
+      "PaymentBg": "#8BE78B",
+      "CabinName": "Cabin 2",
+      "Facility": "Ac, Shower, Wifi",
+      "ProjectName": "Weekly WP Theme",
+      "Status": "Available",
+      "CabinImage": "https://images.pexels.com/photos/106399/pexels-photo-106399.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
+      "CabinType": "Double",
+      "ExtraCharges": "Grill, Tourism",
+      "Rate": "$150"
+    },
+
+    {
+      "PaymentBg": "#8BE78B",
+      "CabinName": "Cabin 1",
+      "Facility": "Ac, Shower, Wifi",
+      "CabinImage": "https://images.pexels.com/photos/106399/pexels-photo-106399.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
+      "Status": "Booked",
+      "CabinType": "Standard",
+      "ExtraCharges": "Splash pool, Tourism",
+      "Rate": "$100"
+    },
+    {
+      "PaymentBg": "#8BE78B",
+      "CabinName": "Cabin 2",
+      "Facility": "Ac, Shower, Wifi",
+      "ProjectName": "Weekly WP Theme",
+      "Status": "Available",
+      "CabinImage": "https://images.pexels.com/photos/106399/pexels-photo-106399.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
+      "CabinType": "Double",
+      "ExtraCharges": "Grill, Tourism",
+      "Rate": "$150"
+    },
+    {
+        "PaymentBg": "#8BE78B",
+        "CabinName": "Cabin 2",
+        "Facility": "Ac, Shower, Wifi",
+        "ProjectName": "Weekly WP Theme",
+        "Status": "Available",
+        "CabinImage": "https://images.pexels.com/photos/106399/pexels-photo-106399.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
+        "CabinType": "Double",
+        "ExtraCharges": "Grill, Tourism",
+        "Rate": "$150"
+      },
+      {
+        "PaymentBg": "#8BE78B",
+        "CabinName": "Cabin 2",
+        "Facility": "Ac, Shower, Wifi",
+        "ProjectName": "Weekly WP Theme",
+        "Status": "Available",
+        "CabinImage": "https://images.pexels.com/photos/106399/pexels-photo-106399.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
+        "CabinType": "Double",
+        "ExtraCharges": "Grill, Tourism",
+        "Rate": "$150"
+      }
+  ]
