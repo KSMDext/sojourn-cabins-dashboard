@@ -135,6 +135,7 @@ const Sidebar = () => {
           </Link>
           <TooltipComponent content="Menu" position='BottomCenter'>
             <button type= "button" onClick={()=> setActiveMenu((prevActiveMenu)=>!prevActiveMenu)} className=" text-xl rounded-lg p-3 hover:bg-light-gray mt-4 block mx-1">
+
               <MdOutlineCancel />
             </button>
           </TooltipComponent>

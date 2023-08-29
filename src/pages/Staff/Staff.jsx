@@ -65,8 +65,8 @@ const Staff = () => {
           </select>
         </div>
       </div>
-      <div className="m-5">
-        <div className="rounded-md bg-white mb-6">
+      <div className="m-5 mt-[20px]">
+  <div className="rounded-md bg-white mb-6">
           <table {...getTableProps()}>
             <thead>
               {headerGroups.map((headerGroup) => (

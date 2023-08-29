@@ -11,7 +11,7 @@ const Emails = () => {
             <div className=" text-3xl mb-6">
               <h1 className=" italic text-blue-900">Confirmation Email</h1>
             </div>
-            <div className=" ml-4 text-gray-800">
+            <div className=" ml-4 italic text-gray-800">
               Guests will receive this confirmation <br/>email once they book. Feel free to edit <br/> and personalize
             </div>
           </div>
@@ -21,7 +21,7 @@ const Emails = () => {
             <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="div1">
               Subject:
             </label>
-            <div className="bg-white border px-3 py-2 h-16">
+            <div className="bg-white border px-3 py-2  rounded-md  h-16">
             <input
                 type="text"
                 id="name"
@@ -32,10 +32,11 @@ const Emails = () => {
             </div>
           </div>
           <div className="mb-8">
-            <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="div2">
+            <label className="block text-gray-700text-sm font-bold mb-2" htmlFor="div2">
               Subject
             </label>
-            <div className="bg-white border px-3 py-2 h-16">
+            <div className="bg-white border rounded-md px-3 py-2 h-24">
+              Hello!<br/>Thank you for choosing Sojourn Cabins. We look forward to hosting your <br/>stay. Please respond to this email with your preferred date of arrival.
               <input
               type=""
               className=''
@@ -48,7 +49,10 @@ const Emails = () => {
             <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="div3">
               Booking Details:(Not Editable)
             </label>
-            <div className="bg-white border px-3 py-2 h-[350px]">
+            <div className="bg-white rounded-md italic border px-3 py-2 h-[350px]">
+              Your Booking Details; 
+              <br/>
+              <br/>Guest(s): Guest Name(s)<br/>Reservation Number: #00000<br/>Room Type: Room Name<br/>Check-In: Date<br/>Check-Out: Date<br/>Number of Nights: #<br/>Number of Adults/Kids: #<br/>...
               <div id="div3" className=""></div> {/* Remove 'w-min-full' */}
             </div>
           </div>

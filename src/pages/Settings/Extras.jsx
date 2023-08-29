@@ -120,7 +120,7 @@ const Extras = () => {
       <div className='bg-white mt-8 m-[30px] p-[30px] flex'>
         <div className="mr-8">
         <p className='text-[20px] text-blue-900 italics ml-3'>Testimonials</p>
-        <div className='h-[150px] w-[200px]'>
+        <div className='h-[100px] w-[200px]'>
         <p className='italic ml-1'>These are some of the expected frequently asked questions that customers ask.</p>
         <button className="bg-black rounded text-white h-[32px] w-[200px] text-center mt-10 flex items-center">
         <Link to = "/addtestimonial">  
