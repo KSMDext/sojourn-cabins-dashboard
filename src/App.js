@@ -1,6 +1,5 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import { AuthProvider } from './contexts/AuthContext';
 
 import { Navbar, Sidebar} from './components';
 import { Dashboard,  Analytics, Feedback, AddReservations, UpdateReservations, AddLocation, AddCabins, UpdateCabins, AddStaff, UpdateStaff, AddSeasonalRule, AddExtraCharge, CreatePackage, UpdateExtraCharge, UpdateSeasonalRule} from './pages';
@@ -35,19 +34,11 @@ const App = () => {
 
   const handleSignIn = () => {
     setIsSignedIn(true);
-    localStorage.setItem('isSignedIn', 'true'); // Store authentication status
   };
-  useEffect(() => {
-    const storedAuthStatus = localStorage.getItem('isSignedIn');
-    if (storedAuthStatus === 'true') {
-      setIsSignedIn(true);
-    }
-  }, []);
 
   return (
     <div>
-      <AuthProvider>
-        <BrowserRouter>
+      <BrowserRouter>
         <Routes>
           <Route
             path="/*"
@@ -123,9 +114,7 @@ const App = () => {
             }
           />
         </Routes>
-        </BrowserRouter>
-      </AuthProvider>
-
+      </BrowserRouter>
     </div>
   );
 }

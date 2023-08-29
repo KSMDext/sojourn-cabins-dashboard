@@ -128,7 +128,7 @@ const Sidebar = () => {
             <img src={require('./sojourn.png')} alt="" srcset=""  width={'150px'} height={'100px'}/>
           </Link>
           <TooltipComponent content="Menu" position='BottomCenter'>
-            <button type= "button" onClick={()=> setActiveMenu((prevActiveMenu)=>!prevActiveMenu)} className=" text-xl rounded-lg p-3 hover:bg-light-gray mt-4 block md:hidden  ">
+            <button type= "button" onClick={()=> setActiveMenu((prevActiveMenu)=>!prevActiveMenu)} className=" text-xl rounded-lg p-3 hover:bg-light-gray mt-4 block">
               <MdOutlineCancel />
             </button>
           </TooltipComponent>
