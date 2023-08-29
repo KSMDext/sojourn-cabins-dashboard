@@ -63,7 +63,7 @@ const App = () => {
                 ? 'dark:bg-main-dark-bg  bg-zinc-200 min-h-screen md:ml-60 w-full  '
                 : 'bg-zinc-200 dark:bg-main-dark-bg  w-full min-h-screen flex-2 '
             }>
-            <div className={`${activeMenu ? "hidden" : "fixed"} md:static bg-main-bg dark:bg-main-dark-bg navbar w-full `}>
+            <div className={`fixed md:static bg-main-bg dark:bg-main-dark-bg navbar w-full `}>
               <Navbar/> 
             </div>
             <div>
