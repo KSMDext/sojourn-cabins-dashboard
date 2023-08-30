@@ -39,10 +39,9 @@ const Reservations = () => {
   const { pageIndex } = state;
 
   return (
-    <div>
-      <div className="flex space-x-[355px] mt-4 items-center">
-        <div className="text-2xl ml-5 mr-96">Reservations</div>
-        <div></div>
+    <div className='w-full'>
+      <div className="flex mt-4 items-center w-full justify-between">
+        <div className="text-2xl ml-5">Reservations</div>
         <div>
           <button className="text-white p-1 hover:bg-zinc-300 bg-zinc-800 rounded-md bold text-14 w-40">
             <Link to="/addreservations">
@@ -51,8 +50,8 @@ const Reservations = () => {
           </button>
         </div>
       </div>
-      <div className="flex space-x-[505px] mt-4">
-        <div className="w-80 border rounded text-sm ml-5 mr-96">
+      <div className="flex mt-4 justify-between">
+        <div className="w-80 border rounded text-sm ml-5">
           <GlobalFilter filter={globalFilter} setFilter={setGlobalFilter} />
         </div>
         <div>

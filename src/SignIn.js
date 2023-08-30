@@ -1,20 +1,36 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import logo from './data/logo.png';
+import { loginUser } from './components/Utilities/apiUtils';
+import { useStateContext } from './contexts/ContextProvider';
 
 const SignIn = ({ handleSignIn }) => {
   const navigate = useNavigate();
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const {setTokens} = useStateContext();
+  
+  useEffect(() => {
+    navigate("/");
+  }, [])
 
   const handleButtonClick = () => {
     // Perform authentication logic here, e.g., calling an API endpoint
-    const dummyEmail = 'dummy@example.com';
-    const dummyPassword = '123456789';
+    console.log({
+      email: email,
+      password: password
+    });
 
-    if (email === dummyEmail && password === dummyPassword) {
-      handleSignIn();
-      navigate('/');
+    if (email && password) {
+      loginUser({
+        email: email,
+        password: password
+      }, (tokens) => {
+        setTokens(tokens)
+        console.log(tokens);
+        handleSignIn();
+        navigate("/dashboard")
+      })
     } else {
       alert('Invalid email or password. Please try again.');
     }
@@ -24,7 +40,7 @@ const SignIn = ({ handleSignIn }) => {
     <div className="flex flex-col lg:flex-row h-screen">
       <div className="w-full lg:w-1/2 flex flex-col justify-center items-center bg-gray-100">
         <img src={logo} alt="Logo" className="w-44 h-22 mb-4" />
-        <form className="p-4 w-5/6 lg:w-3/4 xl:w-2/3 mx-auto">
+        <div className="p-4 w-5/6 lg:w-3/4 xl:w-2/3 mx-auto">
           <h2 className="text-5xl font-bold mb-2 text-center font-lato">Welcome back</h2>
           <h3 className="text-lg text-gray-500 mb-4 text-center font-lato">Sign into your account</h3>
           <div className="mb-4">
@@ -63,7 +79,7 @@ const SignIn = ({ handleSignIn }) => {
           >
             Sign In
           </button>
-        </form>
+        </div>
       </div>
       <div className="w-full lg:w-1/2">
         <img

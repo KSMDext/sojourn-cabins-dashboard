@@ -41,9 +41,9 @@ const Staff = () => {
 
  
   return (
-    <div>
-      <div className="flex space-x-[400px] mt-4 items-center">
-        <div className="text-2xl ml-5 mr-96">Staff</div>
+    <div className='w-full'>
+      <div className="flex mt-4 items-center w-full justify-between">
+        <div className="text-2xl ml-5">Staff</div>
         <div></div>
         <div>
           <button className="text-white p-1 hover:bg-zinc-300 bg-zinc-800 rounded-md bold text-14 w-40">
@@ -53,7 +53,7 @@ const Staff = () => {
           </button>
         </div>
       </div>
-      <div className="flex space-x-[500px] mt-4">
+      <div className="flex mt-4 justify-between">
         <div className="w-80 border rounded text-sm ml-5 mr-96">
           <GlobalFilter filter={globalFilter} setFilter={setGlobalFilter} />
         </div>
