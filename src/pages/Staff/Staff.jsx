@@ -1,4 +1,4 @@
-import React, { useMemo } from 'react';
+import React, { useEffect, useMemo } from 'react';
 import { useTable, useGlobalFilter, usePagination } from 'react-table';
 import { IoMdArrowBack } from 'react-icons/io';
 import {IoArrowForward} from 'react-icons/io5';
@@ -7,11 +7,21 @@ import MOCK_DATA from './MOCK_DATA.json';
 import { COLUMNS } from './Columns';
 import './table.css';
 import { GlobalFilter } from '../../components/GlobalFilter';
+import { useDispatch,useSelector } from 'react-redux';
+import { loadStaff } from '../../actions/staff';
 
 const Staff = () => {
-  const columns = useMemo(() => COLUMNS, []);
-  const data = useMemo(() => MOCK_DATA, []);
+  const dispatch = useDispatch()
 
+  useEffect(()=>{
+    dispatch(loadStaff())
+    },[dispatch])
+    const {staff, error, loading} = useSelector(state=>state.staff)
+
+  const columns = useMemo(() => COLUMNS, []);
+  const data = useMemo(() => staff, [staff]);
+
+console.log("Staff if loaded should be ", staff)
   const {
     getTableProps,
     getTableBodyProps,
