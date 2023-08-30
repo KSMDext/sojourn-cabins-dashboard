@@ -50,9 +50,8 @@ const CalendarComponent = () => {
   };
 
   const handleDateClick = (day) => {
-    // Handle the date click event here
     setSelectedDate(new Date(year, month, day));
-    setShowModal(true); // Set a state to show the modal
+    setShowModal(true); 
 
   };
   const [showModal, setShowModal] = useState(false);
@@ -113,10 +112,8 @@ const CalendarComponent = () => {
       </div>
       </h2>
       
-      {/* Render ReservationsTable only if the modal is open */}
       {showModal && <ReservationsTable />}
 
-      {/* Back button at the bottom */}
       
     </div>
   </div>
