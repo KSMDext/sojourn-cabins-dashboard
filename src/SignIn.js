@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import logo from './data/logo.png';
 import { loginUser } from './components/Utilities/apiUtils';
@@ -9,6 +9,10 @@ const SignIn = ({ handleSignIn }) => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const {setTokens} = useStateContext();
+  
+  useEffect(() => {
+    navigate("/");
+  }, [])
 
   const handleButtonClick = () => {
     // Perform authentication logic here, e.g., calling an API endpoint

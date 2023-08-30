@@ -47,10 +47,10 @@ const App = () => {
             element={
               isSignedIn ?(
                 <>
-                  <div className="flex relative dark:bg-main-dark-bg">
+          <div className="flex relative dark:bg-main-dark-bg">
           
           {activeMenu ? (
-            <div className="w-60 fixed sidebar dark:bg-secondary-dark-bg bg-stone-900 ">
+            <div className="w-60 sticky sm:h-[100vh] sidebar dark:bg-secondary-dark-bg bg-stone-900 ">
               <Sidebar/> 
             </div>
           ) : (
@@ -60,14 +60,15 @@ const App = () => {
           )}
           <div
             className={
-              activeMenu
-                ? 'dark:bg-main-dark-bg  bg-zinc-200 min-h-screen md:ml-60 w-full  '
-                : 'bg-zinc-200 dark:bg-main-dark-bg  w-full min-h-screen flex-2 '
+              `${activeMenu
+                ? 'dark:bg-main-dark-bg  bg-zinc-200 w-full'
+                : 'bg-zinc-200 dark:bg-main-dark-bg  w-full flex-2'}
+                `
             }>
-            <div className={`fixed md:static bg-main-bg dark:bg-main-dark-bg navbar w-full `}>
+            <div className={`bg-main-bg dark:bg-main-dark-bg navbar w-full`}>
               <Navbar/> 
             </div>
-            <div>
+            <div className='w-full h-[90vh] overflow-y-scroll'>
               <Routes>
                 <Route path="/" element={<Dashboard/>} />
                 <Route path="/dashboard" element={<Dashboard/>} />
