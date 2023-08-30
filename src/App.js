@@ -26,6 +26,7 @@ import AddFaq from './pages/Settings/AddFaq';
 import AddTestimonial from './pages/Settings/AddTestimonial';
 import AddToGallery from './pages/Settings/AddToGallery';
 import UpdateCoupon from './pages/PriceOptions/UpdateCoupon';
+import Test from './pages/Test';
 
 
 const App = () => {
@@ -102,6 +103,7 @@ const App = () => {
                 <Route path="/updatecoupon" element ={<UpdateCoupon/>}/>
                 <Route path="/updateextracharge" element={<UpdateExtraCharge/>}/>
                 <Route path="/updateseasonalrule" element={<UpdateSeasonalRule/>}/>
+                <Route path="/test" element={<Test/>}/>
                 
               </Routes>
             </div>
