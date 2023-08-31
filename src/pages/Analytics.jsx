@@ -127,6 +127,8 @@ const Analytics= () => {
   </div>
 </div>
 
+<div className="flex justify-between ml-1">
+
 <Link>
   <div className="w-[280px] h-32 bg-white rounded pt-3 pl-4 pb-3 gap-[600px]">
     <div className="text-lg">Available Bookings</div>
@@ -147,6 +149,10 @@ const Analytics= () => {
     </div>
   </div>
 </Link>
+</div>
+
+<div className="flex justify-between ml-1">
+
 <Link>
   <div className="w-[280px] h-32 bg-white rounded pt-3 pl-4 pb-3 gap-[600px]">
     <div className="text-lg">Total Revenue</div>
@@ -167,6 +173,7 @@ const Analytics= () => {
     </div>
   </div>
 </Link>
+</div>
         </div>
         
         <div className="flex">
