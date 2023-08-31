@@ -1,67 +1,100 @@
-[
-    {
-      "PaymentBg": "#8BE78B",
-      "CabinName": "Cabin 1",
-      "Facility": "Ac, Shower, Wifi",
-      "CabinImage": "https://images.pexels.com/photos/106399/pexels-photo-106399.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
-      "Status": "Booked",
-      "CabinType": "Standard",
-      "ExtraCharges": "Splash pool, Tourism",
-      "Rate": "$100"
-    },
-    {
-      "PaymentBg": "#8BE78B",
-      "CabinName": "Cabin 2",
-      "Facility": "Ac, Shower, Wifi",
-      "ProjectName": "Weekly WP Theme",
-      "Status": "Available",
-      "CabinImage": "https://images.pexels.com/photos/106399/pexels-photo-106399.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
-      "CabinType": "Double",
-      "ExtraCharges": "Grill, Tourism",
-      "Rate": "$150"
-    },
-
-    {
-      "PaymentBg": "#8BE78B",
-      "CabinName": "Cabin 1",
-      "Facility": "Ac, Shower, Wifi",
-      "CabinImage": "https://images.pexels.com/photos/106399/pexels-photo-106399.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
-      "Status": "Booked",
-      "CabinType": "Standard",
-      "ExtraCharges": "Splash pool, Tourism",
-      "Rate": "$100"
-    },
-    {
-      "PaymentBg": "#8BE78B",
-      "CabinName": "Cabin 2",
-      "Facility": "Ac, Shower, Wifi",
-      "ProjectName": "Weekly WP Theme",
-      "Status": "Available",
-      "CabinImage": "https://images.pexels.com/photos/106399/pexels-photo-106399.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
-      "CabinType": "Double",
-      "ExtraCharges": "Grill, Tourism",
-      "Rate": "$150"
-    },
-    {
-        "PaymentBg": "#8BE78B",
-        "CabinName": "Cabin 2",
-        "Facility": "Ac, Shower, Wifi",
-        "ProjectName": "Weekly WP Theme",
-        "Status": "Available",
-        "CabinImage": "https://images.pexels.com/photos/106399/pexels-photo-106399.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
-        "CabinType": "Double",
-        "ExtraCharges": "Grill, Tourism",
-        "Rate": "$150"
-      },
-      {
-        "PaymentBg": "#8BE78B",
-        "CabinName": "Cabin 2",
-        "Facility": "Ac, Shower, Wifi",
-        "ProjectName": "Weekly WP Theme",
-        "Status": "Available",
-        "CabinImage": "https://images.pexels.com/photos/106399/pexels-photo-106399.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
-        "CabinType": "Double",
-        "ExtraCharges": "Grill, Tourism",
-        "Rate": "$150"
-      }
-  ]
+ [
+        {
+            "id": "e75e609d-f406-4a15-ab1f-f72dd6a35508",
+            "created_at": "2023-08-14T20:03:15.169449Z",
+            "updated_at": "2023-08-14T20:03:15.169468Z",
+            "name": "Xss",
+            "description": "Adipisci ea cum perferendis soluta consequatur doloribus repellendus eos illo. Ab voluptatem ut et soluta dolorum dolores. Non magnam consectetur ducimus velit ea reiciendis possimus. Suscipit enim soluta modi laudantium assumenda.",
+            "maximum_adults": 4,
+            "maximum_kids": 0,
+            "featured": true,
+            "units": 0,
+            "room_size": 376,
+            "price_rate": {
+                "rate_type": "CHARGE PER CABIN",
+                "weekday_price": "350.00",
+                "weekend_price": "220.00",
+                "weekly_price": "600.00",
+                "monthly_price": "223.00",
+                "charge": "10.00"
+            },
+            "images": [
+                {
+                    "id": "4629efae-6302-431d-991d-7e36bdb6e7be",
+                    "created_at": "2023-08-14T20:03:15.172269Z",
+                    "image": "https://sojourn-cabins-bucket-staging.s3.amazonaws.com/media/cabins/images/2023/August/Monday/60907f50-c4d6-4044-9422-b536a7fdabfa.jpg"
+                }
+            ],
+            "location": {
+                "id": "f3bca31b-3e2e-42e0-b506-664af57b5da5",
+                "location_name": "Vel Dolorem",
+                "location_description": "Amet delectus qui odio eveniet cumque. Rerum sint consequatur et facilis. Adipisci eos voluptates a necessitatibus quasi vel. Unde quisquam et quis reprehenderit dolorem alias placeat sint."
+            },
+            "amenities": [
+                {
+                    "id": "1999925c-d04f-4bed-95cb-56f0705b141b",
+                    "name": "Swimming Pool"
+                },
+                {
+                    "id": "b1d9bb29-4333-4d27-b8ed-17fe61118822",
+                    "name": "Wi-Fi"
+                }
+            ],
+            "beds": [
+                {
+                    "id": "4fa5f58c-1c54-4225-9300-b70cce1b18f5",
+                    "type": "QUEEN",
+                    "quantity": 1
+                }
+            ]
+        },
+        {
+            "id": "a1498644-975c-4548-8d8c-5e537e0d6bba",
+            "created_at": "2023-08-26T20:12:28.480559Z",
+            "updated_at": "2023-08-26T20:12:28.480575Z",
+            "name": "Wooden",
+            "description": "Laborum voluptatem sed at rerum maiores aperiam impedit. Unde alias quis ipsum sed architecto. Laudantium non doloribus natus ut corporis vero molestiae. Placeat molestiae consequatur ut quisquam vel rerum saepe.",
+            "maximum_adults": 3,
+            "maximum_kids": 0,
+            "featured": false,
+            "units": 0,
+            "room_size": 892,
+            "price_rate": {
+                "rate_type": "CHARGE PER CABIN",
+                "weekday_price": "350.00",
+                "weekend_price": "220.00",
+                "weekly_price": "600.00",
+                "monthly_price": "223.00",
+                "charge": "10.00"
+            },
+            "images": [
+                {
+                    "id": "3db5fe81-31a0-4efe-9ca8-ec39e21ae601",
+                    "created_at": "2023-08-26T20:12:28.632548Z",
+                    "image": "https://sojourn-cabins-bucket-staging.s3.amazonaws.com/media/cabins/images/2023/August/Saturday/60907f50-c4d6-4044-9422-b536a7fdabfa_p05Thik.jpg"
+                }
+            ],
+            "location": {
+                "id": "f3bca31b-3e2e-42e0-b506-664af57b5da5",
+                "location_name": "Vel Dolorem",
+                "location_description": "Amet delectus qui odio eveniet cumque. Rerum sint consequatur et facilis. Adipisci eos voluptates a necessitatibus quasi vel. Unde quisquam et quis reprehenderit dolorem alias placeat sint."
+            },
+            "amenities": [
+                {
+                    "id": "1999925c-d04f-4bed-95cb-56f0705b141b",
+                    "name": "Swimming Pool"
+                },
+                {
+                    "id": "b1d9bb29-4333-4d27-b8ed-17fe61118822",
+                    "name": "Wi-Fi"
+                }
+            ],
+            "beds": [
+                {
+                    "id": "f4f68cdb-6729-4c04-83bb-96ae6d917585",
+                    "type": "QUEEN",
+                    "quantity": 1
+                }
+            ]
+        }
+    ]

@@ -66,23 +66,23 @@ export const COLUMNS = [
     },
     {
         Header: 'Cabin Name',
-        accessor: 'CabinName'
+        accessor: 'name'
     },
     {
         Header: 'Facilities',
-        accessor: 'Facility'
+        accessor: 'created-at'
     },
     {
         Header: 'Extra Charge',
-        accessor: 'ExtraCharges'
+        accessor: 'updated-at'
     },
     {
         Header: 'Rate',
-        accessor: 'Rate'
+        accessor: 'description'
     },
     {
         Header: 'Status',
-        accessor: 'Status',
+        accessor: 'featured',
         Cell: gridCabinStatus
     },
     {

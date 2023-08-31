@@ -1,15 +1,16 @@
-import React , { useMemo } from 'react'
+import React , { useEffect, useMemo, useState } from 'react'
 import { IoMdArrowBack } from 'react-icons/io';
 import { useTable, useGlobalFilter, usePagination } from 'react-table';
 import {IoArrowForward} from 'react-icons/io5';
 import { Link } from 'react-router-dom'
 import { GlobalFilter } from '../../components/GlobalFilter';
-import MOCK_DATA from './MOCK_DATA.json';
+import axios from 'axios';
 import { COLUMNS } from './columns';
 import './table.css';
 const Location = () => {
+  const [MOCK_DATA, setMOCK_DATA] = useState([])  
   const columns = useMemo(() => COLUMNS, []);
-  const data = useMemo(() => MOCK_DATA, []);
+  const data = useMemo(() => MOCK_DATA, [MOCK_DATA]);
 
   const {
     getTableProps,
@@ -37,6 +38,14 @@ const Location = () => {
   const { globalFilter } = state;
   const { pageIndex } = state;
 
+  useEffect(() => {
+    axios.get("http://ec2-54-91-145-179.compute-1.amazonaws.com/sojourn-cabins/api/v1/locations/").then((response) => {
+      console.log(response.data)
+      setMOCK_DATA(response.data.results)
+    }).catch((error) => {
+      console.log(error)
+    })
+  }, [])
 
 
 

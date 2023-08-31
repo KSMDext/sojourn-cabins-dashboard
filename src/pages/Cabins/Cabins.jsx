@@ -1,17 +1,19 @@
-import React, { useMemo } from 'react';
+import React, { useEffect, useMemo, useState } from 'react';
 import { useTable, useGlobalFilter, usePagination } from 'react-table';
 import { IoMdArrowBack } from 'react-icons/io';
 import {IoArrowForward} from 'react-icons/io5';
 import { Link } from 'react-router-dom'
-import MOCK_DATA from './MOCK_DATA.json';
+
 import { COLUMNS } from './columns';
 import './table.css';
 import { GlobalFilter } from '../../components/GlobalFilter';
+import axios from 'axios';
 
 
 const Cabins = () => {
+  const [MOCK_DATA, setMOCK_DATA] = useState([]) 
   const columns = useMemo(() => COLUMNS, []);
-  const data = useMemo(() => MOCK_DATA, []);
+  const data = useMemo(() => MOCK_DATA, [MOCK_DATA]);
 
   const {
     getTableProps,
@@ -38,6 +40,15 @@ const Cabins = () => {
 
   const { globalFilter } = state;
   const { pageIndex } = state;
+  
+    useEffect(() => {
+      axios.get("http://ec2-54-91-145-179.compute-1.amazonaws.com/sojourn-cabins/api/v1/cabins/").then((response) => {
+        console.log(response.data)
+        setMOCK_DATA(response.data.results)
+      }).catch((error) => {
+        console.log(error)
+      })
+    }, [])
   return (
     <div>
       <div className="flex space-x-[387px] mt-4 items-center">
