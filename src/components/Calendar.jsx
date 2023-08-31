@@ -107,7 +107,7 @@ const CalendarComponent = () => {
           className="px-4 py-2 text-black rounded-md border border-black "
           onClick={() => setShowModal(false)}
         >
-          Backs
+          Back
         </button>
       </div>
       </h2>
