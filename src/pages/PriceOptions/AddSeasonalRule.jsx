@@ -1,6 +1,8 @@
+
 import React from "react";
 import { Link } from "react-router-dom";
 import { CiCircleAlert } from "react-icons/ci";
+
 
 const AddSeasonalRule = () => {
   return (
