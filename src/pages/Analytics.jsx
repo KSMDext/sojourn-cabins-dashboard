@@ -7,14 +7,15 @@ import { COLUMNS } from './Columns';
 import './table.css';
 import { FiArrowUp,  FiArrowDown} from 'react-icons/fi';
 import { Link } from 'react-router-dom';
-import { Rating } from 'primereact/rating';
 import DougnutChart from '../components/DougnutChart';
-import {AiOutlineCalendar} from 'react-icons/ai'
+import BarGraph from '../components/BarGraph';
+import LineChart from '../components/Charts/LineChart';
         
 
 const Analytics= () => {
   const columns = useMemo(() => COLUMNS, []);
   const data = useMemo(() => MOCK_DATA, []);
+  
 
   const {
     getTableProps,
@@ -44,31 +45,29 @@ const Analytics= () => {
 
   return (
     <div>
-        <div className=" text-2xl ml-6 mt-6">Analytics</div>
-        <div className="flex gap-[520px] mb-4 mt-4">
-          <div className="flex gap-6">
-          <div className="ml-6"> 
-          <AiOutlineCalendar/>
+      <div className="flex justify-between w-full">
+      <div className=" text-2xl ml-6 mt-6">Analytics</div>
+        <div className=" text-2xl mx-4 mt-6">{Array.from({ length: 5 }, (_, index) => (
+          <span key={index}>⭐</span>
+        ))}</div>
+      </div>
        
-       <span className = "">Start Date</span>
+      <div className="flex w-full justify-between items-center mb-4 mt-4">
+        <div className="flex">
+          <div className="ml-2"> 
+          <span className = " mx-3">Start Date</span>
        <input type="date" className="" />
    </div>
 
    <div className="">
-    <AiOutlineCalendar/> 
        <span className = "mx-3"> End Date</span>
        <input type="date" className="" />
    </div>
-          </div>
-        
-        <div>
+    </div>
+   <div className=''>
         <div className=''>
-      <span className=''>
-          <Rating value={5} readOnly cancel={false} />
-       </span>
-
-       <select
-                 className="w-60 px-4 py-2 border border-gray-300 rounded  text-slate-500" 
+        
+        <select className="w-60 px-4 py-2 border border-gray-300 rounded  text-slate-500" 
                    defaultValue="" >
        <option value="" disabled hidden>
                  Choose Location
@@ -81,54 +80,109 @@ const Analytics= () => {
         </div>
    
         </div>
-  <div className=" w-auto mr-6 flex ml-6 gap-12">
-          <Link>
-            <div className=" w-[270px] h-32 bg-white rounded pt-3 pl-4 gap-[600px]"> 
-              <div className="text-lg">Total Bookings</div>
-              <div className="text-2xl pt-2">19,671</div>
-              <div className=" flex pt-3 text-sm"><span className="flex pr-2 text-cyan-600">  <FiArrowUp className=" h-5"/>15% </span> last month</div>
-            </div> 
-          </Link>
-    <div className="">
-  <div className="mb-2 ml-6 flex items-center">
-    <div className="mr-2">
-      <pi-calendar /> 
-    </div>
-    
-  </div>
-  <div className="flex justify-between ml-1">
-    <Link>
-      <div className="w-[270px] h-32 bg-white rounded pt-3 pl-2">
-      <div className="text-lg ">New Customers</div>
-              <div className="text-2xl pt-2">1,143</div>
-              <div className=" flex pt-3 text-sm"><span className="flex pr-2 text-red-700"><FiArrowDown className=" h-5"/> 10% </span> last month</div>
+  <div className=" w-auto flex ml-6 justify-between">
+  <Link>
+  <div className="w-[280px] h-32 bg-white rounded pt-3 pl-4 pb-3 gap-[600px]">
+    <div className="text-lg">Total Bookings</div>
+    <div className="flex">
+      <div className="mr-5">
+        <div className="text-2xl pt-2">19,671</div>
+        <div className="flex pt-3 text-sm">
+          <span className="flex pr-2 text-cyan-600">
+            <FiArrowUp className="h-5" />15%{' '}
+          </span>
+          last mth
+        </div>
       </div>
-    </Link>
+      {/* Move the LineChart component here */}
+      <div className="ml-auto">
+        <LineChart />
+      </div>
+    </div>
+  </div>
+</Link>
+    <div className="">
+ 
+  <div className="flex justify-between ml-1">
+  <Link>
+  <div className="w-[280px] h-32 bg-white rounded pt-3 pl-4 pb-3 gap-[600px]">
+    <div className="text-lg">New Customers</div>
+    <div className="flex">
+      <div className="mr-5">
+        <div className="text-2xl pt-2">1,143</div>
+        <div className="flex pt-3 text-sm">
+          <span className="flex pr-2 text-cyan-600">
+            <FiArrowDown className="h-5" />15%{' '}
+          </span>
+          last mth
+        </div>
+      </div>
+      {/* Move the LineChart component here */}
+      <div className="ml-auto">
+        <LineChart />
+      </div>
+    </div>
+  </div>
+</Link>
   </div>
 </div>
 
-         <Link>
-            <div className=" w-[270px] h-32 bg-white rounded-lg pt-3 pl-2"> 
-              <div className="text-lg ">Available Bookings</div>
-              <div className="text-2xl pt-2">178</div>
-              <div className=" flex pt-3 text-sm"><span className="flex pr-2 text-red-700"><FiArrowDown className=" h-5"/> 10% </span> last month</div>
-            </div>
-          </Link>
-          <Link>
-          
-           <div className=" w-[270px] h-32 bg-white rounded-lg pt-3 pl-2 mb-0"> 
-            <div className="flex   text-slate-100"></div>
-              <div className="text-lg ">Total Revenue</div>
-              <div className="text-2xl pt-2">$234,879.00</div>
-              <div className=" flex pt-3 text-sm"><span className="flex pr-2 text-cyan-600"> <FiArrowUp className=" h-5"/>20% </span> last month</div>
-            </div>
-          </Link>
+<div className="flex justify-between ml-1">
+
+<Link>
+  <div className="w-[280px] h-32 bg-white rounded pt-3 pl-4 pb-3 gap-[600px]">
+    <div className="text-lg">Available Bookings</div>
+    <div className="flex">
+      <div className="mr-5">
+        <div className="text-2xl pt-2">19,671</div>
+        <div className="flex pt-3 text-sm">
+          <span className="flex pr-2 text-cyan-600">
+            <FiArrowUp className="h-5" />15%{' '}
+          </span>
+          last mth
+        </div>
+      </div>
+      {/* Move the LineChart component here */}
+      <div className="ml-auto">
+        <LineChart />
+      </div>
+    </div>
+  </div>
+</Link>
+</div>
+
+<div className="flex justify-between ml-1">
+
+<Link>
+  <div className="w-[280px] h-32 bg-white rounded pt-3 pl-4 pb-3 gap-[600px]">
+    <div className="text-lg">Total Revenue</div>
+    <div className="flex">
+      <div className="mr-5">
+        <div className="text-2xl pt-2">19,671</div>
+        <div className="flex pt-3 text-sm">
+          <span className="flex pr-2 text-cyan-600">
+            <FiArrowDown className="h-5" />15%{' '}
+          </span>
+          last mth
+        </div>
+      </div>
+      {/* Move the LineChart component here */}
+      <div className="ml-auto">
+        <LineChart />
+      </div>
+    </div>
+  </div>
+</Link>
+</div>
         </div>
         
         <div className="flex">
   <div className="w-3/4 bg-white h-96 mt-8 ml-6 rounded mr-3">
     <div className='text-xl mt-0 text-center '>
       <h2>CABIN REVENUES/ 24HRS ($)</h2>
+      <div className="ml-20 items-center mt-2 ">
+      <BarGraph className="w-96"/>
+      </div>
     </div>
   </div>
   <div className="w-1/2 bg-white h-96 mt-8 mr-6 rounded ml-3">

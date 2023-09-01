@@ -55,7 +55,7 @@ const ReservationsTable = () => {
               </tr>
             ))}
           </thead>
-          <tbody {...getTableBodyProps()}>ss
+          <tbody {...getTableBodyProps()}>
             {page.map((row) => {
               prepareRow(row);
               return (

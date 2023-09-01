@@ -17,6 +17,12 @@ import * as RiIcons from 'react-icons/ri';
 import SubMenu from './SubMenu';
 import styled from 'styled-components';
 
+const signOut = () => {
+  // Api call to sign out goes here
+  localStorage.setItem('isSignedIn', 'false');
+  window.location.reload()
+}
+
 const SidebarWrap = styled.div`
   width: 100%;
 `;
@@ -128,7 +134,8 @@ const Sidebar = () => {
             <img src={require('./sojourn.png')} alt="" srcset=""  width={'150px'} height={'100px'}/>
           </Link>
           <TooltipComponent content="Menu" position='BottomCenter'>
-            <button type= "button" onClick={()=> setActiveMenu((prevActiveMenu)=>!prevActiveMenu)} className=" text-xl rounded-lg p-3 hover:bg-light-gray mt-4 block md:hidden  ">
+            <button type= "button" onClick={()=> setActiveMenu((prevActiveMenu)=>!prevActiveMenu)} className=" text-xl rounded-lg p-3 hover:bg-light-gray mt-4 block mx-1">
+
               <MdOutlineCancel />
             </button>
           </TooltipComponent>
@@ -159,8 +166,12 @@ const Sidebar = () => {
           ))}
         </div>
         <div className="mt-40 border-t-2 border-black  relative">
-            <div className="mt-8 ml-5   fixed bottom-0 pr-5">
-                <NavLink to={`/${Link.name}`} key={Link.name} onClick={()=>{}} className={({ isActive})=> isActive? activeLink:normalLink}>
+            <div
+            onClick={() => {
+              signOut();
+            }}
+            className="mt-8 ml-5   fixed bottom-0 pr-5">
+                <NavLink to={`/`} key={Link.name} onClick={()=>{}} className={({ isActive})=> isActive? activeLink:normalLink}>
                   {<GoSignOut className="text-white"/>}
                   <span className="capitalize text-white">
                     {"Sign Out"}
