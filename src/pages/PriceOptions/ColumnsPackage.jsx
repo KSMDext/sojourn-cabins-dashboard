@@ -1,6 +1,15 @@
 import React, { useState } from 'react';
 import { HiDotsVertical } from 'react-icons/hi'; 
 import { Link } from 'react-router-dom';
+
+const cabinsCell = (prop) => {
+  return (
+    <>
+
+    </>
+  )
+}
+
 const CustomMenuCell = (props) => {
     const [menuOpen, setMenuOpen] = useState(false);
     const toggleMenu = () => setMenuOpen(!menuOpen);
@@ -37,27 +46,29 @@ const CustomMenuCell = (props) => {
 export const COLUMNS = [
     {
         Header: 'Package Name',
-        accessor: 'PackageName'
+        accessor: 'package_name'
     },
     {
         Header: 'Location',
-        accessor: 'Location'
+        accessor: 'location'
     },
     {
         Header: 'Cabin',
-        accessor: 'Cabin'
+        accessor: 'cabins',
+        Cell: cabinsCell
     },
     {
         Header: 'Start Date',
-        accessor: 'StartDate'
+        accessor: 'start_date'
     },
     {
         Header: 'Expiry Date',
-        accessor: 'ExpiryDate'
+        accessor: 'end_date'
     },
     {
         Header: 'Price',
-        accessor: 'Price'
+        accessor: 'price',
+        Cell: (props) => {return (<span>${props.value}</span>)} 
     },
     {
         Header: '', 

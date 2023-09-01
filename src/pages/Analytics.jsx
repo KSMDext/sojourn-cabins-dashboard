@@ -45,9 +45,9 @@ const Analytics= () => {
 
   return (
     <div>
-      <div className="flex justify-between w-full">
-      <div className=" text-2xl ml-6 mt-6">Analytics</div>
-        <div className=" text-2xl mx-4 mt-6">{Array.from({ length: 5 }, (_, index) => (
+      <div className="flex justify-between w-full px-5">
+      <div className=" text-2xl mt-6">Analytics</div>
+        <div className=" text-2xl mt-6">{Array.from({ length: 5 }, (_, index) => (
           <span key={index}>⭐</span>
         ))}</div>
       </div>
@@ -64,7 +64,7 @@ const Analytics= () => {
        <input type="date" className="" />
    </div>
     </div>
-   <div className=''>
+   <div className='px-5'>
         <div className=''>
         
         <select className="w-60 px-4 py-2 border border-gray-300 rounded  text-slate-500" 
@@ -80,9 +80,9 @@ const Analytics= () => {
         </div>
    
         </div>
-  <div className=" w-auto flex ml-6 justify-between">
+  <div className=" w-auto flex px-5 justify-between">
   <Link>
-  <div className="w-[280px] h-32 bg-white rounded pt-3 pl-4 pb-3 gap-[600px]">
+  <div className="w-[280px] h-32 bg-white rounded pt-3 pl-4 pb-3">
     <div className="text-lg">Total Bookings</div>
     <div className="flex">
       <div className="mr-5">

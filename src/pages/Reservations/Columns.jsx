@@ -2,10 +2,21 @@ import React, { useState } from 'react';
 import { HiDotsVertical } from 'react-icons/hi'; 
 import { Link } from 'react-router-dom';
 
+const reservationPhone = (props) => {
+  return (
+    <span>{props.value.phone_number}</span>
+  )
+}
+
+const reservationEmail = (props) => {
+  return (
+    <span>{props.value.email}</span>
+  )
+}
 
 const gridPaymentStatus = (props) => {
   let buttonStyle = {
-    color: props.value === 'Paid' ? 'green' : 'red'
+    color: props.value === 'FULLY PAID' ? 'green' : 'red'
   };
 
   return (
@@ -14,7 +25,7 @@ const gridPaymentStatus = (props) => {
       style={buttonStyle}
       className="text-white py-1 px-2 capitalize text-md"
     >
-      {props.value}
+      {props.value === 'FULLY PAID' ? 'PAID' : 'UNPAID'}
     </button>
   );
 };
@@ -78,38 +89,36 @@ export const COLUMNS =
         accessor: 'ReservationImage',
         Cell: reservationGridImage,
         width: 150,
-
-
     },
     {
         Header: 'Phone',
-        accessor:'Phone',
+        accessor:'guest.phone_number',
         width: 130,
     },
     {
         Header: 'Email',
-        accessor:'Email',
+        accessor:'guest.email',
         width: 160,
     },
     {
         Header: 'Check In',
-        accessor:'CheckIn',
+        accessor:'check_in_date',
         width: 125,
     },
     {
         Header: 'Check Out',
-        accessor:'CheckOut',
+        accessor:'check_out_date',
         width: 125,
     },
     {
-        Header: 'Status',
+        Header: 'Reservation Status',
         accessor:'Status',
         Cell: gridReservationStatus,
         width: 125,
     },
     {
         Header: 'Payment',
-        accessor:'Payment',
+        accessor:'payment_status',
         Cell: gridPaymentStatus,
         width: 100,
     },

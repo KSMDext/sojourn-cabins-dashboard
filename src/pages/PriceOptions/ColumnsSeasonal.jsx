@@ -1,6 +1,21 @@
 import React, { useState } from 'react';
 import { HiDotsVertical } from 'react-icons/hi'; 
 import { Link } from 'react-router-dom';
+
+const cabinsGrid = (props) => {
+  return (
+    <>
+    {
+      props.value.map((price_rate) => {
+        return (
+          <span>price_rate.cabin.name</span>
+        )
+      })
+    }
+    </>
+  )
+}
+
 const CustomMenuCell = (props) => {
     const [menuOpen, setMenuOpen] = useState(false);
     const toggleMenu = () => setMenuOpen(!menuOpen);
@@ -37,23 +52,24 @@ const CustomMenuCell = (props) => {
 export const COLUMNS = [
     {
         Header: 'Seasonal Rule',
-        accessor: 'SeasonalRule'
+        accessor: 'season_name'
     },
     {
         Header: 'Location',
-        accessor: 'Location'
+        accessor: 'location'
     },
     {
         Header: 'Cabin',
-        accessor: 'Cabin'
+        accessor: 'seasonal_price_rates',
+        Cell: cabinsGrid
     },
     {
         Header: 'Start Date',
-        accessor: 'StartDate'
+        accessor: 'start_date'
     },
     {
         Header: 'Expiry Date',
-        accessor: 'ExpiryDate'
+        accessor: 'end_date'
     },
     {
         Header: '', 

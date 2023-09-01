@@ -75,7 +75,7 @@ export const COLUMNS =[
     },
     {
         Header:'Phone',
-        accessor: 'Phone'
+        accessor: 'phone_number'
     },
     {
         Header:'Address',
