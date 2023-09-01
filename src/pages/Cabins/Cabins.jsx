@@ -42,7 +42,6 @@ const Cabins = () => {
 
   const { globalFilter } = state;
   const { pageIndex } = state;
-
   useEffect(() => {
     const token = tokens.access;
     const config = {

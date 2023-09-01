@@ -181,6 +181,14 @@ const GeneralSettings = () => {
           className="w-20 px-4 py-3 g-6 border border-gray-300 rounded"
         />
       </div>
+      <div className="flex flex-col text-xs  text-slate-500">
+        <div className="mb-2"></div>
+        Max. Nights
+        <input
+          type="text"
+          className="w-20 px-4 py-3 g-6 border border-gray-300 rounded"
+        />
+      </div>
     </div>
   </div>
    </form>

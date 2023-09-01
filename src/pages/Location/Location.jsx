@@ -4,6 +4,7 @@ import { useTable, useGlobalFilter, usePagination } from 'react-table';
 import {IoArrowForward} from 'react-icons/io5';
 import { Link } from 'react-router-dom'
 import { GlobalFilter } from '../../components/GlobalFilter';
+import axios from 'axios';
 import { COLUMNS } from './columns';
 import axios from "axios";
 
@@ -42,7 +43,6 @@ const Location = () => {
 
   const { globalFilter } = state;
   const { pageIndex } = state;
-
 
   useEffect(() => {
     const token = tokens.access;

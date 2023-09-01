@@ -1,51 +1,33 @@
+
 [
-    {
-      "SeasonalRule": "Valentine Weekend Package",
-      "Location": "Location1, Location2",
-      "Cabin": "All Cabins",
-      "StartDate": "11/02/2022",
-      "ExpiryDate": "12/02/2023"
+  {
+    "check_in_date": "2023-8-17",
+    "check_out_date": "2023-8-18",
+    "is_package_reservation": true,
+    "package": "153c0aea-42d3-404a-8aa6-461da20d88cb",
+    "cabins": [
+        "561a8e7a-f1a7-412f-91b8-d8a501a2a4ca"
+    ],
+    "reservation_extra_charges": [
+        {
+            "extra_charge": "84ab6121-8e1a-4b25-8a2f-485308109cd0",
+            "quantity": 2
+        }
+    ],
+    "number_of_guests": 2,
+    "guest": {
+        "email": "darkbotbbl@gmail.com",
+        "first_name": "{{$randomFirstName}}",
+        "last_name": "{{$randomLastName}}",
+        "phone_number": "+233551528489",
+        "country": "{{$randomCountryCode}}",
+        "address": "{{$randomStreetAddress}}"
     },
-    {
-      "SeasonalRule": "New Year",
-      "Location": "All Locations",
-      "Cabin": "All Cabins",
-      "StartDate": "15/12/2022",
-      "ExpiryDate": "27/12/2022"
-    },
-    {
-      "SeasonalRule": "New Year",
-      "Location": "All Locations",
-      "Cabin": "All Cabins",
-      "StartDate": "15/12/2022",
-      "ExpiryDate": "27/12/2022"
-    },
-    {
-      "SeasonalRule": "New Year",
-      "Location": "All Locations",
-      "Cabin": "All Cabins",
-      "StartDate": "15/12/2022",
-      "ExpiryDate": "27/12/2022"
-    },
-    {
-      "SeasonalRule": "New Year",
-      "Location": "All Locations",
-      "Cabin": "All Cabins",
-      "StartDate": "15/12/2022",
-      "ExpiryDate": "27/12/2022"
-    },
-    {
-      "SeasonalRule": "Valentine Weekend Package",
-      "Location": "Location1, Location2",
-      "Cabin": "All Cabins",
-      "StartDate": "11/02/2022",
-      "ExpiryDate": "12/02/2023"
-    },
-    {
-      "SeasonalRule": "Valentine Weekend Package",
-      "Location": "Location1, Location2",
-      "Cabin": "All Cabins",
-      "StartDate": "11/02/2022",
-      "ExpiryDate": "12/02/2023" 
-    }
-  ]
+    "payments": [
+        {
+            "token": "003234adfa889adfadf",
+            "amount": 176.52
+        }
+    ]
+}
+]
