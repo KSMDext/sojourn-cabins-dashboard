@@ -4,8 +4,8 @@ import { Link } from 'react-router-dom'
 const Emails = () => {
   return (
     <div >
-      <div className=" mt-3  text-4xl ml-10">Emails</div>
-      <div className="m-3 flex gap-36">
+      <div className=" mt-3 text-4xl ml-10">Emails</div>
+      <div className="m-3 flex">
           <div className="flex  ">
           <div className=" mt-6">
             <div className=" text-3xl mb-6">
@@ -15,7 +15,7 @@ const Emails = () => {
               Guests will receive this confirmation <br/>email once they book. Feel free to edit <br/> and personalize
             </div>
           </div>
-      <div className=" w-[1068px] bg-white p-10 ml-6 h-[800px]">
+      <div className=" w-full mx-4 bg-white p-10 h-[800px]">
           <p>Form: </p>theteam@sojourngh.com
           <div className="mb-8">
             <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="div1">

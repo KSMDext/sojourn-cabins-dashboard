@@ -3,7 +3,6 @@ import { useTable, useGlobalFilter, usePagination } from 'react-table';
 import { IoMdArrowBack } from 'react-icons/io';
 import {IoArrowForward} from 'react-icons/io5';
 import { Link } from 'react-router-dom'
-import MOCK_DATA from './MOCK_DATAe.json';
 import { COLUMNS } from './ColumnsExtra';
 import './table.css';
 import { GlobalFilter } from '../../components/GlobalFilter';
