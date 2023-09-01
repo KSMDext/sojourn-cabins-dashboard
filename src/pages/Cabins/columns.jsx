@@ -8,10 +8,27 @@ const cabinGridImage = (props) => (
     </div>
 );
 
+const amenities = (props) => {
+  return (
+    <>
+    {(props.value).map((amenity, index) => {
+      return (
+        <>
+        {(index !== props.value.length - 1) ? 
+          <span>{amenity.name}, </span>: <span>{amenity.name} </span>
+        
+        }
+        </>
+      )
+    })}
+    </>
+  )
+}
+
 
 const gridCabinStatus = (props) => {
     let buttonStyle = {
-        color: props.value === 'Available' ? 'green' : 'red'
+        color: !props.value ? 'green' : 'red'
       };
     
       return (
@@ -20,7 +37,7 @@ const gridCabinStatus = (props) => {
           style={buttonStyle}
           className="text-white py-1 px-2 capitalize text-md"
         >
-          {props.value}
+          {props.value ? "Booked" : "Available"}
         </button>
       );
 };
@@ -66,23 +83,24 @@ export const COLUMNS = [
     },
     {
         Header: 'Cabin Name',
-        accessor: 'CabinName'
+        accessor: 'name'
     },
     {
         Header: 'Facilities',
-        accessor: 'Facility'
+        accessor: 'amenities',
+        Cell: amenities
     },
     {
         Header: 'Extra Charge',
-        accessor: 'ExtraCharges'
+        accessor: ''
     },
     {
         Header: 'Rate',
-        accessor: 'Rate'
+        accessor: 'price_rate.monthly_price'
     },
     {
         Header: 'Status',
-        accessor: 'Status',
+        accessor: 'featured',
         Cell: gridCabinStatus
     },
     {

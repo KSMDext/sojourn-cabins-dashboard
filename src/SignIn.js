@@ -8,7 +8,7 @@ const SignIn = ({ handleSignIn }) => {
   const navigate = useNavigate();
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-  const {setTokens} = useStateContext();
+  const {tokens, setTokens} = useStateContext();
   
   useEffect(() => {
     navigate("/");
@@ -27,7 +27,6 @@ const SignIn = ({ handleSignIn }) => {
         password: password
       }, (tokens) => {
         setTokens(tokens)
-        console.log(tokens);
         handleSignIn();
         navigate("/dashboard")
       })

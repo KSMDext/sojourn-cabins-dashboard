@@ -54,28 +54,28 @@ const CustomMenuCell = (props) => {
 export const COLUMNS =[
     {
         Header:'Image',
-        accessor: 'StaffImage',
+        accessor: 'image',
         Cell: gridStaffProfile,
     },
     {
         Header:'Name',
-        accessor: 'Name'
+        accessor: 'first_name'
     },
     {
         Header:'Role',
-        accessor:'Title'
+        accessor:'role'
     },
     {
         Header:'Email',
-        accessor: 'Email'
+        accessor: 'email'
     },
     {
         Header:'Phone',
-        accessor: 'Phone'
+        accessor: 'phone_number'
     },
     {
         Header:'Address',
-        accessor: 'Address',
+        accessor: 'address',
         Cell: gridStaffCountry
     },
     {
