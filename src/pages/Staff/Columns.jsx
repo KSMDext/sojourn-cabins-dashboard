@@ -54,30 +54,35 @@ const CustomMenuCell = (props) => {
 export const COLUMNS =[
     {
         Header:'Image',
-        accessor: 'StaffImage',
+        accessor: 'image',
         Cell: gridStaffProfile,
     },
     {
-        Header:'Name',
-        accessor: 'Name'
+        Header:'First Name',
+        accessor: 'first_name'
     },
     {
+      Header:'Last Name',
+      accessor: 'last_name'
+  },
+    {
         Header:'Role',
-        accessor:'Title'
+        accessor:'role'
     },
     {
         Header:'Email',
-        accessor: 'Email'
+        accessor: 'email'
     },
     {
         Header:'Phone',
-        accessor: 'Phone'
+        accessor: 'phone_number'
     },
     {
         Header:'Address',
-        accessor: 'Address',
+        accessor: 'address',
         Cell: gridStaffCountry
     },
+    
     {
         Header: '', 
         accessor: 'id', 
@@ -85,3 +90,5 @@ export const COLUMNS =[
         width: 100,
       },
 ]
+
+

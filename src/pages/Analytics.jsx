@@ -1,8 +1,8 @@
-import React, { useMemo } from 'react';
+import React, { useEffect, useMemo, useState } from 'react';
 import { useTable, useGlobalFilter, usePagination } from 'react-table';
 import { IoMdArrowBack } from 'react-icons/io';
 import {IoArrowForward} from 'react-icons/io5';
-import MOCK_DATA from './MOCK_DATA.json';
+import axios from 'axios';
 import { COLUMNS } from './Columns';
 import './table.css';
 import { FiArrowUp,  FiArrowDown} from 'react-icons/fi';
@@ -13,8 +13,9 @@ import LineChart from '../components/Charts/LineChart';
         
 
 const Analytics= () => {
+  const [MOCK_DATA, setMOCK_DATA] = useState([])
   const columns = useMemo(() => COLUMNS, []);
-  const data = useMemo(() => MOCK_DATA, []);
+  const data = useMemo(() => MOCK_DATA, [MOCK_DATA]);
   
 
   const {
@@ -42,12 +43,20 @@ const Analytics= () => {
 
 
   const { pageIndex } = state;
+  useEffect(() => {
+    axios.get("http://ec2-54-91-145-179.compute-1.amazonaws.com/sojourn-cabins/api/v1/reservations/").then((response) => {
+      console.log(response.data)
+      setMOCK_DATA(response.data.results)
+    }).catch((error) => {
+      console.log(error)
+    })
+  }, [])
 
   return (
     <div>
-      <div className="flex justify-between w-full">
-      <div className=" text-2xl ml-6 mt-6">Analytics</div>
-        <div className=" text-2xl mx-4 mt-6">{Array.from({ length: 5 }, (_, index) => (
+      <div className="flex justify-between w-full px-5">
+      <div className=" text-2xl mt-6">Analytics</div>
+        <div className=" text-2xl mt-6">{Array.from({ length: 5 }, (_, index) => (
           <span key={index}>⭐</span>
         ))}</div>
       </div>
@@ -64,7 +73,7 @@ const Analytics= () => {
        <input type="date" className="" />
    </div>
     </div>
-   <div className=''>
+   <div className='px-5'>
         <div className=''>
         
         <select className="w-60 px-4 py-2 border border-gray-300 rounded  text-slate-500" 
@@ -80,9 +89,9 @@ const Analytics= () => {
         </div>
    
         </div>
-  <div className=" w-auto flex ml-6 justify-between">
+  <div className=" w-auto flex px-5 justify-between">
   <Link>
-  <div className="w-[280px] h-32 bg-white rounded pt-3 pl-4 pb-3 gap-[600px]">
+  <div className="w-[280px] h-32 bg-white rounded pt-3 pl-4 pb-3">
     <div className="text-lg">Total Bookings</div>
     <div className="flex">
       <div className="mr-5">

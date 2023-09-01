@@ -1,17 +1,20 @@
-import React, { useMemo } from 'react';
+import React, {useState, useEffect, useMemo } from 'react';
 import { useTable, useGlobalFilter, usePagination } from 'react-table';
 import { IoMdArrowBack } from 'react-icons/io';
 import {IoArrowForward} from 'react-icons/io5';
 import { Link } from 'react-router-dom'
-import MOCK_DATA from './MOCK_DATAc.json';
+import axios from 'axios';
 import { COLUMNS } from './ColumnsCoupon';
 import './table.css';
 import { GlobalFilter } from '../../components/GlobalFilter';
+import { useStateContext } from '../../contexts/ContextProvider';
 
 
 const Coupons = () => {
+  const [MOCK_DATA, setMOCK_DATA] = useState([])
   const columns = useMemo(() => COLUMNS, []);
-  const data = useMemo(() => MOCK_DATA, []);
+  const data = useMemo(() => MOCK_DATA, [MOCK_DATA]);
+  const {tokens} = useStateContext();
 
   const {
     getTableProps,
@@ -38,10 +41,28 @@ const Coupons = () => {
 
   const { globalFilter } = state;
   const { pageIndex } = state;
+  useEffect(() => {
+    const token = tokens.access
+    const config = {
+        headers: {
+            Authorization: `Bearer ${token}`
+        }
+    };
+
+    axios.get("http://ec2-54-91-145-179.compute-1.amazonaws.com/sojourn-cabins/api/v1/coupons/", config)
+        .then((response) => {
+            console.log(response.data);
+            setMOCK_DATA(response.data);
+        })
+        .catch((error) => {
+            console.log(error);
+        });
+}, [tokens]);
+ 
   return (
-    <div className='w-full'>
-      <div className="flex mt-4 items-center w-full justify-between">
-        <div className="text-2xl ml-5">Coupons</div>
+    <div>
+      <div className="flex mt-4 items-center w-full justify-between px-5">
+        <div className="text-2xl">Coupons</div>
         <div></div>
         <div>
           <button className="text-white p-1 hover:bg-zinc-300 bg-zinc-800 rounded-md bold text-14 w-40">
@@ -52,8 +73,8 @@ const Coupons = () => {
           </button>
         </div>
       </div>
-      <div className="flex mt-4 justify-between">
-        <div className="w-80 border rounded text-sm ml-5">
+      <div className="flex mt-4 justify-between px-5">
+        <div className="w-80 border rounded text-sm">
           <GlobalFilter filter={globalFilter} setFilter={setGlobalFilter} />
         </div>
         <div>

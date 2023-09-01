@@ -3,75 +3,58 @@ import { Link } from 'react-router-dom';
 
 const Emails = () => {
   return (
-    <div>
+    <div className="flex flex-col">
       <div className="mt-3 text-4xl ml-10">Emails</div>
-      <div className="m-3">
-        <div className="flex gap-6">
-          <div className="flex">
-            <div className="mt-6">
-              <div className="text-3xl mb-6">
-                <h1 className="italic text-blue-900">Confirmation Email</h1>
-              </div>
-              <div className="ml-4 italic text-gray-800">
-                Guests will receive this confirmation email once they book. Feel free to edit and personalize.
-              </div>
+      <div className="m-3 flex gap-36">
+        <div className="flex">
+          <div className="mt-6">
+            <div className="text-3xl mb-6">
+              <h1 className="italic text-blue-900">Confirmation Email</h1>
             </div>
-            <div className="w-[800px] bg-white p-10 ml-6">
-              <p>From:</p> theteam@sojourngh.com
-              <div className="mb-8">
-                <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="subject1">
-                  Subject:
-                </label>
-                <div className="bg-white border px-3 py-2 rounded-md h-16">
-                  <input
-                    type="text"
-                    id="subject1"
-                    className="w-full"
-                    value="Your cabin is ready!"
-                  />
-                </div>
-              </div>
-              <div className="mb-8">
-                <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="subject2">
-                  Subject:
-                </label>
-                <div className="bg-white border rounded-md px-3 py-2 h-24">
-                  Hello!
-                  <br />
-                  Thank you for choosing Sojourn Cabins. We look forward to hosting your stay. Please respond to this email with your preferred date of arrival.
-                  <input
-                    type="text"
-                    className="w-full"
-                    value=""
-                  />
-                </div>
-              </div>
-              <div className="mb-4">
-                <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="bookingDetails">
-                  Booking Details: (Not Editable)
-                </label>
-                <div className="bg-white rounded-md italic border px-3 py-2 h-[350px]">
-                  Your Booking Details;
-                  <br />
-                  <br />
-                  Guest(s): Guest Name(s)
-                  <br />
-                  Reservation Number: #00000
-                  <br />
-                  Room Type: Room Name
-                  <br />
-                  Check-In: Date
-                  <br />
-                  Check-Out: Date
-                  <br />
-                  Number of Nights: #
-                  <br />
-                  Number of Adults/Kids: #
-                  <br />
-                  ...
-                </div>
-              </div>
+            <div className="ml-4 italic text-gray-800">
+              Guests will receive this confirmation <br />
+              email once they book. Feel free to edit <br /> and personalize
             </div>
+          </div>
+          <div className="w-[1068px] bg-white p-10 ml-6 h-[800px]">
+            <p>From: theteam@sojourngh.com</p>To:<br/>
+            <br/>
+            <div className="mb-8">
+            <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="subject">
+              Subject:
+            </label>
+            <div className="bg-white px-3 py-2 rounded-md h-16">
+              <input
+                type="text"
+                id="subject"
+                className="w-full border  rounded-md p-2"
+                defaultValue="Your cabin is ready!"
+              />
+            </div>
+          </div>
+                      <div className="mb-8">
+            <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="message">
+              Message
+            </label>
+            <div className="bg-white rounded-md px-3 py-2 h-24">
+              <textarea
+                id="message"
+                className="w-full h-full border rounded-md p-2"
+                defaultValue={`Hello!\n\nThank you for choosing Sojourn Cabins. We look forward to hosting your\nstay. Please respond to this email with your preferred date of arrival.`}
+              />
+            </div>
+          </div>
+                      <div className="mb-4">
+            <label className="block text-gray-700 text-sm font-bold mb-2">
+              Booking Details: (Editable)
+            </label>
+            <div className="bg-white px-3 py-2 h-[350px]">
+              <textarea
+                className="w-full h-full border rounded-md p-2"
+                defaultValue={`Your Booking Details;\n\nGuest(s): Guest Name(s)\nReservation Number: #00000\nRoom Type: Room Name\nCheck-In: Date\nCheck-Out: Date\nNumber of Nights: #\nNumber of Adults/Kids: #\n...`}
+              />
+            </div>
+          </div>
           </div>
         </div>
       </div>
