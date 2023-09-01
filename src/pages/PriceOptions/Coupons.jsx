@@ -38,23 +38,22 @@ const Coupons = () => {
 
   const { globalFilter } = state;
   const { pageIndex } = state;
-
- 
   return (
-    <div>
-      <div className="flex space-x-[380px] mt-4 items-center">
-        <div className="text-2xl ml-5 mr-96">Coupon</div>
+    <div className='w-full'>
+      <div className="flex mt-4 items-center w-full justify-between">
+        <div className="text-2xl ml-5">Coupons</div>
         <div></div>
         <div>
           <button className="text-white p-1 hover:bg-zinc-300 bg-zinc-800 rounded-md bold text-14 w-40">
-            <Link to="/addcoupons">
+          <Link to="/addcoupons">
+
               <span className="mr-4">+</span>Add Coupons
             </Link>
           </button>
         </div>
       </div>
-      <div className="flex space-x-[500px] mt-4">
-        <div className="w-80 border rounded text-sm ml-5 mr-96">
+      <div className="flex mt-4 justify-between">
+        <div className="w-80 border rounded text-sm ml-5">
           <GlobalFilter filter={globalFilter} setFilter={setGlobalFilter} />
         </div>
         <div>
@@ -128,7 +127,7 @@ const Coupons = () => {
         </div>
       </div>
     </div>
-  )
+  );
 }
 
 export default Coupons

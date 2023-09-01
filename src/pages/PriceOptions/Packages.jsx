@@ -8,6 +8,7 @@ import { COLUMNS } from './ColumnsPackage';
 import './table.css';
 import { GlobalFilter } from '../../components/GlobalFilter';
 
+
 const Packages = () => {
   const columns = useMemo(() => COLUMNS, []);
   const data = useMemo(() => MOCK_DATA, []);
@@ -37,24 +38,22 @@ const Packages = () => {
 
   const { globalFilter } = state;
   const { pageIndex } = state;
-
-
- 
   return (
-    <div>
-      <div className="flex space-x-[380px] mt-4 items-center">
-        <div className="text-2xl ml-5 mr-96">Packages</div>
+    <div className='w-full'>
+      <div className="flex mt-4 items-center w-full justify-between">
+        <div className="text-2xl ml-5">Packages</div>
         <div></div>
         <div>
           <button className="text-white p-1 hover:bg-zinc-300 bg-zinc-800 rounded-md bold text-14 w-40">
-            <Link to="/createpackage">
+          <Link to="/createpackage">
+
               <span className="mr-4">+</span>Add Packages
             </Link>
           </button>
         </div>
       </div>
-      <div className="flex space-x-[500px] mt-4">
-        <div className="w-80 border rounded text-sm ml-5 mr-96">
+      <div className="flex mt-4 justify-between">
+        <div className="w-80 border rounded text-sm ml-5">
           <GlobalFilter filter={globalFilter} setFilter={setGlobalFilter} />
         </div>
         <div>
@@ -128,7 +127,7 @@ const Packages = () => {
         </div>
       </div>
     </div>
-  )
+  );
 }
 
 export default Packages

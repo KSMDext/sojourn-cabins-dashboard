@@ -8,6 +8,7 @@ import { COLUMNS } from './ColumnsSeasonal';
 import './table.css';
 import { GlobalFilter } from '../../components/GlobalFilter';
 
+
 const SeasonalRule = () => {
   const columns = useMemo(() => COLUMNS, []);
   const data = useMemo(() => MOCK_DATA, []);
@@ -29,7 +30,7 @@ const SeasonalRule = () => {
     {
       columns,
       data,
-      initialState: { pageSize: 10 }, 
+      initialState: { pageSize: 5 }, 
     },
     useGlobalFilter,
     usePagination
@@ -37,22 +38,21 @@ const SeasonalRule = () => {
 
   const { globalFilter } = state;
   const { pageIndex } = state;
-
   return (
-    <div>
-      <div className="flex space-x-[345px] mt-4 items-center">
-        <div className="text-2xl ml-5 mr-96">Seasonal Rule</div>
+    <div className='w-full'>
+      <div className="flex mt-4 items-center w-full justify-between">
+        <div className="text-2xl ml-5">Seasonal Rules</div>
         <div></div>
         <div>
           <button className="text-white p-1 hover:bg-zinc-300 bg-zinc-800 rounded-md bold text-14 w-40">
             <Link to="/addseasonalrule">
-              <span className="mr-4">+</span>Add SeasonalRule
+              <span className="mr-4">+</span>Add Seasonal Rule
             </Link>
           </button>
         </div>
       </div>
-      <div className="flex space-x-[500px] mt-4">
-        <div className="w-80 border rounded text-sm ml-5 mr-96">
+      <div className="flex mt-4 justify-between">
+        <div className="w-80 border rounded text-sm ml-5">
           <GlobalFilter filter={globalFilter} setFilter={setGlobalFilter} />
         </div>
         <div>
@@ -126,7 +126,7 @@ const SeasonalRule = () => {
         </div>
       </div>
     </div>
-  )
+  );
 }
 
 export default SeasonalRule
