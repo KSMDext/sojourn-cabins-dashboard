@@ -66,7 +66,8 @@ const Coupons = () => {
         <div></div>
         <div>
           <button className="text-white p-1 hover:bg-zinc-300 bg-zinc-800 rounded-md bold text-14 w-40">
-            <Link to="/addcoupons">
+          <Link to="/addcoupons">
+
               <span className="mr-4">+</span>Add Coupons
             </Link>
           </button>
@@ -147,7 +148,7 @@ const Coupons = () => {
         </div>
       </div>
     </div>
-  )
+  );
 }
 
 export default Coupons

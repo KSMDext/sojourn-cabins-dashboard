@@ -10,7 +10,7 @@ const Edit = () => {
   return (
     <div style={{padding:"px", display:"flex", gap:"2rem"}}>
         <div style={{width:""}}>
-            <Editor value={value1} onTextChange={(e)=> setValue1(e.htmlValue)} style={{ height:"300px", width:"950px"}}/>
+            <Editor value={value1} onTextChange={(e)=> setValue1(e.htmlValue)} style={{ height:"300px", width:"850px"}}/>
         </div>
     </div>
   )

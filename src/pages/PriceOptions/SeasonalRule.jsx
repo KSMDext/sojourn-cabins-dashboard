@@ -11,6 +11,7 @@ import { baseUrl } from '../../components/Utilities/apiUtils';
 import { useStateContext } from '../../contexts/ContextProvider';
 
 
+
 const SeasonalRule = () => {
   const {tokens} = useStateContext();
   const [MOCK_DATA, setMOCK_DATA] = useState([]);
@@ -34,7 +35,7 @@ const SeasonalRule = () => {
     {
       columns,
       data,
-      initialState: { pageSize: 10 }, 
+      initialState: { pageSize: 5 }, 
     },
     useGlobalFilter,
     usePagination
@@ -69,7 +70,7 @@ const SeasonalRule = () => {
         <div>
           <button className="text-white p-1 hover:bg-zinc-300 bg-zinc-800 rounded-md bold text-14 w-40">
             <Link to="/addseasonalrule">
-              <span className="mr-4">+</span>Add SeasonalRule
+              <span className="mr-4">+</span>Add Seasonal Rule
             </Link>
           </button>
         </div>
@@ -149,7 +150,7 @@ const SeasonalRule = () => {
         </div>
       </div>
     </div>
-  )
+  );
 }
 
 export default SeasonalRule
