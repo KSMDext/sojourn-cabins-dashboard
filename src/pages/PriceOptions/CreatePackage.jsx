@@ -17,7 +17,6 @@ const CreatePackage = () => {
                 />
               </label>
             </div>
-
             <div className="flex flex-col">
               <label className="w-[250px] h-[40px] text-[14px]">
                 Start date*

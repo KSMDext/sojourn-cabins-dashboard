@@ -49,15 +49,15 @@ export const COLUMNS =[
     },
     {
         Header: 'Location Address',
-        accessor: 'Location_address'
+        accessor: 'location_address'
     },
     {
         Header: 'Description',
-        accessor: 'Location_description'
+        accessor: 'location_description'
     },
     {
         Header: 'Total Cabins',
-        accessor: 'TotalCabins'
+        accessor: 'cabins.length'
     },
     {
         Header: 'Available Cabins',

@@ -1,17 +1,22 @@
-
-import React from "react";
-import { Link } from "react-router-dom";
-import { CiCircleAlert } from "react-icons/ci";
-
+import React from 'react'
+import { Link } from 'react-router-dom';
+import {CiCircleAlert} from "react-icons/ci";
 
 const AddSeasonalRule = () => {
   return (
     <div>
       <p className="ml-4 mt-4 text-lg">Add Seasonal Rules</p>
-      <div className="mb-4 bg-white p-[2rem] mt-4 ml-4 mr-6 pb-[0rem] text-slate-500">
-        <div className="flex gap-[31.125rem]">
-          <div className="mb-2 ml-10 my-3 w-[200px]">
-            <div>
+      <div className="mb-4 bg-white p-[2rem] mt-4 ml-4 mr-6 pb-[0rem] text-slate-500"
+      <div className="flex gap-[31.125rem]">
+        <div className="mb-2 w-[200px]" >
+          <div>
+        <label htmlFor="role" className="block">
+                Name*
+        </label>
+              <input type= "text" className="w-[500px] h-[30px] p-2 border-1 border-slate-200 rounded"/>
+        </div>
+        
+            <div className="mr-3 text-[14px]">
               <label htmlFor="role" className="block">
                 Name your season*
               </label>

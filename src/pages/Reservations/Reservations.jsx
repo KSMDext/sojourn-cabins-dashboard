@@ -7,8 +7,11 @@ import axios from 'axios';
 import { COLUMNS } from './Columns';
 import './table.css';
 import { GlobalFilter } from '../../components/GlobalFilter';
+import { useStateContext } from '../../contexts/ContextProvider';
+import { baseUrl } from '../../components/Utilities/apiUtils';
 
 const Reservations = () => {
+  const {tokens} = useStateContext();
   const [MOCK_DATA, setMOCK_DATA] = useState([])
   const columns = useMemo(() => COLUMNS, []);
   const data = useMemo(() => MOCK_DATA, [MOCK_DATA]);
@@ -40,18 +43,27 @@ const Reservations = () => {
   const { pageIndex } = state;
 
   useEffect(() => {
-    axios.get("http://ec2-54-91-145-179.compute-1.amazonaws.com/sojourn-cabins/api/v1/reservations/").then((response) => {
-      console.log(response.data)
-      setMOCK_DATA(response.data.results)
-    }).catch((error) => {
-      console.log(error)
-    })
-  }, [])
+    const token = tokens.access;
+    const config = {
+        headers: {
+            Authorization: `Bearer ${token}`
+        }
+    };
+
+    axios.get(`${baseUrl}/reservations/`, config)
+        .then((response) => {
+            console.log(response.data);
+            setMOCK_DATA(response.data.results);
+        })
+        .catch((error) => {
+            console.log(error);
+        });
+    }, [tokens]);
 
   return (
     <div className='w-full'>
-      <div className="flex mt-4 items-center w-full justify-between">
-        <div className="text-2xl ml-5">Reservations</div>
+      <div className="flex mt-4 items-center w-full px-5 justify-between">
+        <div className="text-2xl">Reservations</div>
         <div>
           <button className="text-white p-1 hover:bg-zinc-300 bg-zinc-800 rounded-md bold text-14 w-40">
             <Link to="/addreservations">
@@ -60,8 +72,8 @@ const Reservations = () => {
           </button>
         </div>
       </div>
-      <div className="flex mt-4 justify-between">
-        <div className="w-80 border rounded text-sm ml-5">
+      <div className="flex mt-4 justify-between px-5">
+        <div className="w-80 border rounded text-sm">
           <GlobalFilter filter={globalFilter} setFilter={setGlobalFilter} />
         </div>
         <div>

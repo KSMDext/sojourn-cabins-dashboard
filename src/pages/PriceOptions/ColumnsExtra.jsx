@@ -37,15 +37,15 @@ const CustomMenuCell = (props) => {
 export const COLUMNS = [
     {
         Header: 'Service',
-        accessor: 'Service'
+        accessor: 'charge_name'
     },
     {
         Header: 'Price',
-        accessor: 'Price'
+        accessor: 'price'
     },
     {
         Header: 'Description',
-        accessor: 'Description'
+        accessor: 'description'
     },
     {
         Header: 'Available Times',

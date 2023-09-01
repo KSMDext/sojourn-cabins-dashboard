@@ -1,4 +1,4 @@
-import React , { useEffect, useMemo, useState } from 'react'
+import React , { useMemo, useState, useEffect } from 'react';
 import { IoMdArrowBack } from 'react-icons/io';
 import { useTable, useGlobalFilter, usePagination } from 'react-table';
 import {IoArrowForward} from 'react-icons/io5';
@@ -6,9 +6,15 @@ import { Link } from 'react-router-dom'
 import { GlobalFilter } from '../../components/GlobalFilter';
 import axios from 'axios';
 import { COLUMNS } from './columns';
+import axios from "axios";
+
+
 import './table.css';
+import { useStateContext } from '../../contexts/ContextProvider';
+import { baseUrl } from '../../components/Utilities/apiUtils';
 const Location = () => {
-  const [MOCK_DATA, setMOCK_DATA] = useState([])  
+  const {tokens} = useStateContext();
+  const [MOCK_DATA, setMOCK_DATA] = useState([])
   const columns = useMemo(() => COLUMNS, []);
   const data = useMemo(() => MOCK_DATA, [MOCK_DATA]);
 
@@ -39,20 +45,27 @@ const Location = () => {
   const { pageIndex } = state;
 
   useEffect(() => {
-    axios.get("http://ec2-54-91-145-179.compute-1.amazonaws.com/sojourn-cabins/api/v1/locations/").then((response) => {
-      console.log(response.data)
-      setMOCK_DATA(response.data.results)
-    }).catch((error) => {
-      console.log(error)
-    })
-  }, [])
+    const token = tokens.access;
+    const config = {
+        headers: {
+            Authorization: `Bearer ${token}`
+        }
+    };
 
-
+    axios.get(`${baseUrl}/locations?page=1`, config)
+        .then((response) => {
+            console.log(response.data);
+            setMOCK_DATA(response.data.results);
+        })
+        .catch((error) => {
+            console.log(error);
+        });
+    }, [tokens]);
 
   return (   
         <div className='w-full'>
-          <div className="flex mt-4 items-center w-full justify-between">
-        <div className="text-2xl ml-5 ">Location</div>
+          <div className="flex mt-4 items-center w-full justify-between px-5">
+        <div className="text-2xl">Location</div>
         <div></div>
         <div style={{}}>
           <button className="text-white p-1 hover:bg-zinc-300 bg-black rounded-md bold text-14 w-40">
@@ -62,8 +75,8 @@ const Location = () => {
           </button>
         </div>
       </div>
-      <div className="flex mt-4 justify-between">
-        <div className="w-80 border rounded text-sm ml-5">
+      <div className="flex mt-4 justify-between px-5">
+        <div className="w-80 border rounded text-sm">
           <GlobalFilter filter={globalFilter} setFilter={setGlobalFilter} />
         </div>
         <div>

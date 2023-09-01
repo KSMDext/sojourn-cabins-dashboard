@@ -1,4 +1,4 @@
-import React, { useMemo } from 'react';
+import React, { useEffect, useMemo, useState } from 'react';
 import { useTable, useGlobalFilter, usePagination } from 'react-table';
 import { IoMdArrowBack } from 'react-icons/io';
 import {IoArrowForward} from 'react-icons/io5';
@@ -7,10 +7,15 @@ import MOCK_DATA from './MOCK_DATAe.json';
 import { COLUMNS } from './ColumnsExtra';
 import './table.css';
 import { GlobalFilter } from '../../components/GlobalFilter';
+import axios from 'axios';
+import { useStateContext } from '../../contexts/ContextProvider';
+import { baseUrl } from '../../components/Utilities/apiUtils';
 
 const ExtraCharge = () => {
+  const {tokens} = useStateContext();
+  const [MOCK_DATA, setMOCK_DATA] = useState([]);
   const columns = useMemo(() => COLUMNS, []);
-  const data = useMemo(() => MOCK_DATA, []);
+  const data = useMemo(() => MOCK_DATA, [MOCK_DATA]);
 
   const {
     getTableProps,
@@ -38,11 +43,27 @@ const ExtraCharge = () => {
   const { globalFilter } = state;
   const { pageIndex } = state;
 
+  useEffect(() => {
+    const token = tokens.access
+    const config = {
+        headers: {
+            Authorization: `Bearer ${token}`
+        }
+    };
 
+    axios.get(`${baseUrl}/extra_charges?page=1`, config)
+        .then((response) => {
+            console.log(response.data);
+            setMOCK_DATA(response.data);
+        })
+        .catch((error) => {
+            console.log(error);
+        });
+    }, [tokens]);
   return (
     <div>
-      <div className="flex space-x-[355px] mt-4 items-center">
-        <div className="text-2xl ml-5 mr-96">ExtraCharge</div>
+      <div className="flex mt-4 items-center w-full justify-between px-5">
+        <div className="text-2xl">ExtraCharge</div>
         <div></div>
         <div>
           <button className="text-white p-1 hover:bg-zinc-300 bg-zinc-800 rounded-md bold text-14 w-40">
@@ -52,8 +73,8 @@ const ExtraCharge = () => {
           </button>
         </div>
       </div>
-      <div className="flex space-x-[500px] mt-4">
-        <div className="w-80 border rounded text-sm ml-5 mr-96">
+      <div className="flex mt-4 justify-between px-5">
+        <div className="w-80 border rounded text-sm">
           <GlobalFilter filter={globalFilter} setFilter={setGlobalFilter} />
         </div>
         <div>
