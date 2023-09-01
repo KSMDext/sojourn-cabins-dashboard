@@ -1,11 +1,23 @@
-import {React, useState} from 'react';
-import { Link } from 'react-router-dom';
+import {React, useState,useEffect} from 'react';
+import { Link, redirect } from 'react-router-dom'; 
 import ImageUploader from '../../components/ImageUploader';
-import { useDispatch } from 'react-redux';
+import { useDispatch,useSelector } from 'react-redux';
 import { addStaff } from '../../actions/staff';
+import Select from 'react-select';
 
 
-const AddStaff = () => {
+const AddStaff = ({history}) => {
+
+  
+
+      const countryOptions = [
+        { value: 'us', label: 'United States' },
+        { value: 'gh', label: 'Ghana' },
+        { value: 'ca', label: 'Canada' },
+        // Add more countries
+      ];
+
+      
   
   const dispatch = useDispatch()
     const[first_name,setfirst_name] = useState('');
@@ -13,20 +25,34 @@ const AddStaff = () => {
     const[email,setEmail] =useState('');
     const[phone_number,setPhone] =useState('');
     const[address,setAddress] =useState('');
-    const[location,setLocation] =useState('');
+    const[work_location,setLocation] =useState('');
     const[country, setCountry] =useState('');
     const[role,setRole] =useState('');
     const[staffType,setStaffType] =useState('');
     const[date_joined,setDateJoined] = useState('');
 
+    const handleSelect = (selectedOptions) => {
+        setCountry(selectedOptions.label);
+    }
 
+    // const history = useHistory();
 
     const handleSubmit = (e)=>{
       e.preventDefault()
-      const staffData = {first_name,last_name,email,phone_number,address,location,country,role,staffType,date_joined}
+      const staffData = {first_name,last_name,email,phone_number,address,country,work_location,role,staffType,date_joined}
       console.log(staffData)
       dispatch(addStaff(staffData))
-    }
+
+  }
+
+  const {staff_, error, loading} = useSelector(state=>state.staff)
+
+
+    useEffect(() => {
+      if (staff_) {
+        redirect("/staff")
+      }
+    }, [history, staff_])
 
   return (
     <div>
@@ -85,24 +111,24 @@ const AddStaff = () => {
             required/>
           </label>
           <label
-          className="w-[310px] h-[40px] text-[14px]">
-            Work Location*
-            <input 
-            className="w-[400px] h-[32px] p-2 border-1 border-slate-200 rounded"
-            type="text" 
-            onChange={(e) => setLocation(e.target.value)}
-            required/>
+            className="w-[310px] h-[40px] text-[14px]">
+              Work Location*
+              <input 
+              className="w-[400px] h-[32px] p-2 border-1 border-slate-200 rounded"
+              type="text" 
+              onChange={(e) => setLocation(e.target.value)}
+              required/>
           </label>
-          <label
-          className="w-[310px] h-[40px] text-[14px]">
-            Country*
-            <input 
-            className="w-[400px] h-[32px] p-2 border-1 border-slate-200 rounded"
-            type="text" 
-            onChange={(e) => setCountry(e.target.value)}
-            required/>
-          </label>
-
+          <div>
+            <span className="w-[310px] h-[40px] text-[14px]"> Country*</span>
+            <Select 
+              className="w-[400px] h-[32px] p-1 pl-[0rem]"
+              type="text" 
+              // value={country?.value}
+              options = {countryOptions}
+              onChange={handleSelect}
+              required/>
+          </div>
           <div className="flex">
             <div className="mr-3 text-[14px]">
               <label htmlFor="role" className="block">

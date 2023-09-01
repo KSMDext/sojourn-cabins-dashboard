@@ -21,7 +21,7 @@ export const loadStaff = () => async dispatch => {
     try {
       console.log("Is supposed to add  data!!!!!", staffData)
       const data = stringify(staffData)
-      console.log("Is supposed to add  data!!!!!", data)
+      console.log("Is supposed to add  data!!!!!", staffData)
       await api
         .post("/employees/", staffData)
         .then(response => {
@@ -29,7 +29,7 @@ export const loadStaff = () => async dispatch => {
           dispatch(addSuccess(response.data))
         });
     } catch (error) {
-      console.log("we caught and error", error)
+      console.log("we caught an error", error)
       dispatch(errorLoading(error.message))
     }
     }
