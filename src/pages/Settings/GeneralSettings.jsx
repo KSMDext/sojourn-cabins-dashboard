@@ -9,7 +9,7 @@ const GeneralSettings = () => {
             <div className="mb-4 bg-white p-4">
     <form>
       <div className="info_name text-blue-900 font-bold font-display-latto">Business Info</div>
-    <div className="flex gap-48">
+    <div className="flex gap-20">
     <div className="flex flex-col mr-8  text-slate-500 ml-40">
       <div className="mb-2">Property Name*</div>
       <input
@@ -80,7 +80,7 @@ const GeneralSettings = () => {
       <iframe
         title="Google Map"
         src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3959.472020101909!2d-1.1266588852656467!3d5.171908650496125!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xfde057a668fbb1b%3A0x724f8f20e7e68e74!2sSojourn%20Cabins!5e0!3m2!1sen!2s!4v1631225516235!5m2!1sen!2s"
-        width="1000"
+        width="600"
         height="350"
         style={{ border: 0 }}
         allowFullScreen=""
@@ -148,7 +148,7 @@ const GeneralSettings = () => {
   <div className="info_name  text-blue-900 font-bold">Length of stay</div>
   <form> 
   <div className="">
-    <div className="flex gap-16  mr-8  text-slate-500 ml-40">
+    <div className="flex gap-8  mr-8  text-slate-500 ml-40">
       <div className="flex flex-col mr-8  text-xs  text-slate-500 ">
         <div className="mb-2"></div>
         Check-In time
@@ -157,7 +157,7 @@ const GeneralSettings = () => {
           className="w-[250px] px-4 py-3 mb-4 border border-gray-300 rounded"
         />
       </div>
-      <div className="flex flex-col mr-8  text-xs  text-slate-500">
+      <div className="flex flex-col mr-5  text-xs  text-slate-500">
         <div className="mb-2"></div>
         Check-Out Time
         <input
@@ -168,6 +168,14 @@ const GeneralSettings = () => {
       <div className="flex flex-col  text-xs  text-slate-500">
         <div className="mb-2 only:"></div>
         Min. Nights
+        <input
+          type="text"
+          className="w-20 px-4 py-3 g-6 border border-gray-300 rounded"
+        />
+      </div>
+      <div className="flex flex-col text-xs  text-slate-500">
+        <div className="mb-2"></div>
+        Max. Nights
         <input
           type="text"
           className="w-20 px-4 py-3 g-6 border border-gray-300 rounded"

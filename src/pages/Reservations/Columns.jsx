@@ -2,18 +2,6 @@ import React, { useState } from 'react';
 import { HiDotsVertical } from 'react-icons/hi'; 
 import { Link } from 'react-router-dom';
 
-const reservationPhone = (props) => {
-  return (
-    <span>{props.value.phone_number}</span>
-  )
-}
-
-const reservationEmail = (props) => {
-  return (
-    <span>{props.value.email}</span>
-  )
-}
-
 const gridPaymentStatus = (props) => {
   let buttonStyle = {
     color: props.value === 'FULLY PAID' ? 'green' : 'red'

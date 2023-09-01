@@ -10,6 +10,7 @@ import axios from 'axios';
 import { useStateContext } from '../../contexts/ContextProvider';
 import { baseUrl } from '../../components/Utilities/apiUtils';
 
+
 const ExtraCharge = () => {
   const {tokens} = useStateContext();
   const [MOCK_DATA, setMOCK_DATA] = useState([]);
@@ -67,7 +68,7 @@ const ExtraCharge = () => {
         <div>
           <button className="text-white p-1 hover:bg-zinc-300 bg-zinc-800 rounded-md bold text-14 w-40">
             <Link to="/addextracharge">
-              <span className="mr-4">+</span>Add ExtraCharge
+              <span className="mr-4">+</span>Add Extra Charge
             </Link>
           </button>
         </div>
@@ -147,7 +148,7 @@ const ExtraCharge = () => {
         </div>
       </div>
     </div>
-  )
+  );
 }
 
 export default ExtraCharge

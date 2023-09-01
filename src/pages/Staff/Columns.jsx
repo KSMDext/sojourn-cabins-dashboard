@@ -58,9 +58,13 @@ export const COLUMNS =[
         Cell: gridStaffProfile,
     },
     {
-        Header:'Name',
+        Header:'First Name',
         accessor: 'first_name'
     },
+    {
+      Header:'Last Name',
+      accessor: 'last_name'
+  },
     {
         Header:'Role',
         accessor:'role'
@@ -78,6 +82,7 @@ export const COLUMNS =[
         accessor: 'address',
         Cell: gridStaffCountry
     },
+    
     {
         Header: '', 
         accessor: 'id', 
@@ -85,3 +90,5 @@ export const COLUMNS =[
         width: 100,
       },
 ]
+
+

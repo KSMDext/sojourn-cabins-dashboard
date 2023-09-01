@@ -12,7 +12,7 @@ const SignIn = ({ handleSignIn }) => {
   
   useEffect(() => {
     navigate("/");
-  }, [])
+  }, [navigate, tokens])
 
   const handleButtonClick = () => {
     // Perform authentication logic here, e.g., calling an API endpoint
