@@ -1,20 +1,54 @@
-import React from 'react'
-import {Link} from 'react-router-dom';
+import {React,useState,useEffect} from 'react';
+import {Link, redirect} from 'react-router-dom';
 import {CiCircleAlert} from "react-icons/ci";
-import {RiArrowDropDownLine} from "react-icons/ri";
 import ImageUploader from '../../components/ImageUploader';
+import { addCabins } from '../../actions/cabins';
+import { useDispatch,useSelector } from 'react-redux';
 
-const AddCabins = () => {
+
+const AddCabins = ({history}) => {
+  const[name,setName] = useState('');
+  const[maximum_adults,setMaximum_adults] =useState();
+  const[maximum_kids,setMaximum_kids] =useState();
+  const[description,setDescription] =useState('');
+  const[units,setUnits] =useState();
+  const[room_size,setRoom_size] =useState();
+  const[beds,setBeds] =useState();
+  const[location,setLocation] =useState('');
+  const[weekend_price,setWeekend_price] =useState('');
+  const[weekday_price,setWeekday_price] =useState('');
+  const[rate_type,setRate_type] =useState('');
+  const[amenities,setAmenites] =useState('');
+
+  const dispatch = useDispatch();
+
+  const handleSubmit = (e) => {
+      e.preventDefault()
+      const cabinData = {name,maximum_kids,maximum_adults,description,weekend_price,units,room_size,weekday_price,beds,location,rate_type,amenities}
+      console.log(cabinData);
+      dispatch(addCabins(cabinData))
+
+  }
+  
+ const {cabin, error, loading} = useSelector(state=>state.cabins)
+
+ useEffect(() => {
+  if (cabin) {
+    redirect("/cabins")
+  }
+}, [history, cabin])
+
+
   return (
     <div>
       <p className="mx-[35px] mt-[20px] text-2xl font-medium">Add Cabins</p>
 
     {/* Cabin Details */}
+    <form onSubmit={handleSubmit}>
     <div className="grid grid-cols-2 gap-[200px] p-8 mt-[20px] mx-[35px] bg-white rounded  ">
       <div className="grid grid-cols-2 ">
         <p className="w-[141px] h-[14px] text-xl font-bold text-sky-700	">Cabin Details</p>  
       <div>
-      <form>
       <div className="grid grid-rows-2">
       <div className="flex flex-col items-left">
           <div className="flex items-center text-[14px]">
@@ -23,7 +57,8 @@ const AddCabins = () => {
           </div>
           <input 
             className="w-[350px] h-[32px] p-2 border-1 border-slate-200 rounded "
-            type="number"
+            type="text"
+            onChange={(e)=>setName(e.target.value)}
           />
       </div>
       <div className="grid grid-cols-2  mt-2">
@@ -36,6 +71,7 @@ const AddCabins = () => {
           <input 
             className="w-[108px] h-[30px] p-2 border-1 border-slate-200 rounded "
             type="number"
+            onChange={(e)=>setMaximum_adults(e.target.value)}
           />
       </div>
 
@@ -48,11 +84,12 @@ const AddCabins = () => {
           <input 
             className="w-[108px] h-[30px] p-2 border-1 border-slate-200 rounded "
             type="number"
+            onChange={(e)=>setMaximum_kids(e.target.value)}
+
           />
       </div>
       </div>
       </div>
-      </form>
     </div>
       </div>
     
@@ -70,6 +107,7 @@ const AddCabins = () => {
           <input 
             className="w-[127px] h-[32px] p-2 border-1 border-slate-200 rounded"
             type="number"
+            onChange={(e)=>setUnits(e.target.value)}
           />
       </div>
       <div>
@@ -82,6 +120,8 @@ const AddCabins = () => {
           <input 
             className="w-[253px] h-[32px] p-2 border-1 border-slate-200 rounded"
             type="number"
+            onChange={(e)=>setRoom_size(e.target.value)}
+
           />
       </div>
       </div>
@@ -102,19 +142,19 @@ const AddCabins = () => {
           <div className="flex items-center text-[14px]">           
             <span>Bed type</span>
           </div>
-          <select className="w-[334px] h-[32px]  border-1 border-slate-200 rounded mt-2 text-[14px] mb-1"> 
+          <select 
+          className="w-[334px] h-[32px]  border-1 border-slate-200 rounded mt-2 text-[14px] mb-1"
+          onChange={(e)=>setBeds(e.target.value)}
+          > 
             <option value="">Choose bed type</option>
             
           </select>
       </div>
       <div className="grid grid-cols-2">
-      <div className="flex flex-col items-left">
+        <div className="flex flex-col items-left">
           <div className="flex items-center text-[14px]">
-          </div>
-          <select className="w-[334px] h-[32px]  border-1  border-slate-200 rounded mt-2 text-[14px]"> 
-            <option value="">Choose bed type</option>
-            
-          </select>
+        </div>
+          
       </div>
       </div>
       </div>
@@ -126,11 +166,9 @@ const AddCabins = () => {
           <input 
             type="number"
             className="w-[127px] h-[30px] p-2 border-1  border-slate-200 rounded text-[14px] mb-1"        
-          />
-        <input 
-        type="number"
-        className="w-[127px] h-[30px] p-2 border-1  border-slate-200 rounded mt-2"        
-        />
+            onChange={(e)=>setMaximum_adults(e.target.value)}
+            />
+        
       </div>
       
         </form>
@@ -138,7 +176,8 @@ const AddCabins = () => {
   </div>
     
 {/* Amenities Section */}
-    <div className="border-l-2 ">    
+    <div className="border-l-2 "
+    onChange={(e) => setAmenites(e.target)}>    
       <div className="ml-6 ">
       <form>
       {/* <div className="grid grid-rows-2"> */}
@@ -156,26 +195,34 @@ const AddCabins = () => {
           <input 
             className=" border-1 border-slate-200 w-[23px] h-[19px]"
             type="checkbox"
-          /><span className="pl-[5px] ">Air conditioning</span>
+            onChange={(e)=>setMaximum_adults(e.target.value)}
+            />
+            <span className="pl-[5px] ">Air conditioning</span>
            
       </div>
       <div className="mb-2 flex items-center text-[14px]">
       <input 
             className=" border-1 border-slate-200	w-[23px] h-[19px]"
             type="checkbox"
-          /><span className="pl-[5px]">Minibar</span>
+            onChange={(e)=>setMaximum_adults(e.target.value)}
+            />
+            <span className="pl-[5px]">Minibar</span>
       </div>
       <div className="mb-2 flex items-center text-[14px]">
       <input 
             className=" border-1 border-slate-200	w-[23px] h-[19px] "
             type="checkbox"
-          /><span className="pl-[5px]">WorkSpace</span>
+            onChange={(e)=>setMaximum_adults(e.target.value)}
+            />
+            <span className="pl-[5px]">WorkSpace</span>
       </div>
       <div className="mb-2 flex items-center text-[14px]">
       <input 
             className=" border-1 border-slate-200	w-[23px] h-[19px]"
             type="checkbox"
-          /><span className="pl-[5px]">Internet</span>
+            onChange={(e)=>setMaximum_adults(e.target.value)}
+            />
+            <span className="pl-[5px]">Internet</span>
       </div>
       </div>
       <div className="mt-[25px]">
@@ -183,19 +230,25 @@ const AddCabins = () => {
       <input 
             className=" border-1 border-slate-200	w-[23px] h-[19px]"
             type="checkbox"
-          /><span className="pl-[5px]">Shower</span>
+            onChange={(e)=>setMaximum_adults(e.target.value)}
+            />
+            <span className="pl-[5px]">Shower</span>
       </div>
       <div className="mb-2 flex items-center text-[14px]" >
       <input 
             className=" border-1 border-slate-200	w-[23px] h-[19px]"
             type="checkbox"
-          /><span className="pl-[5px]">Towel</span>
+            onChange={(e)=>setMaximum_adults(e.target.value)}
+            />
+            <span className="pl-[5px]">Towel</span>
       </div>
       <div className="mb-2 flex items-center text-[14px]">
       <input 
             className=" border-1 border-slate-200	w-[23px] h-[19px]"
             type="checkbox"
-          /><span className="pl-[5px]">Safe</span>
+            onChange={(e)=>setMaximum_adults(e.target.value)}
+            />
+            <span className="pl-[5px]">Safe</span>
       </div>
       </div>
       </div>
@@ -223,7 +276,10 @@ const AddCabins = () => {
         <label>
           <p>Description*</p>
         <textarea
-          className="w-[444px] h-[98px] p-2 border-1 border-slate-200 rounded">
+          className="w-[444px] h-[98px] p-2 border-1 border-slate-200 rounded"
+          onChange={(e)=>setDescription(e.target.value)}
+          >
+            
         </textarea>
         </label>    
       </div>
@@ -232,8 +288,11 @@ const AddCabins = () => {
           <div className="flex items-center">           
             <span>Location*</span>
           </div>
-          <select className="w-[444px] h-[39px]  border-1 border-slate-200 rounded mt-2"> 
-            <option value=""></option>
+          <select 
+          className="w-[444px] h-[39px]  border-1 border-slate-200 rounded mt-2"
+          onChange={(e)=>setLocation(e.target.value)}
+          > 
+            <option value="">Choose a location</option>
             
           </select>
       </div>
@@ -248,16 +307,19 @@ const AddCabins = () => {
             <span>Rate Type</span>
             <CiCircleAlert className="mr-1" />
           </div>
-          <select className="w-[330px] h-[32px]  border-1 border-slate-200 rounded mt-2"> 
-            <option value=""></option>
+          <select 
+          className="w-[330px] h-[32px]  border-1 border-slate-200 rounded mt-2"
+          onChange={(e)=>setRate_type(e.target.value)}
+          > 
+            <option value="">choose rate type</option>
             
           </select>
       </div>
       <div className="flex items-center">
-        <p className="text-sky-500 text-xs inline-flex">
-          More pricing options
-          <RiArrowDropDownLine className="ml-1 h-[20px] w-[30px] self-center" />
-        </p>
+        <select 
+        className="text-sky-500 text-xs inline-flex w-[200px] rounded-none mt-[0.3rem]">
+          <option value="" className='border-[none]'>More pricing options</option>
+        </select>
       </div>
 
 
@@ -272,6 +334,7 @@ const AddCabins = () => {
         <input 
           className="w-[330px] h-[32px] p-2 border-1 border-slate-200 rounded mt-2"
           type="text"
+          onChange={(e)=>setWeekday_price(e.target.value)}
         />
       </label>
     </div>
@@ -286,6 +349,7 @@ const AddCabins = () => {
         <input 
           className="w-[330px] h-[32px] p-2 border-1 border-slate-200 rounded mt-2"
           type="text"
+          onChange={(e)=>setWeekend_price(e.target.value)}
         />
       </label>
     </div>
@@ -293,9 +357,12 @@ const AddCabins = () => {
     </div>
     <div className=" flex   flex-row-reverse gap-6 mt-4 mr-5">
         <button className="bg-white rounded-lg mr-[10px]  w-[98px] h-[32px]" type="button"><Link to="/cabins">Cancel</Link></button> 
-        <button className="bg-black  rounded-lg text-white w-[98px] h-[32px] text-center" type="button">Save</button>
+        <button className="bg-black  rounded-lg text-white w-[98px] h-[32px] text-center" type="submit">Save</button>
     </div>
+    </form>
+
     </div>
+
 
   )
 }

@@ -1,4 +1,4 @@
-import React, { useMemo } from 'react';
+import {React, useMemo,useEffect } from 'react';
 import { useTable, useGlobalFilter, usePagination } from 'react-table';
 import { IoMdArrowBack } from 'react-icons/io';
 import {IoArrowForward} from 'react-icons/io5';
@@ -7,11 +7,25 @@ import MOCK_DATA from './MOCK_DATA.json';
 import { COLUMNS } from './columns';
 import './table.css';
 import { GlobalFilter } from '../../components/GlobalFilter';
+import { useDispatch,useSelector } from 'react-redux';
+import { loadCabins } from '../../actions/cabins';
 
 
 const Cabins = () => {
+
+  const dispatch = useDispatch()
+
+  useEffect(()=>{
+    dispatch(loadCabins())
+    },[dispatch])
+
+  const {cabins, error, loading} = useSelector(state=>state.cabins)
+
   const columns = useMemo(() => COLUMNS, []);
-  const data = useMemo(() => MOCK_DATA, []);
+  // const [MOCK_DATA,setMOCK_DATA] = useState([])
+  const data = useMemo(() => cabins, []);
+
+  console.log("Cabins if loaded should be ", cabins)
 
   const {
     getTableProps,

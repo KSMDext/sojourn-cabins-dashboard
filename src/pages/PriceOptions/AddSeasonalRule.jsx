@@ -66,8 +66,8 @@ const AddSeasonalRule = () => {
 
               <div className="ml-4">
               <option value="" disabled hidden>
-       Choose Cabin
-        </option>
+                Choose Cabin
+              </option>
                 <select className="w-[300px] h-[40px] mt-2">
                   <option>Location 1</option>
                   <option>Location 2</option>

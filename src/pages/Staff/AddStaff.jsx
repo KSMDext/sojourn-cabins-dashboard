@@ -16,10 +16,9 @@ const AddStaff = ({history}) => {
         { value: 'ca', label: 'Canada' },
         // Add more countries
       ];
-
-      
   
-  const dispatch = useDispatch()
+    const dispatch = useDispatch()
+
     const[first_name,setfirst_name] = useState('');
     const[last_name,setlast_name] =useState('');
     const[email,setEmail] =useState('');
@@ -38,8 +37,8 @@ const AddStaff = ({history}) => {
     // const history = useHistory();
 
     const handleSubmit = (e)=>{
-      e.preventDefault()
-      const staffData = {first_name,last_name,email,phone_number,address,country,work_location,role,staffType,date_joined}
+      e.preventDefault();
+      const staffData = {first_name,last_name,email,phone_number,address,country,work_location,role,staffType,date_joined};
       console.log(staffData)
       dispatch(addStaff(staffData))
 
@@ -56,7 +55,7 @@ const AddStaff = ({history}) => {
 
   return (
     <div>
-      <p className="mx-[35px] mt-[20px] text-2xl font-medium	">Add Staff</p>
+      <p className="mx-[35px] mt-[20px] text-2xl font-medium">Add Staff</p>
       <form onSubmit={handleSubmit}>
     <div className="p-[40px] pt-[10px] mt-[40px] m-[35px] bg-white ">
       

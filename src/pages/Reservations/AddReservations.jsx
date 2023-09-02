@@ -1,6 +1,8 @@
 import React from 'react'
 import {SlCalender} from "react-icons/sl";
 import {Link} from "react-router-dom";
+// import { useDispatch,useSelector } from 'react-redux';
+// import { addReservation } from '../../actions/reservations';
 
 const AddReservations = () => {
   return (
@@ -149,3 +151,15 @@ const AddReservations = () => {
 }
 
 export default AddReservations
+
+// we caught an error TypeError: data.forEach is not a function
+//     at accessRowsForColumn (useTable.js:591:1)
+//     at useTable.js:195:1
+//     at updateMemo (react-dom.development.js:15867:1)
+//     at Object.useMemo (react-dom.development.js:16413:1)
+//     at Object.useMemo (react.development.js:1532:1)
+//     at useTable (useTable.js:57:1)
+//     at Cabins (Cabins.jsx:44:1)
+//     at renderWithHooks (react-dom.development.js:14985:1)
+//     at updateFunctionComponent (react-dom.development.js:17356:1)
+//     at beginWork (react-dom.development.js:19063:1)

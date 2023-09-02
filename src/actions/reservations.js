@@ -1,12 +1,12 @@
-import {addSuccess, setLoading, loadSuccess, errorLoading} from '../reducers/staff';
+import {addSuccess, setLoading, loadSuccess, errorLoading} from '../reducers/reservation';
 import { api } from '../api';
 import {stringify} from 'qs';
-export const loadStaff = () => async dispatch => {
+export const loadReservation = () => async dispatch => {
   dispatch(setLoading());
   try {
     console.log("Is supposed to load the data!!!!!")
     await api
-      .get("/employees/")
+      .get("/reservations/")
       .then(response => {
         console.log("I will ",response.data)
         dispatch(loadSuccess(response.data))
@@ -17,14 +17,14 @@ export const loadStaff = () => async dispatch => {
   }
   }
   
-  export const addStaff = (staffData) => async dispatch => {
+  export const addReservation = (reservationData) => async dispatch => {
     dispatch(setLoading());
     try {
-      console.log("Is supposed to add  data!!!!!", staffData)
-      const data = stringify(staffData)
-      console.log("Is supposed to add  data!!!!!", staffData)
+      console.log("Is supposed to add  data!!!!!", reservationData)
+      const data = stringify(reservationData)
+      console.log("Is supposed to add  data!!!!!", reservationData)
       await api
-        .post("/employees/", staffData)
+        .post("/reservations/", reservationData)
         .then(response => {
           console.log("I will ",response.data)
           dispatch(addSuccess(response.data))

@@ -11,6 +11,7 @@ import { useDispatch,useSelector } from 'react-redux';
 import { loadStaff } from '../../actions/staff';
 
 const Staff = () => {
+
   const dispatch = useDispatch()
 
   useEffect(()=>{
