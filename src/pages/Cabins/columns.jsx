@@ -66,11 +66,11 @@ export const COLUMNS = [
     },
     {
         Header: 'Cabin Name',
-        accessor: 'CabinName'
+        accessor: 'name'
     },
     {
-        Header: 'Facilities',
-        accessor: 'Facility'
+        Header: 'Amenities',
+        accessor: 'description'
     },
     {
         Header: 'Extra Charge',

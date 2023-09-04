@@ -163,3 +163,16 @@ export default AddReservations
 //     at renderWithHooks (react-dom.development.js:14985:1)
 //     at updateFunctionComponent (react-dom.development.js:17356:1)
 //     at beginWork (react-dom.development.js:19063:1)
+
+
+// we caught an error RangeError: Cyclic object value
+//     at stringify (stringify.js:89:1)
+//     at stringify (stringify.js:165:1)
+//     at stringify (stringify.js:165:1)
+//     at stringify (stringify.js:165:1)
+//     at stringify (stringify.js:165:1)
+//     at stringify (stringify.js:165:1)
+//     at module.exports (stringify.js:286:1)
+//     at cabins.js:25:1
+//     at index.js:16:1
+//     at Object.dispatch (immutableStateInvariantMiddleware.ts:264:1)

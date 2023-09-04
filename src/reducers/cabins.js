@@ -12,7 +12,7 @@ const slice = createSlice({
 
     reducers:{
         loadSuccess: (state,action) => {
-            state.cabins =action.payload;
+            state.cabins =action.payload.results;
             state.loading = false;
         },
         addSuccess: (state,action) => {

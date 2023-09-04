@@ -22,8 +22,7 @@ const Cabins = () => {
   const {cabins, error, loading} = useSelector(state=>state.cabins)
 
   const columns = useMemo(() => COLUMNS, []);
-  // const [MOCK_DATA,setMOCK_DATA] = useState([])
-  const data = useMemo(() => cabins, []);
+  const data = useMemo(() => cabins, [cabins]);
 
   console.log("Cabins if loaded should be ", cabins)
 

@@ -13,18 +13,36 @@ const AddCabins = ({history}) => {
   const[description,setDescription] =useState('');
   const[units,setUnits] =useState();
   const[room_size,setRoom_size] =useState();
-  const[beds,setBeds] =useState();
+  const[beds,setBeds] =useState([]);
   const[location,setLocation] =useState('');
   const[weekend_price,setWeekend_price] =useState('');
   const[weekday_price,setWeekday_price] =useState('');
-  const[rate_type,setRate_type] =useState('');
-  const[amenities,setAmenites] =useState('');
+  const[price_rate,setPrice_rate] =useState({});
+  const[amenities,setAmenities] =useState([]);
 
+  // Amenities Array
+  const amenity = [
+    { name: 'Swimming Pool', id: 'swimming pool' },
+    { name: 'Wi-Fi', id: 'wi-fi' },
+    // { name: 'WorkSpace', id: '' },
+    // { name: 'Internet', id: '' },
+    // { name: 'Shower', id: '' },
+    // { name: 'Towel', id: '' },
+    // { name: 'Safe', id: '' },
+  ];
+
+  // Beds Array
+  const bed = [
+    {type: 'Queen', quantity:''},
+    {type: 'Student', quantity:''}
+  ]
+  
+  
   const dispatch = useDispatch();
 
   const handleSubmit = (e) => {
       e.preventDefault()
-      const cabinData = {name,maximum_kids,maximum_adults,description,weekend_price,units,room_size,weekday_price,beds,location,rate_type,amenities}
+      const cabinData = {name,maximum_kids,maximum_adults,description,units,room_size,location,beds,amenities}
       console.log(cabinData);
       dispatch(addCabins(cabinData))
 
@@ -38,6 +56,21 @@ const AddCabins = ({history}) => {
   }
 }, [history, cabin])
 
+// Amenity function
+const handleAmenityChange =(e, amenityId) => {
+  const isChecked = e.target.checked;
+  if (isChecked) {
+    setAmenities((prevSelected) => [...prevSelected,amenityId]);
+  } else {
+    setAmenities((prevSelected) =>
+      prevSelected.filter((id) => id !== amenityId)
+    )}};
+
+// Beds function
+const handleBedTypeChange = (e) => {
+      const chooseBed = e.target.value;
+      setBeds([chooseBed]);
+    };
 
   return (
     <div>
@@ -61,34 +94,34 @@ const AddCabins = ({history}) => {
             onChange={(e)=>setName(e.target.value)}
           />
       </div>
-      <div className="grid grid-cols-2  mt-2">
-      <div className="flex flex-col items-left text-[14px]">
-          <div className="flex items-center">
-            
-            <span>Max Guest</span>
-            <CiCircleAlert className="mr-1" />
+        <div className="grid grid-cols-2  mt-2">
+          <div className="flex flex-col items-left text-[14px]">
+              <div className="flex items-center">
+                
+                <span>Max Guest</span>
+                <CiCircleAlert className="mr-1" />
+              </div>
+              <input 
+                className="w-[108px] h-[30px] p-2 border-1 border-slate-200 rounded "
+                type="number"
+                onChange={(e)=>setMaximum_adults(e.target.value)}
+              />
           </div>
-          <input 
-            className="w-[108px] h-[30px] p-2 border-1 border-slate-200 rounded "
-            type="number"
-            onChange={(e)=>setMaximum_adults(e.target.value)}
-          />
-      </div>
 
-      <div className="flex flex-col items-left">
-          <div className="flex items-center text-[14px]">
-            
-            <span>Max Kids</span>
-            <CiCircleAlert className="mr-1" />
+          <div className="flex flex-col items-left">
+              <div className="flex items-center text-[14px]">
+                
+                <span>Max Kids</span>
+                <CiCircleAlert className="mr-1" />
+              </div>
+              <input 
+                className="w-[108px] h-[30px] p-2 border-1 border-slate-200 rounded "
+                type="number"
+                onChange={(e)=>setMaximum_kids(e.target.value)}
+
+              />
           </div>
-          <input 
-            className="w-[108px] h-[30px] p-2 border-1 border-slate-200 rounded "
-            type="number"
-            onChange={(e)=>setMaximum_kids(e.target.value)}
-
-          />
-      </div>
-      </div>
+        </div>
       </div>
     </div>
       </div>
@@ -135,129 +168,84 @@ const AddCabins = ({history}) => {
     <div className="grid grid-cols-2 gap-[200px] p-8 mt-[20px]  mx-[35px] bg-white rounded">
       <div >
         <p className="w-[141px] h-[14px] text-xl font-bold text-sky-700">Beds</p>  
-      <div className="grid grid-cols-2 gap-[100px] w-[700px]">
-      <form>
-      <div className="grid grid-rows-2 pt-[20px]">
-      <div className="flex flex-col items-left text-[14px]">
-          <div className="flex items-center text-[14px]">           
-            <span>Bed type</span>
-          </div>
-          <select 
-          className="w-[334px] h-[32px]  border-1 border-slate-200 rounded mt-2 text-[14px] mb-1"
-          onChange={(e)=>setBeds(e.target.value)}
-          > 
-            <option value="">Choose bed type</option>
-            
-          </select>
-      </div>
-      <div className="grid grid-cols-2">
-        <div className="flex flex-col items-left">
-          <div className="flex items-center text-[14px]">
-        </div>
-          
-      </div>
-      </div>
-      </div>
-      </form>
-      <form>
-      <div className="flex flex-col items-left text-[14px] mb-1">          
-            <span className="mt-[20px] mb-[5px]">Number</span>
-
-          <input 
-            type="number"
-            className="w-[127px] h-[30px] p-2 border-1  border-slate-200 rounded text-[14px] mb-1"        
-            onChange={(e)=>setMaximum_adults(e.target.value)}
-            />
-        
-      </div>
       
-        </form>
-    </div>
+
+            <div className="grid grid-cols-2 gap-[100px] w-[700px]">
+
+                    <div className="grid grid-rows-2 pt-[20px]">
+                    <div className="flex flex-col items-left text-[14px]">
+                          <label htmlFor='' className='flex items-center text-[14px]'>
+                            Bed type
+                          </label>
+                        <select 
+                        className="w-[334px] h-[32px]  border-1 border-slate-200 rounded mt-2 text-[14px] mb-1"
+                        value ={bed.type}
+                        id={beds}
+                        onChange={handleBedTypeChange}
+                        > 
+                          {bed.map((bedd)=>(
+                            <option value={bedd.type}>{bedd.type}</option> 
+                          ))}  
+                        </select>
+                    </div>
+                    <div className="grid grid-cols-2">
+                      <div className="flex flex-col items-left">
+                        <div className="flex items-center text-[14px]">
+                      </div>
+                        
+                    </div>
+                    </div>
+                    </div>
+
+
+                      <div className="flex flex-col items-left text-[14px] mb-1">          
+                            <span className="mt-[20px] mb-[5px]">Number</span>
+
+                          <input 
+                            type="number"
+                            
+                            className="w-[127px] h-[30px] p-2 border-1  border-slate-200 rounded text-[14px] mb-1"        
+                            // onChange={}
+                            />
+                        
+                      </div>
+                      
+            </div>
+
   </div>
-    
+
 {/* Amenities Section */}
-    <div className="border-l-2 "
-    onChange={(e) => setAmenites(e.target)}>    
+
+    <div className="border-l-2 ">    
       <div className="ml-6 ">
-      <form>
-      {/* <div className="grid grid-rows-2"> */}
       <div className="grid grid-cols-2 ">
         <div>
-      <div className="flex flex-col items-left ">
-          <div className="flex items-center text-[14px]">
-            
-            <span className="text-xl font-bold text-sky-700">Amenities</span>
-            
+          <div className="flex flex-col items-left ">
+
+              <div className="flex items-center text-[14px]">
+                <span className="text-xl font-bold text-sky-700">Amenities</span>
+              </div>
+
+              
+              {amenity.map((amenityy) => (
+                <div className="mb-2 flex items-center text-[14px]" key={amenityy.name}>
+                  <input
+                    className="border-1 border-slate-200 w-[23px] h-[19px]"
+                    type="checkbox"
+                    id={amenityy.name}
+                    onChange={(e) => handleAmenityChange(e, amenityy.name)}
+                  />
+                  <label htmlFor={amenityy.id} className="pl-[5px]">
+                    {amenityy.id}
+                  </label>
+                </div>
+          ))}
           </div>
-      </div>
-
-      <div className="mb-2 flex items-center text-[14px]">
-          <input 
-            className=" border-1 border-slate-200 w-[23px] h-[19px]"
-            type="checkbox"
-            onChange={(e)=>setMaximum_adults(e.target.value)}
-            />
-            <span className="pl-[5px] ">Air conditioning</span>
-           
-      </div>
-      <div className="mb-2 flex items-center text-[14px]">
-      <input 
-            className=" border-1 border-slate-200	w-[23px] h-[19px]"
-            type="checkbox"
-            onChange={(e)=>setMaximum_adults(e.target.value)}
-            />
-            <span className="pl-[5px]">Minibar</span>
-      </div>
-      <div className="mb-2 flex items-center text-[14px]">
-      <input 
-            className=" border-1 border-slate-200	w-[23px] h-[19px] "
-            type="checkbox"
-            onChange={(e)=>setMaximum_adults(e.target.value)}
-            />
-            <span className="pl-[5px]">WorkSpace</span>
-      </div>
-      <div className="mb-2 flex items-center text-[14px]">
-      <input 
-            className=" border-1 border-slate-200	w-[23px] h-[19px]"
-            type="checkbox"
-            onChange={(e)=>setMaximum_adults(e.target.value)}
-            />
-            <span className="pl-[5px]">Internet</span>
-      </div>
-      </div>
-      <div className="mt-[25px]">
-      <div className="mb-2 flex items-center text-[14px]">
-      <input 
-            className=" border-1 border-slate-200	w-[23px] h-[19px]"
-            type="checkbox"
-            onChange={(e)=>setMaximum_adults(e.target.value)}
-            />
-            <span className="pl-[5px]">Shower</span>
-      </div>
-      <div className="mb-2 flex items-center text-[14px]" >
-      <input 
-            className=" border-1 border-slate-200	w-[23px] h-[19px]"
-            type="checkbox"
-            onChange={(e)=>setMaximum_adults(e.target.value)}
-            />
-            <span className="pl-[5px]">Towel</span>
-      </div>
-      <div className="mb-2 flex items-center text-[14px]">
-      <input 
-            className=" border-1 border-slate-200	w-[23px] h-[19px]"
-            type="checkbox"
-            onChange={(e)=>setMaximum_adults(e.target.value)}
-            />
-            <span className="pl-[5px]">Safe</span>
-      </div>
-      </div>
-      </div>
-      {/* </div> */}
-      </form>
-    </div>
+          </div>
+        </div>
       </div>
     </div>
-
+    </div>
 {/* Photo Section */}
     <div className="  grid grid-cols-2 p-6 mt-[20px]  mx-[35px] bg-white rounded">
       <div className="grid grid-cols-2">
@@ -290,9 +278,11 @@ const AddCabins = ({history}) => {
           </div>
           <select 
           className="w-[444px] h-[39px]  border-1 border-slate-200 rounded mt-2"
+          value = {location}
           onChange={(e)=>setLocation(e.target.value)}
           > 
             <option value="">Choose a location</option>
+            <option value="f3bca31b-3e2e-42e0-b506-664af57b5da5">f3bca31b-3e2e-42e0-b506-664af57b5da5</option>
             
           </select>
       </div>
@@ -300,7 +290,7 @@ const AddCabins = ({history}) => {
     </div>
 {/* Price Section */}
     <div className=" pt-[10px] grid grid-cols-3 p-8 mt-[20px]  mx-[35px] bg-white rounded text-[14px]">
-    <div>
+    <div onChange={(e) => setPrice_rate(e.target.value)}>
     <p className="text-xl font-bold text-sky-700">Price</p>
     <div className="flex flex-col items-left">
           <div className="flex items-center">           
@@ -309,7 +299,6 @@ const AddCabins = ({history}) => {
           </div>
           <select 
           className="w-[330px] h-[32px]  border-1 border-slate-200 rounded mt-2"
-          onChange={(e)=>setRate_type(e.target.value)}
           > 
             <option value="">choose rate type</option>
             
@@ -357,12 +346,12 @@ const AddCabins = ({history}) => {
     </div>
     <div className=" flex   flex-row-reverse gap-6 mt-4 mr-5">
         <button className="bg-white rounded-lg mr-[10px]  w-[98px] h-[32px]" type="button"><Link to="/cabins">Cancel</Link></button> 
-        <button className="bg-black  rounded-lg text-white w-[98px] h-[32px] text-center" type="submit">Save</button>
+        <button className="bg-black  rounded-lg text-white w-[98px] h-[32px] text-center" type="submit" >Save</button>
     </div>
+   
+
     </form>
-
-    </div>
-
+</div>
 
   )
 }
