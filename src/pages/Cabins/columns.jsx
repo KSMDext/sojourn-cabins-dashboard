@@ -60,7 +60,7 @@ const CustomMenuCell = (props) => {
 
 export const COLUMNS = [
     {
-        Header: '',
+        Header: 'Image',
         accessor: 'CabinImage',
         Cell: cabinGridImage
     },

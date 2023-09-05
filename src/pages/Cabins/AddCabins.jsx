@@ -13,11 +13,19 @@ const AddCabins = ({history}) => {
   const[description,setDescription] =useState('');
   const[units,setUnits] =useState();
   const[room_size,setRoom_size] =useState();
-  const[beds,setBeds] =useState([]);
+  const [beds, setBeds] = useState({
+    type: '',
+    quantity: ''
+
+  });  
   const[location,setLocation] =useState('');
   const[weekend_price,setWeekend_price] =useState('');
   const[weekday_price,setWeekday_price] =useState('');
-  const[price_rate,setPrice_rate] =useState({});
+  const[price_rate,setPrice_rate] =useState({
+        rate_type: '',
+        weekday_price: '',
+        weekend_price: '',
+  });
   const[amenities,setAmenities] =useState([]);
 
   // Amenities Array
@@ -33,8 +41,16 @@ const AddCabins = ({history}) => {
 
   // Beds Array
   const bed = [
-    {type: 'Queen', quantity:''},
-    {type: 'Student', quantity:''}
+    {type: 'Choose a bed'},
+    {type: 'Student'},
+    {type: 'Queen'}
+
+  ]
+
+  const rateType = [
+    {rate: 'Choose rate type'},
+    {rate: 'CHARGE PER CABIN'},
+    
   ]
   
   
@@ -42,7 +58,7 @@ const AddCabins = ({history}) => {
 
   const handleSubmit = (e) => {
       e.preventDefault()
-      const cabinData = {name,maximum_kids,maximum_adults,description,units,room_size,location,beds,amenities}
+      const cabinData = {name,maximum_kids,maximum_adults,description,units,room_size,location,beds,amenities,price_rate}
       console.log(cabinData);
       dispatch(addCabins(cabinData))
 
@@ -67,10 +83,24 @@ const handleAmenityChange =(e, amenityId) => {
     )}};
 
 // Beds function
-const handleBedTypeChange = (e) => {
-      const chooseBed = e.target.value;
-      setBeds([chooseBed]);
-    };
+const handleInputChange = (e) => {
+  const {name,value}  = e.target;
+  setBeds({
+    ...beds,
+    [name]: value
+  });
+};
+
+// Price Rate Function
+ const handlePriceRateChange = (e) => {
+    const { name, value } = e.target;
+    setPrice_rate({
+      ...price_rate,
+      [name]: value,
+    });
+  };
+
+
 
   return (
     <div>
@@ -179,9 +209,10 @@ const handleBedTypeChange = (e) => {
                           </label>
                         <select 
                         className="w-[334px] h-[32px]  border-1 border-slate-200 rounded mt-2 text-[14px] mb-1"
-                        value ={bed.type}
-                        id={beds}
-                        onChange={handleBedTypeChange}
+                        name='type'
+                        value={beds.bedType}
+                        // id = {formData.bedType}
+                        onChange={handleInputChange}
                         > 
                           {bed.map((bedd)=>(
                             <option value={bedd.type}>{bedd.type}</option> 
@@ -197,15 +228,16 @@ const handleBedTypeChange = (e) => {
                     </div>
                     </div>
 
-
                       <div className="flex flex-col items-left text-[14px] mb-1">          
                             <span className="mt-[20px] mb-[5px]">Number</span>
 
-                          <input 
+                            <input 
                             type="number"
-                            
-                            className="w-[127px] h-[30px] p-2 border-1  border-slate-200 rounded text-[14px] mb-1"        
-                            // onChange={}
+                            name="quantity"
+                            value={beds.number}
+                            // id = {}
+                            className="w-[127px] h-[30px] p-2 border-1  border-slate-200 rounded text-[14px] mb-1" 
+                            onChange={handleInputChange}
                             />
                         
                       </div>
@@ -246,6 +278,7 @@ const handleBedTypeChange = (e) => {
       </div>
     </div>
     </div>
+
 {/* Photo Section */}
     <div className="  grid grid-cols-2 p-6 mt-[20px]  mx-[35px] bg-white rounded">
       <div className="grid grid-cols-2">
@@ -257,6 +290,7 @@ const handleBedTypeChange = (e) => {
        
     </div>
     </div>
+
     {/* Description Section */}
     <div className="grid grid-rows-2 border-l-2 text-[14px]">
       <div className="ml-6">
@@ -288,9 +322,11 @@ const handleBedTypeChange = (e) => {
       </div>
       </div>
     </div>
-{/* Price Section */}
+
+{/* Price Rate Section */}
     <div className=" pt-[10px] grid grid-cols-3 p-8 mt-[20px]  mx-[35px] bg-white rounded text-[14px]">
-    <div onChange={(e) => setPrice_rate(e.target.value)}>
+    <div 
+    >
     <p className="text-xl font-bold text-sky-700">Price</p>
     <div className="flex flex-col items-left">
           <div className="flex items-center">           
@@ -298,18 +334,24 @@ const handleBedTypeChange = (e) => {
             <CiCircleAlert className="mr-1" />
           </div>
           <select 
+          name='rate_type'
+          value={price_rate.rate_type}
+          onChange={handlePriceRateChange}
           className="w-[330px] h-[32px]  border-1 border-slate-200 rounded mt-2"
           > 
-            <option value="">choose rate type</option>
+            {rateType.map((ratee)=>(
+              <option value={ratee.rate}>{ratee.rate}</option>
+            ))}
             
           </select>
       </div>
-      <div className="flex items-center">
+
+      {/* <div className="flex items-center">
         <select 
         className="text-sky-500 text-xs inline-flex w-[200px] rounded-none mt-[0.3rem]">
           <option value="" className='border-[none]'>More pricing options</option>
         </select>
-      </div>
+      </div> */}
 
 
     </div>
@@ -323,7 +365,9 @@ const handleBedTypeChange = (e) => {
         <input 
           className="w-[330px] h-[32px] p-2 border-1 border-slate-200 rounded mt-2"
           type="text"
-          onChange={(e)=>setWeekday_price(e.target.value)}
+          name='weekday_price'
+          value={price_rate.weekday_price}
+          onChange={handlePriceRateChange}
         />
       </label>
     </div>
@@ -338,7 +382,9 @@ const handleBedTypeChange = (e) => {
         <input 
           className="w-[330px] h-[32px] p-2 border-1 border-slate-200 rounded mt-2"
           type="text"
-          onChange={(e)=>setWeekend_price(e.target.value)}
+          name = 'weekend_price'
+          value = {price_rate.weekend_price}
+          onChange={handlePriceRateChange}
         />
       </label>
     </div>
