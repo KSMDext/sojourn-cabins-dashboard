@@ -149,16 +149,16 @@ const AddStaff = ({history}) => {
           </div>
           <div className="flex">
           <div className="mr-3 text-[14px]">
-              <label htmlFor="date_joined" className="block">
-                start date*
-              </label>
-              <input
-                id="date_joined"
-                className="w-[200px] h-[30px] p-2 border-1 border-slate-200 rounded uppercase"
-                type="date"
-                onChange={(e) => setDateJoined(e.target.value)}
-                required/>
-            </div>
+  <label htmlFor="date_joined" className="block">
+    start date*
+  </label>
+  <input
+    id="date_joined"
+    className="w-[200px] h-[30px] p-2 border-1 border-slate-200 rounded uppercase"
+    type="date"
+    onChange={(e) => setDateJoined(e.target.value)}
+    required/>
+</div>
           <div className=" ml-96">
             <div className="ml-64"><ImageUploader/></div>
           </div>

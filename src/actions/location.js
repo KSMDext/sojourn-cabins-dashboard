@@ -1,12 +1,12 @@
-import {addSuccess, setLoading, loadSuccess, errorLoading} from '../reducers/staff';
+import {addSuccess, setLoading, loadSuccess, errorLoading} from '../reducers/Location';
 import { api } from '../api';
 import {stringify} from 'qs'
-export const loadStaff = () => async dispatch => {
+export const loadLocation = () => async dispatch => {
   dispatch(setLoading());
   try {
     console.log("Is supposed to load the data!!!!!")
     await api
-      .get("/employees/")
+      .get("/locations/")
       .then(response => {
         console.log("I will ",response.data)
         dispatch(loadSuccess(response.data))
@@ -16,15 +16,16 @@ export const loadStaff = () => async dispatch => {
     dispatch(errorLoading(error.message))
   }
   }
-  export const addStaff = (staffData) => async dispatch => {
+  export const addLocation = (locationData) => async dispatch => {
     dispatch(setLoading());
+    console.log()
     try {
-      console.log("Is supposed to add  data!!!!!", staffData)
-      const data = stringify(staffData)
+      console.log("Is supposed to add  data!!!!!", locationData)
+      const data = stringify(locationData)
       console.log("Data:", data);
-      console.log("Is supposed to add  data!!!!!", staffData)
+      console.log("Is supposed to add  data!!!!!", locationData)
       await api
-        .post("/employees/", staffData)
+        .post("/locations/", locationData)
         .then(response => {
           console.log("I will ",response.data)
           dispatch(addSuccess(response.data))
@@ -35,9 +36,14 @@ export const loadStaff = () => async dispatch => {
     }
     }
 
-    // edit staff
+    export const setToken = (token) => ({
+        type: 'SET_TOKEN',
+        payload: token,
+      });
 
-    // delete staff
+    // edit location
+
+    // delete location
 
 
     
