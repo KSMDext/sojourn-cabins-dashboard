@@ -19,14 +19,14 @@ const AddCabins = ({history}) => {
 
   });  
   const[location,setLocation] =useState('');
-  const[weekend_price,setWeekend_price] =useState('');
-  const[weekday_price,setWeekday_price] =useState('');
   const[price_rate,setPrice_rate] =useState({
         rate_type: '',
+        
         weekday_price: '',
         weekend_price: '',
   });
   const[amenities,setAmenities] =useState([]);
+  const[image,setImage] = useState([]);
 
   // Amenities Array
   const amenity = [
@@ -58,7 +58,7 @@ const AddCabins = ({history}) => {
 
   const handleSubmit = (e) => {
       e.preventDefault()
-      const cabinData = {name,maximum_kids,maximum_adults,description,units,room_size,location,beds,amenities,price_rate}
+      const cabinData = {name,maximum_kids,maximum_adults,description,units,room_size,location,beds,amenities,image}
       console.log(cabinData);
       dispatch(addCabins(cabinData))
 
@@ -73,13 +73,13 @@ const AddCabins = ({history}) => {
 }, [history, cabin])
 
 // Amenity function
-const handleAmenityChange =(e, amenityId) => {
+const handleAmenityChange =(e, name) => {
   const isChecked = e.target.checked;
   if (isChecked) {
-    setAmenities((prevSelected) => [...prevSelected,amenityId]);
+    setAmenities((prevSelected) => [{...prevSelected,name}]);
   } else {
     setAmenities((prevSelected) =>
-      prevSelected.filter((id) => id !== amenityId)
+      prevSelected.filter((id) => id !== name)
     )}};
 
 // Beds function
@@ -285,7 +285,9 @@ const handleInputChange = (e) => {
     <div>
     <p className="text-xl font-bold text-sky-700">Photo</p>
        <div className=" mt-44 ml-44">
-       <ImageUploader />
+       <ImageUploader handleImageSelected={(image) =>{
+          setImage(image.name)
+       }}/>
        </div>
        
     </div>

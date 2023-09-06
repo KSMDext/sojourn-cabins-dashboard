@@ -15,8 +15,8 @@ const AddReservations = () => {
         <div >
           <span className="text-xl  text-sky-500	">Check-in</span>
           <div className="flex items-center mt-[20px]">
-            <SlCalender />
-            <span className="ml-2  text-[14px]">date</span>
+            <input type='date' />
+            <span className="ml-2  text-[14px]"></span>
           </div>
           <label className="w-[310px] h-[30px] text-[14px] mt-[50px] ">
             Adults
@@ -39,8 +39,8 @@ const AddReservations = () => {
         <div>
           <span className="text-xl  text-sky-500	">Check-out</span>
           <div className="flex items-center mt-[20px]">
-            <SlCalender />
-            <span className="ml-2  text-[14px]">date</span>
+            <input type='date' />
+            <span className="ml-2  text-[14px]"></span>
           </div>
           <label className="w-[310px] h-[30px] text-[14px] mt-[50px] ">
             Kids

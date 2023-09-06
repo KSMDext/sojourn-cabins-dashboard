@@ -1,6 +1,7 @@
 import {addSuccess, setLoading, loadSuccess, errorLoading} from '../reducers/staff';
 import { api } from '../api';
 import {stringify} from 'qs';
+
 export const loadStaff = () => async dispatch => {
   dispatch(setLoading());
   try {

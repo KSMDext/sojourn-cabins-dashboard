@@ -18,14 +18,22 @@ export const loadCabins = () => async dispatch => {
     dispatch(errorLoading(error.message))
   }
   }
+
   export const addCabins = (cabinsData) => async dispatch => {
     dispatch(setLoading());
     try {
       console.log("Is supposed to add  data!!!!!", cabinsData)
-      const data = stringify(cabinsData)
-      console.log("Is supposed to add  data!!!!!", data)
+
+      const transformedCabinsData = {...cabinsData, beds: [cabinsData?.beds]}
+
+      console.log("transformedCabinsData", transformedCabinsData);
+
+      // TODO: use FormData() to construct form data to be sent to the backend
+
+      // const data = stringify(cabinsData)
+      console.log("Is supposed to add  data!!!!!", cabinsData)
       await api
-        .post("/cabins/", cabinsData)
+        .post("/cabins/",  transformedCabinsData, {"Content-Type": "multipart/form-data boundary=$afadf{anyrandomdata}"})
         .then(response => {
           console.log("I will ",response.data)
           dispatch(addSuccess(response.data))
