@@ -174,6 +174,7 @@ const AddReservations = () => {
         </div>
       </div>
       <div className=" grid grid-rows-3  bg-white  mx-[35px] mt-[20px] px-[35px] py-[35px] rounded">
+<<<<<<< HEAD
         <div className="mt-[10px]">
           <p className=" text-xl  text-sky-700	">Price Details</p>
           <table className="table-fixed border-separate  border-spacing-x-28 border-b-2 ">
@@ -189,6 +190,32 @@ const AddReservations = () => {
             <tbody></tbody>
           </table>
         </div>
+=======
+      <div className="mt-[10px]">
+      <p className=" text-xl  text-sky-700	">Price Details</p>
+      <table className="table-fixed border-separate  border-spacing-x-25 border-b-2 ">
+          <thead>
+            <tr>
+              <th className="border-b-0 ">Service Name</th>
+              <th className="border-b-0">Quantity</th>
+              <th className="border-b-0">Price</th>
+              <th className="border-b-0">Tax</th>
+              <th>Amount</th>
+            </tr>
+          </thead>
+          <tbody>
+          </tbody>
+      </table>
+    </div>
+    
+    <div className=" mx-[35px] mt-[20px]">
+    
+      <input className=" w-[200px]" type="text" />
+      <input className="text-center w-[80px]" type="number" />
+      <input className="text-center" type="text" />
+      <input className="text-center" type="text" />
+      <input className="text-center" type="text" />
+>>>>>>> da8b683d70cd650076e7e1b408072bfbe6384e5f
 
         <div className=" mx-[35px] mt-[20px]">
           <input className=" w-[200px]" type="text" />
@@ -212,6 +239,7 @@ const AddReservations = () => {
           <span className="text-xs text-lime-500 italic">Fully Paid</span>
         </div>
       </div>
+<<<<<<< HEAD
       <div className=" flex   flex-row-reverse gap-6 mt-4 mr-5">
         <button
           className="bg-white rounded-lg mr-[10px]  w-[98px] h-[32px]"
@@ -226,6 +254,24 @@ const AddReservations = () => {
           Save
         </button>
       </div>
+=======
+    </div>
+    <div className="ml-[600px] mr-[30px]">
+      <span className="mr-2">Total: </span>
+      <input type="text" className="border-none focus:ring-0 " placeholder="$"/>
+      <div className="flex gap-2 border-b border-black">
+
+      </div>
+
+      <input type="checkbox"/><span className="text-xs text-lime-500 italic">Fully Paid</span>
+    </div>
+
+  </div>
+  <div className=" flex   flex-row-reverse gap-3 mt-4 mr-5">
+        <button className="bg-white rounded-lg mr-[10px]  w-[98px] h-[32px]" type="button"><Link to="/reservations">Cancel</Link></button> 
+        <button className="bg-black  rounded-lg text-white w-[98px] h-[32px] text-center" type="button">Save</button>
+    </div>
+>>>>>>> da8b683d70cd650076e7e1b408072bfbe6384e5f
     </>
   );
 };

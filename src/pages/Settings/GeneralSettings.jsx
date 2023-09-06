@@ -144,17 +144,17 @@ const GeneralSettings = () => {
  </div>
 </div>
      <div className="w-1/8">
-  <div className="mb-4 bg-white p-4">
+  <div className="mb-4 bg-white p-3">
   <div className="info_name  text-blue-900 font-bold">Length of stay</div>
   <form> 
   <div className="">
-    <div className="flex gap-8  mr-8  text-slate-500 ml-40">
-      <div className="flex flex-col mr-8  text-xs  text-slate-500 ">
+    <div className="flex gap-6  mr-5  text-slate-500 ml-40">
+      <div className="flex flex-col mr-5  text-xs  text-slate-500 ">
         <div className="mb-2"></div>
         Check-In time
         <input
           type="text"
-          className="w-[250px] px-4 py-3 mb-4 border border-gray-300 rounded"
+          className="w-[220px] px-2 py-2 mb-4 border border-gray-300 rounded"
         />
       </div>
       <div className="flex flex-col mr-5  text-xs  text-slate-500">
@@ -162,7 +162,7 @@ const GeneralSettings = () => {
         Check-Out Time
         <input
           type="text"
-          className="w-[250px] px-4 py-3 mb-4 border border-gray-300 rounded"
+          className="w-[220px] px-2 py-2 mb-4 border border-gray-300 rounded"
         />
       </div>
       <div className="flex flex-col  text-xs  text-slate-500">
@@ -170,7 +170,7 @@ const GeneralSettings = () => {
         Min. Nights
         <input
           type="text"
-          className="w-20 px-4 py-3 g-6 border border-gray-300 rounded"
+          className="w-20 px-2 py-3 g-4 border border-gray-300 rounded"
         />
       </div>
       <div className="flex flex-col text-xs  text-slate-500">
@@ -178,7 +178,7 @@ const GeneralSettings = () => {
         Max. Nights
         <input
           type="text"
-          className="w-20 px-4 py-3 g-6 border border-gray-300 rounded"
+          className="w-20 px-4 py-3 g-4 border border-gray-300 rounded"
         />
       </div>
       <div className="flex flex-col text-xs  text-slate-500">
@@ -186,7 +186,7 @@ const GeneralSettings = () => {
         Max. Nights
         <input
           type="text"
-          className="w-20 px-4 py-3 g-6 border border-gray-300 rounded"
+          className="w-20 px-4 py-3 g-4 border border-gray-300 rounded"
         />
       </div>
     </div>
@@ -195,7 +195,7 @@ const GeneralSettings = () => {
 
   </div>
 </div> 
-<div className=" flex   flex-row-reverse gap-6">
+<div className=" flex   flex-row-reverse gap-3">
     <button className="bg-white rounded-lg mr-[10px]  w-[98px] h-[32px]" type="button"><Link to="/dashboard">Cancel</Link></button> 
     <button className="bg-black  rounded-lg text-white w-[98px] h-[32px] text-center" type="button">Save</button>
     </div>
