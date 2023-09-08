@@ -5,7 +5,7 @@ import ImageUploader from '../../components/ImageUploader';
 const UpdateStaff = () => {
   return (
     <div>
-    <p className="mx-[35px] mt-[20px] text-2xl font-medium	">UpdateStaff</p>
+    <p className="mx-[35px] mt-[20px] text-2xl font-medium	">Update Staff</p>
   <div className="p-[40px] pt-[10px] mt-[40px] m-[35px] bg-white ">
     <form className="text-left grid lg:grid-cols-2 space-y-[30px] text-slate-500 mt-[20px]">
         <label className="w-[310px] h-[40px] text-[14px]">

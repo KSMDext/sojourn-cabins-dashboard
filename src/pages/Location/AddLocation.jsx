@@ -104,7 +104,7 @@ const {Locations} = useSelector(state=>state.location)
             <option value="Manager1">Manager2</option>
             <option value="Manager1">Manager3</option>
         </select>
-        <ImageUploader/>
+        <div className="ml-34"><ImageUploader/></div>
          
       </form>
       

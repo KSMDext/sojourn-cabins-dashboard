@@ -160,7 +160,7 @@ const AddStaff = ({history}) => {
     required/>
 </div>
           <div className=" ml-96">
-            <div className="ml-34"><ImageUploader/></div>
+            <div cc><ImageUploader/></div>
           </div>
           </div>
           </div>
