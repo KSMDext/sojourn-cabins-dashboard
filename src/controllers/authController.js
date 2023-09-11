@@ -26,20 +26,19 @@ class AuthController {
       }
     } catch (error) {
       const { response } = error;
-      const err = response?.data?.err;
+      const err = response?.data;
 
       if (response?.status === 404) {
         return {
           success: false,
           data: null,
-          error: err ?? "User does not exist",
+          error: err?.errors[0]?.detail ?? "User does not exist",
         };
       }
-
       return {
         success: false,
         data: null,
-        error: err ?? "Something went wrong",
+        error: err?.errors[0]?.detail ?? "Something went wrong",
       };
     }
   }

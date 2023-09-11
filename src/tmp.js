@@ -1,4 +1,5 @@
-{/* <Routes>
+{
+  /* <Routes>
                 <Route path="/login" element={<Signin />} />
 
                 <Route path="*" element={<Protected />}>
@@ -56,21 +57,8 @@
                   />
                   <Route path="test" element={<Test />} />
                 </Route>
-              </Routes> */}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+              </Routes> */
+}
 
 //               import React from "react";
 // import { Outlet } from "react-router-dom";
@@ -87,14 +75,13 @@
 //         <div className="w-60 sticky sm:h-[100vh] sidebar dark:bg-secondary-dark-bg bg-stone-900 ">
 //           <Sidebar />
 //         </div>
-//       ) 
-      
+//       )
+
 //       : (
 //         <div className="w-0 dark:bg-secondary-dark-bg">
 //           <Sidebar />
 //         </div>
 //       )}
-
 
 //       <div
 //         className={`${
@@ -120,3 +107,4 @@
 // }
 
 // export default MainLayout;
+
