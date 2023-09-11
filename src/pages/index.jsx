@@ -1,4 +1,4 @@
-export {default as Signin } from './Signin';
+export {default as Signin } from './Auth/SignIn';
 export {default as Dashboard} from './Dashboard';
 export {default as Reservations } from './Reservations/Reservations';
 export {default as AddReservations} from './Reservations/AddReservations';
