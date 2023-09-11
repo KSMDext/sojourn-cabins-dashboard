@@ -108,7 +108,7 @@ const UpdateSeasonalRule = () => {
         <div className="flex">
           <div className="mx-4">
             <Link to="/your-image-route">
-              <img src={require("../../assets/image.png")} alt="" />
+              <img src={require("../../assets/images/image.png")} alt="" />
             </Link>
           </div>
           <div className="flex flex-col">

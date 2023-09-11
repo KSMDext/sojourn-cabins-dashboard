@@ -4,7 +4,7 @@ import "./index.css";
 import App from "./App";
 import { ContextProvider } from "./contexts/ContextProvider";
 import {Provider} from "react-redux";
-import { store } from "./store";
+import { store } from './store/store'
 
 ReactDom.render(
   <ContextProvider>
