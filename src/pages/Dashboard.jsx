@@ -4,15 +4,16 @@ import { Link } from 'react-router-dom';
 import BarGraph from '../components/Charts/BarGraph';
 import CustomCalendar from '../components/Calendar';
 import 'react-calendar/dist/Calendar.css';
+import './Dashboard.css';
 
 const Dashboard = () => {
   const [date] = useState(new Date());
 
   return (
-    <div className="p-4">
-      <div className="text-2xl mt-6">Dashboard</div>
+    <div className="p-4 Dashboard-container">
+      <div className="text-2xl mt-6 Dashboard-header">Dashboard</div>
 
-      <div className="grid grid-cols-1 gap-4 md:grid-cols-3 mt-6">
+      <div className="grid grid-cols-1 gap-4 md:grid-cols-3 mt-6 Dashboard-subs">
         <Link to="#">
           <div className="w-full h-32 bg-white rounded-lg p-4">
             <div className="text-xl">Bookings</div>
@@ -53,34 +54,30 @@ const Dashboard = () => {
         </Link>
       </div>
       <div className="w-auto mr-6 bg-white h-96 mt-10 ml-6 rounded-lg flex flex-col justify-center items-center">
-  <div className="text-xl mt-0 text-center">
-    <h2>CABIN REVENUES/ 24HRS ($)</h2>
-  </div>
-  <div className="">
-    <BarGraph className="w-[400px]" />
-  </div>
-</div>
+        <div className="text-xl mt-0 text-center">
+          <h2>CABIN REVENUES/ 24HRS ($)</h2>
+        </div>
+        <div className="">
+          <BarGraph className="w-[400px]" />
+        </div>
+      </div>
 
-
-        <div className=" w-auto mr-6 bg-white h-96 mt-10 ml-6 rounded-lg">
-
+      <div className=" w-auto mr-6 bg-white h-96 mt-10 ml-6 rounded-lg">
         <div className="w-auto mr-6 bg-white h-96 mt-10 ml-6 rounded-lg">
-          
-        <div className="w-auto mr-6 bg-white h-96 mt-10 ml-6 rounded-lg">
-        <div className="flex w-auto mr-6 mt-10 ml-6 space-x-4">
-          <div className="flex-none w-1/2 bg-white h-96 rounded-lg">
-            <CustomCalendar selectedDate={date} />
+          <div className="w-auto mr-6 bg-white h-96 mt-10 ml-6 rounded-lg">
+            <div className="flex w-auto mr-6 mt-10 ml-6 space-x-4">
+              <div className="flex-none w-1/2 bg-white h-96 rounded-lg">
+                <CustomCalendar selectedDate={date} />
+              </div>
+              <div className="flex-none w-1/2 bg-white h-96 rounded-lg">
+                <CustomCalendar selectedDate={date} />
+              </div>
+            </div>
           </div>
-          <div className="flex-none w-1/2 bg-white h-96 rounded-lg">
-            <CustomCalendar selectedDate={date} />
-          </div>
         </div>
-        </div>
-        </div>
-        </div>
-      
+      </div>
     </div>
-  )
-}
+  );
+};
 
 export default Dashboard;
