@@ -6,10 +6,10 @@ class AuthController {
       const response = await authAPI.login({ email, password });
 
       if (response.status === 200) {
-        const { access_token, refreshToken } = response.data;
+        const { access, refresh } = response.data;
 
-        localStorage.setItem("userAuthToken", access_token);
-        localStorage.setItem("refreshToken", refreshToken);
+        localStorage.setItem("userAuthToken", access);
+        localStorage.setItem("refreshToken", refresh);
 
         return {
           success: true,
