@@ -17,7 +17,7 @@
                   <Route path="cabins" element={<Cabins />} />
                   <Route path="addcabins" element={<AddCabins />} />
                   <Route path="updatecabins" element={<UpdateCabins />} />
-                  <Route path="staff" element={<Staff />} />
+                  <Route path="updatecabins" element={<Staff />} />
                   <Route path="addstaff" element={<AddStaff />} />
                   <Route path="updatestaff" element={<UpdateStaff />} />
                   <Route path="analytics" element={<Analytics />} />

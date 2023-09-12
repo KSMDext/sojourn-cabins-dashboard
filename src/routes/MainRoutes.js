@@ -22,111 +22,111 @@ const MainRoutes = {
       element: <Dashboard />,
     },
     {
-      path: "",
+      path: "reservations",
       element: <Reservations />,
     },
     {
-      path: "",
+      path: "aaddreservations",
       element: <AddReservations />,
     },
     {
-      path: "",
+      path: "updatereservations",
       element: <UpdateReservations />,
     },
     {
-      path: "",
+      path: "location",
       element: <Location />,
     },
     {
-      path: "",
+      path: "addlocation",
       element: <AddLocation />,
     },
     {
-      path: "",
+      path: "updatelocation",
       element: <UpdateLocation />,
     },
     {
-      path: "",
+      path: "cabins",
       element: <Cabins />,
     },
     {
-      path: "",
+      path: "addcabins",
       element: <AddCabins />,
     },
     {
-      path: "",
+      path: "updatecabins",
       element: <UpdateCabins />,
     },
     {
-      path: "",
+      path: "staff",
       element: <Staff />,
     },
     {
-      path: "",
+      path: "addstaff",
       element: <AddStaff />,
     },
     {
-      path: "",
+      path: "updatestaff",
       element: <UpdateStaff />,
     },
     {
-      path: "",
+      path: "analytics",
       element: <Analytics />,
     },
     {
-      path: "",
+      path: "feedback",
       element: <Feedback />,
     },
     {
-      path: "",
+      path: "priceoptions/seasonalrule",
       element: <SeasonalRule />,
     },
     {
-      path: "",
+      path: "addseasonalrule",
       element: <AddSeasonalRule />,
     },
     {
-      path: "",
+      path: "updateseasonalrule",
       element: <UpdateSeasonalRule />,
     },
     {
-      path: "",
+      path: "extracharge",
       element: <ExtraCharge />,
     },
     {
-      path: "",
+      path: "addextracharge",
       element: <AddExtraCharge />,
     },
     {
-      path: "",
+      path: "priceoptions/packages",
       element: <Packages />,
     },
     {
-      path: "",
+      path: "createpackage",
       element: <CreatePackage />,
     },
     {
-      path: "",
+      path: "settings/generalsettings",
       element: <GeneralSettings />,
     },
     {
-      path: "",
+      path: "settings/emails",
       element: <Emails />,
     },
     {
-      path: "",
+      path: "settings/policies",
       element: <Policies />,
     },
     {
-      path: "",
+      path: "settings/extras",
       element: <Extras />,
     },
     {
-      path: "",
+      path: "updateextracharge",
       element: <UpdateExtraCharge />,
     },
     {
-      path: "",
+      path: "updateseasonalrule",
       element: <UpdateSeasonalRule  />,
     },
     
