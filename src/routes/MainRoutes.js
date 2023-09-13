@@ -2,6 +2,8 @@ import { Navigate } from "react-router-dom";
 import MainLayout from "../layouts/MainLayout";
 import { AddCabins, AddExtraCharge, AddLocation, AddReservations, AddSeasonalRule, AddStaff, Analytics, Cabins, CreatePackage, Dashboard, Emails, ExtraCharge, Extras, Feedback, GeneralSettings, Location, Packages, Policies, Reservations, SeasonalRule, Staff, UpdateCabins, UpdateExtraCharge, UpdateReservations, UpdateSeasonalRule, UpdateStaff } from "../pages";
 import UpdateLocation from "../pages/Location/UpdateLocation";
+import Coupons from "../pages/PriceOptions/Coupons"
+import AddCoupons from "../pages/PriceOptions/AddCoupon"
 
 const MainRoutes = {
   path: "/",
@@ -129,7 +131,16 @@ const MainRoutes = {
       path: "updateseasonalrule",
       element: <UpdateSeasonalRule  />,
     },
+    {
+      path: "priceoptions/coupons",
+      element: <Coupons  />,
+    },
+     {
+      path: "addcoupons",
+      element: <AddCoupons />,
+    },
     
+
     
 
 
